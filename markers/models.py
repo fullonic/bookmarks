@@ -85,7 +85,7 @@ class Structure(models.Model):
 
 
 class Tags(models.Model):
-    itemid = models.ForeignKey(
+    itemid = models.OneToOneField(
         Items,
         models.DO_NOTHING,
         db_column="itemId",
@@ -103,10 +103,10 @@ class Tags(models.Model):
 
 class Urls(models.Model):
     guid = models.TextField()
-    url = models.TextField()
+    url = models.URLField(unique=False, max_length=512)
     hash = models.IntegerField()
     revhost = models.TextField(db_column="revHost")  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "urls"
