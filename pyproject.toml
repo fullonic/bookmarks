@@ -8,6 +8,8 @@ authors = ["fullonic <somnium@riseup.net>"]
 python = "^3.9"
 Django = "^3.1.4"
 django-extensions = "^3.1.0"
+bs4 = "^0.0.1"
+httpx = "^0.16.1"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.19.0"

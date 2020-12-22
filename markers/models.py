@@ -97,6 +97,9 @@ class Tags(models.Model):
         managed = False
         db_table = "tags"
 
+    def __repr__(self) -> str:
+        return self.tag
+
 
 class Urls(models.Model):
     guid = models.TextField()
