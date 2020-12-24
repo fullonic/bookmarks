@@ -11,12 +11,10 @@ import json
 def get_config():
     with open("bookmarks/config.json") as f:
         return json.load(f)
-    # return cfg
 
 
 def update_config(key, value):
     cfg = get_config()
-    # update
     cfg[key] = value
     with open("bookmarks/config.json", "w") as f:
         json.dump(cfg, f)
@@ -136,33 +134,3 @@ def update_tags_table():
         for tag in item.tags:
             Tags.objects.get_or_create(tag=tag, itemid=bookmark)
     update_config("last_update", datetime.datetime.now().timestamp())
-
-
-import sqlite3
-
-
-def db_cursor():
-    db = Path(__file__).resolve().parent.parent / "bookmarks.sqlite"
-    conn = sqlite3.connect(db)
-    return conn.cursor()
-    # conn.close()
-    # print("Connection closed!")
-
-
-@dataclass
-class UrlMeta:
-    id: int
-    title: str
-    add_date_on: int
-
-
-def get_item_from_db():
-    c = db_cursor()
-    items = c.execute("select * from items;")
-    return items.fetchall()
-
-
-def read_items():
-    url_list = [UrlMeta(*item[8:11]) for item in get_item_from_db()]
-    print(">> Done!")
-    print(len(url_list))
