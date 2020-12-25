@@ -143,7 +143,7 @@ class Subscribers:
     def emit(cls, bookmarks):
         print(">> Sending data to server")
         data = [book.as_dict() for book in bookmarks]
-        for sub in cls.list:
+        for sub in cls._list:
             # post data to server with httpx.post()
             print(sub)
         return data
@@ -175,5 +175,5 @@ class Handler(FileSystemEventHandler):
         """TODO Filter database info and send to bookmarks server"""
         db = Database()
         new_records = db.get_new_records()
-        # if new_records:
-        #     update_server_database(new_records)
+        if new_records:
+            Subscribers.emit(new_records)

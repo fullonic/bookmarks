@@ -51,7 +51,9 @@ def test_get_new_records():
     db.refresh()
     assert (1 / len(db.get_new_records())) == 1
 
+
 def test_subscribers_emit():
+    """Send data to server when emit() method is called"""
     s1 = Subscriber(name="tester", url="www.none.net")
     s2 = Subscriber(name="tester2", url="www.none.net")
     Subscribers.add(s1)
