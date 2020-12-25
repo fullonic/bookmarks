@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from .models import Items, Tags
+# from .models import Items, Tags
 
 import datetime
 from dataclasses import dataclass, field
@@ -93,44 +93,44 @@ tags = {
 }
 
 
-def clean_database():
-    # Remove non coding url based on tags
-    print(">> Removing non code tags and corespondent urls")
-    for el in Tags.objects.all():
-        if el.tag not in tags:
-            el.delete()
+# def clean_database():
+#     # Remove non coding url based on tags
+#     print(">> Removing non code tags and corespondent urls")
+#     for el in Tags.objects.all():
+#         if el.tag not in tags:
+#             el.delete()
 
 
-def generate_tag_url(url):
+def generate_tags_from_url(url, tags):
     return [tag for tag in tags if tag in url]
 
 
-def generate_tag_title(title):
+def generate_tags_from_title(title, tags):
     return [tag for tag in tags if tag in title.lower()]
 
 
-def filtered_database_records():
-    # get list of filtered data
-    print(">> Filtering and merging items and urls information.")
-    return (
-        Bookmark(
-            el.pk,
-            el.urlid.url,
-            el.title,
-            el.description,
-            datetime.datetime.fromtimestamp(el.dateadded / 1000),
-            tags=set([*generate_tag_url(el.urlid.url), *generate_tag_title(el.title)]),
-        )
-        for el in Items.objects.select_related("urlid").all()
-        if el.urlid is not None and ((el.dateadded / 1000) > last_time_updated())
-    )
+# def filtered_database_records():
+#     # get list of filtered data
+#     print(">> Filtering and merging items and urls information.")
+#     return (
+#         Bookmark(
+#             el.pk,
+#             el.urlid.url,
+#             el.title,
+#             el.description,
+#             datetime.datetime.fromtimestamp(el.dateadded / 1000),
+#             tags=set([*generate_tags_from_url(el.urlid.url), *generate_tags_from_title(el.title)]),
+#         )
+#         for el in Items.objects.select_related("urlid").all()
+#         if el.urlid is not None and ((el.dateadded / 1000) > last_time_updated())
+#     )
 
 
-def update_tags_table():
-    clean_database()
-    print(">> Add tags with items to Tag table.")
-    for idx, item in enumerate(filtered_database_records()):
-        bookmark = Items.objects.get(pk=item.pk)
-        for tag in item.tags:
-            Tags.objects.get_or_create(tag=tag, itemid=bookmark)
-    update_config("last_update", datetime.datetime.now().timestamp())
+# def update_tags_table():
+#     clean_database()
+#     print(">> Add tags with items to Tag table.")
+#     for idx, item in enumerate(filtered_database_records()):
+#         bookmark = Items.objects.get(pk=item.pk)
+#         for tag in item.tags:
+#             Tags.objects.get_or_create(tag=tag, itemid=bookmark)
+#     update_config("last_update", datetime.datetime.now().timestamp())
