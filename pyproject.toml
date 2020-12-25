@@ -13,6 +13,7 @@ httpx = "^0.16.1"
 watchdog = "^1.0.2"
 pytest = "^6.2.1"
 pytest-django = "^4.1.0"
+djangorestframework = "^3.12.2"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.19.0"

@@ -17,7 +17,7 @@ FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/book
 class PageInfo:
     id: int
     title: str
-    add_date_on: int
+    created_on: int
 
     def as_tuple(self):
         return astuple(self)
@@ -34,7 +34,7 @@ class Bookmark:
     id: int
     url: str
     title: str
-    add_date_on: float
+    created_on: float
 
     def as_dict(self):
         return asdict(self)
@@ -83,12 +83,12 @@ class Database:
         bookmarks = []
         for url in urls:
             try:
-                _, title, add_date_on = items[url.id].as_tuple()
+                _, title, created_on = items[url.id].as_tuple()
                 bookmark = Bookmark(
                     id=url.id,
                     url=url.url,
                     title=title,
-                    add_date_on=add_date_on / 1000,
+                    created_on=created_on / 1000,
                 )
 
             except KeyError:
@@ -96,7 +96,7 @@ class Database:
                     id=url.id,
                     url=url.url,
                     title=None,
-                    add_date_on=0,
+                    created_on=0,
                 )
             finally:
                 bookmarks.append(bookmark)
@@ -114,7 +114,7 @@ class Database:
         records = [
             bookmark
             for bookmark in self.get_all_data()
-            if bookmark.add_date_on > self.last_time_watch
+            if bookmark.created_on > self.last_time_watch
         ]
 
         return records
