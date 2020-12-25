@@ -6,6 +6,7 @@ from django.conf import settings  # noqa
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bookmarks.settings")
 from rest_framework.test import APIClient
 from markers.local_observer import Bookmark
+from django.contrib.auth import get_user_model
 
 
 def pytest_configure():
@@ -22,9 +23,16 @@ def api_client():
     return APIClient()
 
 
+@pytest.fixture
+def api_client_authenticate(db, api_client):
+    user = get_user_model().objects.create(username="auth", password="password")
+    api_client.force_authenticate(user=user)
+    yield api_client
+    api_client.force_authenticate(user=None)
+
+
 @pytest.fixture()
 def test_data():
-
     return [
         Bookmark(
             id=101,

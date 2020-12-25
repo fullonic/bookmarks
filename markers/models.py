@@ -15,3 +15,5 @@ class Bookmark(models.Model):
     title = models.CharField(max_length=512)
     created_on = models.FloatField(default=timestamp_now)
     tags = models.ManyToManyField(Tag)
+
+
