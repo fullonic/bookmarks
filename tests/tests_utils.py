@@ -9,16 +9,15 @@ from markers.local_observer import (
 
 
 FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
-import os
 import pytest
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bookmarks.settings")
+
 from django.conf import settings
 from markers.core import generate_tags_from_title, generate_tags_from_url
 
-# settings.configure()
-
-
+# ====================
+# Test local observer for new bookmarks
+# ====================
 @pytest.mark.skip
 def test_watcher_setup():
     obs = Watcher()
@@ -67,6 +66,9 @@ def test_subscribers_emit():
     assert isinstance(data.pop(), dict)
 
 
+# ====================
+# Test server bookmarks service
+# ====================
 @pytest.mark.django_db
 def test_add_new_bookmark_with_tags():
     from markers.models import Tag, Bookmark

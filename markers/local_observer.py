@@ -105,6 +105,7 @@ class Database:
     def refresh(self):
         """Get a new copy of sqlite bookmarks from firefox folder into the project folder."""
         firefox_sqlite = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
+        self.last_time_watch = datetime.datetime.now().timestamp()
         return shutil.copy(firefox_sqlite, self.directory)
 
     def get_new_records(self):
@@ -116,7 +117,6 @@ class Database:
             if bookmark.add_date_on > self.last_time_watch
         ]
 
-        self.last_time_watch = datetime.datetime.now().timestamp()
         return records
 
 
