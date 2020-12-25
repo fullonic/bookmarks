@@ -10,6 +10,8 @@ from watchdog.observers import Observer
 import json
 import shutil
 
+FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
+
 
 @dataclass
 class PageInfo:
@@ -118,12 +120,42 @@ class Database:
         return records
 
 
+@dataclass(eq=True, frozen=True)
+class Subscriber:
+    """Add equality"""
+
+    name: str
+    url: str
+
+
+class Subscribers:
+    _list = []
+
+    @property
+    def list(cls):
+        return cls._list
+
+    @classmethod
+    def add(cls, subscriber):
+        cls._list.append(subscriber)
+
+    @classmethod
+    def emit(cls, bookmarks):
+        print(">> Sending data to server")
+        data = [book.as_dict() for book in bookmarks]
+        for sub in cls.list:
+            # post data to server with httpx.post()
+            print(sub)
+        return data
+
+
 class Watcher:
-    place: str
+    place: str = FILE
     observer = Observer()
+    subscribers = Subscribers()
 
     def start(self):
-        event_handler = Handler()
+        event_handler = Handler(self.subscribers)
         self.observer.schedule(event_handler, self.place, recursive=True)
         self.observer.start()
         try:
@@ -143,13 +175,5 @@ class Handler(FileSystemEventHandler):
         """TODO Filter database info and send to bookmarks server"""
         db = Database()
         new_records = db.get_new_records()
-        if new_records:
-            update_server_database(new_records)
-
-
-def update_server_database(bookmarks):
-    print(">> Sending data to server")
-    data = [book.as_dict() for book in bookmarks]
-    # post data to server with httpx.post()
-    print(data)
-    return data
+        # if new_records:
+        #     update_server_database(new_records)
