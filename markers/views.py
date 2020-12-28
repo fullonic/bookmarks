@@ -1,5 +1,5 @@
-from markers.serializers import BookmarksSerializer, TagsSerializer
-from rest_framework.generics import ListCreateAPIView
+from markers.serializers import BookmarkSerializer, TagDetailSerializer, TagSerializer
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
 from rest_framework import status, permissions
 from .models import Bookmark, Tag
 from rest_framework.response import Response
@@ -8,11 +8,11 @@ from markers.core import generate_tags
 
 
 class BookmarksApiView(ListCreateAPIView):
-    serializer_class = BookmarksSerializer
+    serializer_class = BookmarkSerializer
     queryset = Bookmark.objects.all()
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly | permissions.IsAdminUser
-    ]
+    # permission_classes = [
+    #     permissions.IsAuthenticatedOrReadOnly | permissions.IsAdminUser
+    # ]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data, many=True)
@@ -24,7 +24,7 @@ class BookmarksApiView(ListCreateAPIView):
 
 class TagsApiView(ListCreateAPIView):
 
-    serializer_class = TagsSerializer
+    serializer_class = TagSerializer
     queryset = Tag.objects.all()
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly | permissions.IsAdminUser
@@ -32,3 +32,8 @@ class TagsApiView(ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         return Response(data=request.data, status=status.HTTP_201_CREATED)
+
+
+class TagsApiDetail(RetrieveAPIView):
+    serializer_class = TagDetailSerializer
+    queryset = Tag.objects.all()

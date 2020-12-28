@@ -1,3 +1,4 @@
+from attr import fields
 from rest_framework import serializers
 from .models import Bookmark, Tag
 from django.contrib.auth import get_user_model
@@ -6,18 +7,28 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-class BookmarksSerializer(serializers.ModelSerializer):
-    tags = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+class BookmarkSerializer(serializers.HyperlinkedModelSerializer):
+    tags = serializers.HyperlinkedRelatedField(
+        many=True, view_name="tag-detail", read_only=True
+    )
 
     class Meta:
         model = Bookmark
-        exclude = ("id",)
+        fields = ["url", "url", "title", "tags"]
 
 
-class TagsSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tag
-        fields = ("name",)
+        fields = ("name", "url")
+
+
+class TagDetailSerializer(serializers.ModelSerializer):
+    bookmark_set = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Tag
+        fields = ("name", "url", "bookmark_set")
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -16,4 +16,5 @@ class Bookmark(models.Model):
     created_on = models.FloatField(default=timestamp_now)
     tags = models.ManyToManyField(Tag)
 
-
+    def __str__(self) -> str:
+        return f"{self.title}: {self.url}"
