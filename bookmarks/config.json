@@ -4,7 +4,7 @@
 
 
 
-{
+[
     {
     "url": "https://www.youtube.com/watch?v=qkGxy4c64Jg",
     "title": "Import as an antipattern - Demystifying Dependency Injection in modern Python - YouTube",
@@ -20,4 +20,4 @@
     "title": "Creating user, database and adding access on PostgreSQL",
     "created_on": 1557157558.913
 }
-}
+]
