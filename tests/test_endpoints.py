@@ -12,7 +12,9 @@ def test_get_all_bookmarks(api_client):
 def test_add_bookmarks(api_client_authenticate, test_data_dict):
     book = test_data_dict[0]
     req = api_client_authenticate.post(reverse("bookmarks-list"), data=book)
+    keys = list(req.json().keys())
     assert req.status_code == 201
+    assert "tags" in keys
 
 
 @pytest.mark.django_db

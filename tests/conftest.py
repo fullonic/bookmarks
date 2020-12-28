@@ -70,3 +70,17 @@ def test_data():
 @pytest.fixture()
 def test_data_dict(test_data):
     return [el.as_dict() for el in test_data]
+
+
+@pytest.fixture()
+def tags(test_data):
+    from markers.models import Tag
+
+    return [Tag.objects.create(name=tag) for tag in ["python", "django", "eel"]]
+
+
+test = {
+    "url": "https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e",
+    "title": "Creating user, database and adding access on PostgreSQL",
+    "created_on": 1557157558.913,
+}

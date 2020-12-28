@@ -1,3 +1,4 @@
+from django.db import models
 from markers.local_observer import (
     Page,
     Watcher,
@@ -13,7 +14,7 @@ import pytest
 
 
 from django.conf import settings
-from markers.core import generate_tags_from_title, generate_tags_from_url
+from markers.core import generate_tags_from_title, generate_tags_from_url, generate_tags
 
 # ====================
 # Test local observer for new bookmarks
@@ -104,3 +105,26 @@ def test_extract_tags_from_title():
     extracted_tags = generate_tags_from_title(title, tags)
     assert "tips" in extracted_tags
     assert "django" not in extracted_tags
+
+
+def test_generate_tags():
+    title = "Visual Studio Code Tips and Tricks"
+    URL = "https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/"
+    tags = ["django", "python", "tips"]
+    extracted_tags = generate_tags(URL, title, tags)
+    assert isinstance(extracted_tags, set)
+    assert "tips" in extracted_tags
+    assert "django" in extracted_tags
+
+
+@pytest.mark.django_db
+def test_signal_create_tags(test_data, tags):
+    from markers.models import Bookmark as Bookmark_model
+
+    new_book = test_data[2].as_dict()
+    book = Bookmark_model.objects.create(**new_book)
+    assert (
+        book.url
+        == "https://www.flaticon.com/free-icon/eel_1625250?term=eel&page=1&position=23"
+    )
+    assert "eel" in book.tags.all()
