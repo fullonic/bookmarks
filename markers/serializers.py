@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Bookmark
+from .models import Bookmark, Tag
 from django.contrib.auth import get_user_model
 
 
@@ -14,6 +14,16 @@ class BookmarksSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bookmark
         exclude = ("tags", "id")
+
+
+class TagsSerializer(serializers.ModelSerializer):
+    def __init__(self, *args, **kwargs):
+        many = kwargs.pop("many", True)
+        super().__init__(many=many, *args, **kwargs)
+
+    class Meta:
+        model = Tag
+        include = ("name",)
 
 
 class UserSerializer(serializers.ModelSerializer):
