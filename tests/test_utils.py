@@ -121,10 +121,6 @@ def test_generate_tags():
 def test_signal_create_tags(test_data, tags):
     from markers.models import Bookmark as Bookmark_model
 
-    new_book = test_data[2].as_dict()
+    new_book = test_data[0].as_dict()
     book = Bookmark_model.objects.create(**new_book)
-    assert (
-        book.url
-        == "https://www.flaticon.com/free-icon/eel_1625250?term=eel&page=1&position=23"
-    )
-    assert "eel" in book.tags.all()
+    assert "python" in book.tags.all()[0].name

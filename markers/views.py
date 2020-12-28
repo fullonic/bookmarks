@@ -14,8 +14,9 @@ class BookmarksApiView(ListCreateAPIView):
     #     permissions.IsAuthenticatedOrReadOnly | permissions.IsAdminUser
     # ]
 
-    # def create(self, request, *args, **kwargs):
-    #     return Response(data=request.data, status=status.HTTP_201_CREATED)
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+
 
 class TagsApiView(ListCreateAPIView):
 

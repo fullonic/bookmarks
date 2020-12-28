@@ -76,7 +76,7 @@ def test_data_dict(test_data):
 def tags(test_data):
     from markers.models import Tag
 
-    return [Tag.objects.create(name=tag) for tag in ["python", "django", "eel"]]
+    return [Tag.objects.create(name=tag) for tag in ["python", "django"]]
 
 
 test = {

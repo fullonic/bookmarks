@@ -1,1 +1,23 @@
-{"last_update": 1609160726.767228}
+{"last_update": 1609161120.195858}
+
+
+
+
+
+{
+    {
+    "url": "https://www.youtube.com/watch?v=qkGxy4c64Jg",
+    "title": "Import as an antipattern - Demystifying Dependency Injection in modern Python - YouTube",
+    "created_on": 1608895608.964149
+},
+{
+    "url": "https://towardsdatascience.com/build-a-custom-trained-object-detection-model-with-5-lines-of-code-713ba7f6c0fb",
+    "title": "Build a custom-trained object detection model with 5 lines of code",
+    "created_on": 1583185176.479
+},
+{
+    "url": "https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e",
+    "title": "Creating user, database and adding access on PostgreSQL",
+    "created_on": 1557157558.913
+}
+}
