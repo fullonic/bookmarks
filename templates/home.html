@@ -16,7 +16,9 @@
 </nav>
 
 <div class="container">
-  <div id="results" class="mt-5 row results-bookmarks"></div>
+  <div class="mt-5 row results-bookmarks">
+    <div id="results" class="card-group"></div>
+  </div>
 </div>
 
 <script>
@@ -28,11 +30,18 @@
     // 1. Setup the request
     // ================================
     // 1.1 Headers
-    var headers = new Headers();
-    // Tell the server we want JSON back
-    headers.set("Accept", "application/json");
+
     // ================================
     var url = "http://localhost:8000/api/bookmarks/" + searchKey.value;
+    event.preventDefault();
+    fetchBookmarks(url);
+  });
+
+  function fetchBookmarks(url) {
+    // Set-up headers
+    var headers = new Headers();
+    headers.set("Accept", "application/json");
+
     var fetchOptions = {
       method: "GET",
       headers,
@@ -48,18 +57,20 @@
       .then(function (jsonData) {
         var bookmarks = "";
         jsonData.forEach((el) => {
-          bookmarks += `<div class="card mr-2 col-md-2">
-        <div class="card-body">
-        <h5 class="card-title">${el.title}</h5>
-        <a href="${el.url}" class="card-link">Visit</a>
-        </div>
-        </div>`;
+          bookmarks += `
+         <div class="card border-success col-md-2 mr-2">
+            <div class="card-body">
+                <h6 class="card-title">${el.title}</h6>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="${el.url}">Visit</a>
+            </div>
+            </div>
+        `;
         });
         document.getElementById("results").innerHTML = bookmarks;
       });
-
-    event.preventDefault();
-  });
+  }
+  fetchBookmarks("http://localhost:8000/api/bookmarks");
 </script>
-
 {% endblock body %}
