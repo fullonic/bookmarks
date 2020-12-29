@@ -10,9 +10,6 @@ from markers.core import generate_tags
 class BookmarksApiView(ListCreateAPIView):
     serializer_class = BookmarkSerializer
     queryset = Bookmark.objects.all()
-    # permission_classes = [
-    #     permissions.IsAuthenticatedOrReadOnly | permissions.IsAdminUser
-    # ]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data, many=True)
