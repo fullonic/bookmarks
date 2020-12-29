@@ -1,5 +1,10 @@
 from markers.serializers import BookmarkSerializer, TagDetailSerializer, TagSerializer
-from rest_framework.generics import ListCreateAPIView, RetrieveAPIView, UpdateAPIView
+from rest_framework.generics import (
+    ListCreateAPIView,
+    RetrieveAPIView,
+    UpdateAPIView,
+    RetrieveUpdateAPIView,
+)
 from rest_framework import serializers, status, permissions
 from .models import Bookmark, Tag
 from rest_framework.response import Response

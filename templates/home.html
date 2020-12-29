@@ -42,7 +42,7 @@
     var headers = new Headers();
     headers.set("Accept", "application/json");
 
-    var fetchOptions = {
+    const fetchOptions = {
       method: "GET",
       headers,
     };
@@ -57,21 +57,49 @@
       .then(function (jsonData) {
         var bookmarks = "";
         jsonData.forEach((el) => {
+          var postData = [`"${el.url}"`, el.id];
           bookmarks += `
-         <div class="card border-success col-md-2 mr-2">
-            <div class="card-body">
-                <h6 class="card-title">${el.title}</h6>
-            </div>
-            <div class="card-footer text-muted">
-                <a href="${el.url}">Visit</a>
-            </div>
-            </div>
-        `;
+           <div class="card border-success col-md-2 mr-2">
+              <div class="card-body">
+                  <h6 class="card-title">${el.title}</h6>
+              </div>
+              <div class="card-footer text-muted">
+                  <a onclick=sendData(${postData}) href="#">Visit</a>
+              </div>
+              </div>
+          `;
+          //<a class="BTN" onclick=doAction("${el.url}") href="#">Visit</a>
         });
         document.getElementById("results").innerHTML = bookmarks;
       });
   }
-  fetchBookmarks("http://localhost:8000/api/bookmarks");
 
+  async function updateBookmarkVisitTime(id) {
+    // Default options are marked with *
+    let now = new Date().toJSON();
+
+    let url = "http://localhost:8000/api/bookmarks/" + id;
+    const response = await fetch(url, {
+      method: "PATCH", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify({ last_time_visited: now }), // body data type must match "Content-Type" header
+    });
+  }
+
+  async function sendData(url, id) {
+    await updateBookmarkVisitTime(id);
+    window.open(url, "_blank");
+  }
+
+  // ======================================
+  // At first load
+  fetchBookmarks("http://localhost:8000/api/bookmarks");
 </script>
 {% endblock body %}

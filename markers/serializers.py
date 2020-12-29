@@ -14,7 +14,7 @@ class BookmarkSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Bookmark
-        fields = ["url", "title", "last_time_visited", "tags"]
+        fields = ["id", "url", "title", "last_time_visited", "tags"]
 
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
