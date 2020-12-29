@@ -1,5 +1,5 @@
 from markers.serializers import BookmarkSerializer, TagDetailSerializer, TagSerializer
-from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView, UpdateAPIView
 from rest_framework import serializers, status, permissions
 from .models import Bookmark, Tag
 from rest_framework.response import Response
@@ -14,7 +14,7 @@ class BookmarksApiView(ListCreateAPIView):
     def get_queryset(self):
         # not a filter query, ruturns all bookmarks collection
         if not self.kwargs.get("key", False):
-            return Bookmark.objects.all()
+            return Bookmark.objects.all().order_by("-last_time_visited")
 
         # filter query
         key = self.kwargs["key"]
@@ -53,6 +53,11 @@ class BookmarksApiView(ListCreateAPIView):
             serializer.save()
             return Response(data=request.data, status=status.HTTP_201_CREATED)
         return super().create(request, *args, **kwargs)
+
+
+class BookmarksApiViewUpdate(UpdateAPIView):
+    serializer_class = BookmarkSerializer
+    queryset = Bookmark.objects.all()
 
 
 class TagsApiView(ListCreateAPIView):

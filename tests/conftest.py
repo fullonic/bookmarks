@@ -73,10 +73,19 @@ def test_data_dict(test_data):
 
 
 @pytest.fixture()
-def tags(test_data):
+def tags():
     from markers.models import Tag
 
     return [Tag.objects.create(name=tag) for tag in ["python", "django"]]
+
+
+@pytest.fixture()
+def bookmarks(test_data_dict):
+    from markers.models import Bookmark
+
+    for book in test_data_dict:
+        book.pop("id")
+        Bookmark.objects.create(**book)
 
 
 test = {

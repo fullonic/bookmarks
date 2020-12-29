@@ -1,5 +1,6 @@
 import pytest
 from rest_framework.reverse import reverse
+from rest_framework import status
 
 
 @pytest.mark.django_db
@@ -21,6 +22,19 @@ def test_add_multiple_bookmarks(api_client_authenticate, test_data_dict):
         reverse("bookmark-list"), data={"data": test_data_dict}
     )
     assert req.status_code == 201
+
+
+from django.utils import timezone
+
+
+@pytest.mark.django_db
+def test_last_time_visited(api_client_authenticate, bookmarks):
+    now = timezone.now()
+    req = api_client_authenticate.patch(
+        reverse("bookmark-update", args=(2,)),
+        data={"last_time_visited": now},
+    )
+    assert req.status_code == 200
 
 
 # @pytest.mark.django_db
