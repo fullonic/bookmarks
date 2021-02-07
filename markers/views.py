@@ -17,29 +17,22 @@ class BookmarksApiView(ListCreateAPIView):
     serializer_class = BookmarkSerializer
 
     def get_queryset(self):
-        # not a filter query, ruturns all bookmarks collection
+        # Default get bookmarks
         if not self.kwargs.get("key", False):
             return Bookmark.objects.all().order_by("-last_time_visited")
 
-        # filter query
         key = self.kwargs["key"]
-        # multiple word search will contain spaces
-        if " " in key:  # single word search
-            keys = key.split(" ")
-            return [
-                Bookmark.objects.filter(
-                    Q(title__icontains=k) | Q(url__icontains=k)
-                ).all()
-                for k in keys
-            ]
-        # single word query
-        return Bookmark.objects.filter(
-            Q(title__icontains=key) | Q(url__icontains=key)
-        ).all()
+        # multiple searched words search will contain spaces
+        # if " " in key:
+        keys = key.split(" ")
+        return [
+            Bookmark.objects.filter(Q(title__icontains=k) | Q(url__icontains=k)).all()
+            for k in keys
+        ]
 
     def list(self, request, *args, **kwargs):
         query = self.filter_queryset(self.get_queryset())
-        # if the query set is a list of queries
+        # We need to check if it's a list to deal with multiple query parameters
         if isinstance(query, list):
             results = []
             for q in query:

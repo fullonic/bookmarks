@@ -1,6 +1,7 @@
 import pytest
 from rest_framework.reverse import reverse
 from rest_framework import status
+from django.utils import timezone
 
 
 @pytest.mark.django_db
@@ -24,9 +25,6 @@ def test_add_multiple_bookmarks(api_client_authenticate, test_data_dict):
     assert req.status_code == 201
 
 
-from django.utils import timezone
-
-
 @pytest.mark.django_db
 def test_last_time_visited(api_client_authenticate, bookmarks):
     now = timezone.now()
@@ -37,12 +35,31 @@ def test_last_time_visited(api_client_authenticate, bookmarks):
     assert req.status_code == 200
 
 
-# @pytest.mark.django_db
-# def test_add_multiple_bookmarks(api_client_authenticate, test_data_dict):
-#     req = api_client_authenticate.post(
-#         reverse("bookmark-list"), data={"data": test_data_dict}
-#     )
-#     assert req.status_code == 201
-#     req = api_client_authenticate.post("http://localhost:8000/api/bookmarks/postgresql")
-#     assert req.status_code == 301
-#     print(req.content)
+@pytest.mark.django_db
+def test_single_search_query(api_client, bookmarks):
+    resp = api_client.get(reverse("bookmark-list", args=("python",)))
+    response = resp.json()
+    assert any(
+        (
+            "python" in response[0]["title"].lower(),
+            "python" in response[0]["url"].lower(),
+        )
+    )
+
+
+@pytest.mark.django_db
+def test_multiple_search_query(api_client, bookmarks):
+    resp = api_client.get(reverse("bookmark-list", args=("python postgresql",)))
+    response = resp.json()
+    assert any(
+        (
+            "python" in response[0]["title"].lower(),
+            "python" in response[0]["url"].lower(),
+        )
+    )
+    assert any(
+        (
+            "postgresql" in response[1]["title"].lower(),
+            "postgresql" in response[1]["url"].lower(),
+        )
+    )
