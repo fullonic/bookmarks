@@ -45,6 +45,7 @@ class BookmarksApiView(ListCreateAPIView):
         return super().list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
+        # TODO: Analyze if there is a better any of add multiple data and validate
         # allows create multiple entries
         serializer = self.get_serializer(data=request.data, many=True)
         if serializer.is_valid():

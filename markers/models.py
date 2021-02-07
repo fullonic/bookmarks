@@ -7,6 +7,11 @@ def timestamp_now():
     return datetime.datetime.now().timestamp()
 
 
+class Stats(models.Model):
+    bookmark = models.ForeignKey("Bookmark", on_delete=models.CASCADE)
+    times_visited = models.SmallIntegerField(default=0)
+
+
 class Tag(models.Model):
     name = models.CharField(max_length=256, unique=True)
 
