@@ -19,10 +19,9 @@ from markers.core import generate_tags_from_title, generate_tags_from_url, gener
 # ====================
 # Test local observer for new bookmarks
 # ====================
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_watcher_setup():
-    obs = Watcher()
-    obs.place = FILE
+    obs = Watcher(place=FILE)
     event = obs.start()
     print(event)
     assert isinstance(obs.last_time_watch, float)
@@ -39,7 +38,7 @@ def test_get_bookmarks_from_database():
 
 def test_all_bookmarks():
     db = Database()
-    bookmarks = db.get_all_data()
+    bookmarks = db.get_all_bookmarkers()
     assert isinstance(bookmarks, list)
     assert isinstance(bookmarks[0], Bookmark)
 
@@ -61,7 +60,7 @@ def test_subscribers_emit():
     Subscribers.add(s1)
     Subscribers.add(s2)
     db = Database()
-    bookmarks = db.get_all_data()
+    bookmarks = db.get_all_bookmarkers()
     data = Subscribers.emit(bookmarks)
     assert isinstance(data, list)
     assert isinstance(data.pop(), dict)

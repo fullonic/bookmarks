@@ -1,6 +1,5 @@
 from django.urls import path, re_path
 from .views import BookmarksApiView, TagsApiView, TagsApiDetail, BookmarksApiViewUpdate
-
 from .custom_claims import TokenObtainPairView
 
 urlpatterns = [

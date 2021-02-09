@@ -9,6 +9,7 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 import json
 import shutil
+import httpx
 
 FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
 
@@ -50,7 +51,10 @@ class Database:
     @property
     def last_time_watch(self):
         with open("bookmarks/config.json") as f:
-            return json.load(f)["last_update"]
+            try:
+                return json.load(f)["last_update"]
+            except json.decoder.JSONDecodeError:
+                pass
 
     @last_time_watch.setter
     def last_time_watch(self, time_):
@@ -77,10 +81,10 @@ class Database:
             Page(id=el[0], url=el[2]) for el in self._get_all_from_table("urls")
         )
 
-    def get_all_data(self):
+    def get_all_bookmarkers(self):
         urls = self.get_bookmarks_urls()
         items = self.get_bookmarks_items()
-        bookmarks = []
+        bookmarks = list()
         for url in urls:
             try:
                 _, title, created_on = items[url.id].as_tuple()
@@ -96,16 +100,15 @@ class Database:
                     id=url.id,
                     url=url.url,
                     title=None,
-                    created_on=0,
+                    created_on=datetime.datetime.now().timestamp(),
                 )
-            finally:
-                bookmarks.append(bookmark)
-        return bookmarks
+
+            bookmarks.append(bookmark)
+            yield bookmark
 
     def refresh(self):
         """Get a new copy of sqlite bookmarks from firefox folder into the project folder."""
         firefox_sqlite = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
-        self.last_time_watch = datetime.datetime.now().timestamp()
         return shutil.copy(firefox_sqlite, self.directory)
 
     def get_new_records(self):
@@ -113,10 +116,12 @@ class Database:
         self.refresh()
         records = [
             bookmark
-            for bookmark in self.get_all_data()
+            for bookmark in self.get_all_bookmarkers()
             if bookmark.created_on > self.last_time_watch
         ]
-
+        print(datetime.datetime.fromtimestamp(records[-1].created_on))
+        print(datetime.datetime.fromtimestamp(self.last_time_watch))
+        self.last_time_watch = datetime.datetime.now().timestamp()
         return records
 
 
@@ -142,25 +147,29 @@ class Subscribers:
     @classmethod
     def emit(cls, bookmarks):
         print(">> Sending data to server")
-        data = [book.as_dict() for book in bookmarks]
         for sub in cls._list:
-            # post data to server with httpx.post()
-            print(sub)
-        return data
+            print(f">> Sending data to {sub.name} > {sub.url}")
+            for book in bookmarks:
+                print(book.as_dict())
+                httpx.post(sub.url, data=book.as_dict())
+        return
 
 
+@dataclass
 class Watcher:
-    place: str = FILE
+    place: str
     observer = Observer()
     subscribers = Subscribers()
 
     def start(self):
-        event_handler = Handler(self.subscribers)
+        print(f"Observing directory: {self.place}")
+        print(f"Total subscribers {len(self.subscribers.list)}")
+        event_handler = Handler()
         self.observer.schedule(event_handler, self.place, recursive=True)
         self.observer.start()
         try:
             while True:
-                time.sleep(10)
+                time.sleep(2)
         except Exception as e:
             self.observer.stp()
             print("Error: ", e)
@@ -172,8 +181,16 @@ class Watcher:
 class Handler(FileSystemEventHandler):
     @staticmethod
     def on_modified(event):
-        """TODO Filter database info and send to bookmarks server"""
+        """TODO Filter database info and send bookmarks server"""
         db = Database()
         new_records = db.get_new_records()
         if new_records:
             Subscribers.emit(new_records)
+
+
+if __name__ == "__main__":
+    # Add subscriber to event list
+    myself = Subscriber(name="My Bookmarks", url="http://localhost:8000/api/bookmarks")
+    Subscribers.add(myself)
+    obs = Watcher(place=FILE)
+    obs.start()
