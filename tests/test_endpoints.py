@@ -18,6 +18,7 @@ def test_add_bookmarks(api_client_authenticate, test_data_dict):
 
 
 @pytest.mark.django_db
+@pytest.mark.skip
 def test_add_multiple_bookmarks(api_client_authenticate, test_data_dict):
     req = api_client_authenticate.post(
         reverse("bookmark-list"), data={"data": test_data_dict}

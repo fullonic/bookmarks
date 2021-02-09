@@ -3,7 +3,6 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveAPIView,
     UpdateAPIView,
-    RetrieveUpdateAPIView,
 )
 from rest_framework import serializers, status, permissions
 from .models import Bookmark, Tag
@@ -15,6 +14,7 @@ from django.db.models import Q
 
 class BookmarksApiView(ListCreateAPIView):
     serializer_class = BookmarkSerializer
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
         # Default get bookmarks
@@ -23,7 +23,6 @@ class BookmarksApiView(ListCreateAPIView):
 
         key = self.kwargs["key"]
         # multiple searched words search will contain spaces
-        # if " " in key:
         keys = key.split(" ")
         return [
             Bookmark.objects.filter(Q(title__icontains=k) | Q(url__icontains=k)).all()
@@ -39,9 +38,8 @@ class BookmarksApiView(ListCreateAPIView):
                 if len(q) == 0:  # ignore empty queryset
                     continue
                 serializer = self.get_serializer(q, many=True)
-                results.append(serializer.data[0])
-            return Response(results)
-        # for a single queryset we use the default method call
+                results += serializer.data
+            return Response(data=results, status=status.HTTP_200_OK)
         return super().list(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
@@ -50,7 +48,6 @@ class BookmarksApiView(ListCreateAPIView):
         serializer = self.get_serializer(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(data=request.data, status=status.HTTP_201_CREATED)
         return super().create(request, *args, **kwargs)
 
 

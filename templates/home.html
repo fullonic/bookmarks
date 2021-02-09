@@ -2,6 +2,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand">Navbar</a>
+   
     <form id="searchForm" class="d-flex">
       <input
         class="form-control me-2"
@@ -16,6 +17,7 @@
 </nav>
 
 <div class="container">
+ 
   <div class="mt-5 row results-bookmarks">
     <div id="results" class="card-group"></div>
   </div>
@@ -59,11 +61,10 @@
         jsonData.forEach((el) => {
           var postData = [`"${el.url}"`, el.id];
           bookmarks += `
-           <div class="card border-success col-md-2 mr-2">
-              <div class="card-body">
+          <div class="col-md-3 py-2"
+              <div class="card card-body border-success h-100">
                   <h6 class="card-title">${el.title}</h6>
-              </div>
-              <div class="card-footer text-muted">
+                  <img src="https://www.docker.com/favicon.ico" alt="" height="100px">
                   <a onclick=sendData(${postData}) href="#">Visit</a>
               </div>
               </div>
