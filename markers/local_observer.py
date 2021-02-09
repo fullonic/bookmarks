@@ -100,7 +100,7 @@ class Database:
                     id=url.id,
                     url=url.url,
                     title=None,
-                    created_on=datetime.datetime.now().timestamp(),
+                    created_on=datetime.datetime.utcnow().timestamp(),
                 )
 
             bookmarks.append(bookmark)
@@ -119,8 +119,6 @@ class Database:
             for bookmark in self.get_all_bookmarkers()
             if bookmark.created_on > self.last_time_watch
         ]
-        print(datetime.datetime.fromtimestamp(records[-1].created_on))
-        print(datetime.datetime.fromtimestamp(self.last_time_watch))
         self.last_time_watch = datetime.datetime.now().timestamp()
         return records
 
@@ -150,7 +148,6 @@ class Subscribers:
         for sub in cls._list:
             print(f">> Sending data to {sub.name} > {sub.url}")
             for book in bookmarks:
-                print(book.as_dict())
                 httpx.post(sub.url, data=book.as_dict())
         return
 

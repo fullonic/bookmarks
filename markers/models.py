@@ -2,9 +2,10 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
+#TODO: Add image model to deal with favicons related with tags
 
 def timestamp_now():
-    return datetime.datetime.now().timestamp()
+    return datetime.datetime.utcnow().timestamp()
 
 
 class Stats(models.Model):
@@ -24,6 +25,8 @@ class Bookmark(models.Model):
         default=timezone.now, blank=True, null=True
     )
     tags = models.ManyToManyField(Tag)
-
+    
+    # TODO: Generate tags when saving the new entry
+    # TODO: Add function to check providers
     def __str__(self) -> str:
         return f"{self.title}: {self.url}"
