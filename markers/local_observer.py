@@ -77,6 +77,7 @@ class Database:
         return conn.cursor()
 
     def _get_all_from_table(self, table):
+        """Fetch bookmarks information from Firefox SQLIte database."""
         data = self.cursor.execute(f"SELECT * FROM {table};")
         return data.fetchall()
 
@@ -86,31 +87,33 @@ class Database:
             for item in self._get_all_from_table("items")
         }
 
-    def get_bookmarks_urls(self):
+    def get_bookmarks_pages(self):
         return tuple(
             Page(id=el[0], url=el[2]) for el in self._get_all_from_table("urls")
         )
 
     def get_all_bookmarkers(self):
-        urls = self.get_bookmarks_urls()
+        pages = self.get_bookmarks_pages()
+
+
         items = self.get_bookmarks_items()
-        bookmarks = list()
-        for url in urls:
-            if any([domain in url for domain in blacklist_domains]):
+        bookmarks = []
+        for page in pages:
+            if any([domain in page.url for domain in blacklist_domains]):
                 continue
             try:
-                _, title, created_on = items[url.id].as_tuple()
+                _, title, created_on = items[page.id].as_tuple()
                 bookmark = Bookmark(
-                    id=url.id,
-                    url=url.url,
+                    id=page.id,
+                    url=page.url,
                     title=title,
                     created_on=created_on / 1000,
                 )
 
             except KeyError:
                 bookmark = Bookmark(
-                    id=url.id,
-                    url=url.url,
+                    id=page.id,
+                    url=page.url,
                     title=None,
                     created_on=datetime.datetime.utcnow().timestamp(),
                 )

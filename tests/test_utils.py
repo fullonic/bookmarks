@@ -30,7 +30,7 @@ def test_watcher_setup():
 def test_get_bookmarks_from_database():
     db = Database()
     items = db.get_bookmarks_items()
-    urls = db.get_bookmarks_urls()
+    urls = db.get_bookmarks_pages()
     assert isinstance(items, dict)
     assert isinstance(urls, tuple)
     assert isinstance(urls[0], Page)
