@@ -4,7 +4,9 @@ from .custom_claims import TokenObtainPairView
 
 urlpatterns = [
     path("bookmarks", BookmarksApiView.as_view(), name="bookmark-list"),
-    path("bookmarks/<int:pk>", BookmarksApiViewUpdate.as_view(), name="bookmark-update"),
+    path(
+        "bookmarks/<int:pk>", BookmarksApiViewUpdate.as_view(), name="bookmark-update"
+    ),
     re_path(
         "^bookmarks/(?P<key>.+)/$",
         BookmarksApiView.as_view(),

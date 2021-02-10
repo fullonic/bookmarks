@@ -7,16 +7,30 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('markers', '0002_bookmark_last_time_visited'),
+        ("markers", "0002_bookmark_last_time_visited"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Stats',
+            name="Stats",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('times_visited', models.SmallIntegerField(default=0)),
-                ('bookmark', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='markers.bookmark')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("times_visited", models.SmallIntegerField(default=0)),
+                (
+                    "bookmark",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="markers.bookmark",
+                    ),
+                ),
             ],
         ),
     ]

@@ -13,6 +13,16 @@ import httpx
 
 FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
 
+# TODO: Import this from a config file
+blacklist_domains = [
+    "localhost",
+    "fotocasa",
+    "idealista",
+    "wikiloc",
+    "whyiexercise",
+    "iwoolo",
+]
+
 
 @dataclass
 class PageInfo:
@@ -86,6 +96,8 @@ class Database:
         items = self.get_bookmarks_items()
         bookmarks = list()
         for url in urls:
+            if any([domain in url for domain in blacklist_domains]):
+                continue
             try:
                 _, title, created_on = items[url.id].as_tuple()
                 bookmark = Bookmark(
@@ -183,7 +195,11 @@ class Handler(FileSystemEventHandler):
         new_records = db.get_new_records()
         if new_records:
             Subscribers.emit(new_records)
-tags = "python django coding restframework restapi api testing pytest talk pycon djangocon docker docker-compose javascript golang pep medium github gitlab git repo programming programing raspberry nginx asyncio".split(" ")
+
+
+tags = "python django coding restframework restapi api testing pytest talk pycon djangocon docker docker-compose javascript golang pep medium github gitlab git repo programming programing raspberry nginx asyncio".split(
+    " "
+)
 
 if __name__ == "__main__":
     # Add subscriber to event list

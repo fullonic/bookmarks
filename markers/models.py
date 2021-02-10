@@ -1,8 +1,8 @@
+from markers.core import extract_icon_from_url
 from django.db import models
 from django.utils import timezone
 import datetime
 
-#TODO: Add image model to deal with favicons related with tags
 
 def timestamp_now():
     return datetime.datetime.utcnow().timestamp()
@@ -25,8 +25,13 @@ class Bookmark(models.Model):
         default=timezone.now, blank=True, null=True
     )
     tags = models.ManyToManyField(Tag)
-    
+    icon = models.URLField(default="")
     # TODO: Generate tags when saving the new entry
     # TODO: Add function to check providers
+    def save(self, **kwargs) -> None:
+        if self._state.adding:
+            self.icon = extract_icon_from_url(self.url)
+        return super().save(**kwargs)
+
     def __str__(self) -> str:
         return f"{self.title}: {self.url}"

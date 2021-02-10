@@ -2,7 +2,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand">Navbar</a>
-   
+
     <form id="searchForm" class="d-flex">
       <input
         class="form-control me-2"
@@ -17,7 +17,6 @@
 </nav>
 
 <div class="container">
- 
   <div class="mt-5 row results-bookmarks">
     <div id="results" class="card-group"></div>
   </div>
@@ -63,8 +62,15 @@
           bookmarks += `
           <div class="col-md-3 py-2"
               <div class="card card-body border-success h-100">
-                  <h6 class="card-title">${el.title}</h6>
-                  <img src="https://www.docker.com/favicon.ico" alt="" height="100px">
+              <div class="row">
+              <div class="col-3">
+                  <img src="${el.icon}" alt="" height="50px">
+              </div>
+              <div class="col-9">
+                  <p class="card-title">${el.title}</p>
+              </div>
+              </div>
+                  <br>
                   <a onclick=sendData(${postData}) href="#">Visit</a>
               </div>
               </div>

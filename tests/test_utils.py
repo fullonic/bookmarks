@@ -7,7 +7,7 @@ from markers.local_observer import (
     Subscribers,
     Subscriber,
 )
-
+from markers.core import extract_icon_from_url
 
 FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
 import pytest
@@ -65,13 +65,37 @@ def test_subscribers_emit():
     assert isinstance(data.pop(), dict)
 
 
+from markers.models import Tag, Bookmark
+
 # ====================
 # Test server bookmarks service
 # ====================
+@pytest.mark.parametrize(
+    "url",
+    (
+        "https://www.digikey.co.uk/en/resources/conversion-calculators/conversion-calculator-time-constant",
+        "https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/",
+    ),
+)
+def test_get_icon_from_url(url):
+    icon = extract_icon_from_url(url)
+    assert isinstance(icon, str)
+    assert icon.startswith("http")
+    assert icon.endswith(".ico")
+
+
+@pytest.mark.django_db
+def test_generate_favicon_on_bookmark_saving():
+    new_book = Bookmark(
+        url="https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/",
+        title="Many-to-many relationships",
+    )
+    new_book.save()
+    assert new_book.icon == "https://djangoproject.com/favicon.ico"
+
+
 @pytest.mark.django_db
 def test_add_new_bookmark_with_tags():
-    from markers.models import Tag, Bookmark
-
     TAG = "django"
     URL = "https://docs.djangoproject.com/en/3.1/topics/db/examples/many_to_many/"
     Tag.objects.get_or_create(name=TAG)
