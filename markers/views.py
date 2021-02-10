@@ -19,7 +19,7 @@ class BookmarksApiView(ListCreateAPIView):
     def get_queryset(self):
         # Default get bookmarks
         if not self.kwargs.get("key", False):
-            return Bookmark.objects.all().order_by("-last_time_visited")
+            return Bookmark.objects.all().order_by("-last_time_visited")[:50]
 
         key = self.kwargs["key"]
         # multiple searched words search will contain spaces

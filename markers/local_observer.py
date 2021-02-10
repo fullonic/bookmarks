@@ -125,7 +125,7 @@ class Database:
         """Get a new copy of sqlite bookmarks from firefox folder into the project folder."""
         firefox_sqlite = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
         return shutil.copy(firefox_sqlite, self.directory)
-
+        
     def get_new_records(self):
         """Get the last added bookmarks."""
         self.refresh()
