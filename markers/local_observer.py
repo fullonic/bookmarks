@@ -1,10 +1,11 @@
 import datetime
 from pathlib import Path
+from contextlib import suppress
+from dataclasses import field
 import sqlite3
 from dataclasses import dataclass, astuple, asdict
 import time
-from typing import Dict
-from watchdog import observers
+from typing import Dict, List
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 import json
@@ -95,7 +96,6 @@ class Database:
     def get_all_bookmarkers(self):
         pages = self.get_bookmarks_pages()
 
-
         items = self.get_bookmarks_items()
         bookmarks = []
         for page in pages:
@@ -125,7 +125,7 @@ class Database:
         """Get a new copy of sqlite bookmarks from firefox folder into the project folder."""
         firefox_sqlite = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
         return shutil.copy(firefox_sqlite, self.directory)
-        
+
     def get_new_records(self):
         """Get the last added bookmarks."""
         self.refresh()
@@ -139,45 +139,34 @@ class Database:
 
 
 @dataclass(eq=True, frozen=True)
-class Subscriber:
-    """Add equality"""
+class BookmarkObserver:
+    """Observer for new bookmarkers to be sent to the server."""
 
     name: str
     url: str
 
+    def _send_to_server(self, bookmark: Bookmark):
+        """HTTP post proxy."""
+        print(f">> Sending bookmark {bookmark.url} to web server")
+        auth = ""  # TODO: Add token
+        return httpx.post(self.url, data=bookmark)
 
-class Subscribers:
-    _list = []
-
-    @property
-    def list(cls):
-        return cls._list
-
-    @classmethod
-    def add(cls, subscriber):
-        cls._list.append(subscriber)
-
-    @classmethod
-    def emit(cls, bookmarks):
-        print(">> Sending data to server")
-        for sub in cls._list:
-            print(f">> Sending data to {sub.name} > {sub.url}")
-            for book in bookmarks:
-                httpx.post(sub.url, data=book.as_dict())
-        return
+    def update(self, bookmarks: List[Bookmark]) -> None:
+        for book in bookmarks:
+            self._send_to_server(bookmark=book.as_dict())
 
 
-@dataclass
 class Watcher:
-    place: str
-    observer = Observer()
-    subscribers = Subscribers()
+    observer: Observer = Observer()
 
-    def start(self):
-        print(f"Observing directory: {self.place}")
-        print(f"Total subscribers {len(self.subscribers.list)}")
+    def start(self, place: str, subject):
+        print(f"Watching directory: {place}")
+        print(f"Total observers {len(subject.observers)}")
+        # Setup event handler
         event_handler = Handler()
-        self.observer.schedule(event_handler, self.place, recursive=True)
+        event_handler.subject = subject
+
+        self.observer.schedule(event_handler, place, recursive=True)
         self.observer.start()
         try:
             while True:
@@ -190,23 +179,52 @@ class Watcher:
             self.observer.join()
 
 
+@dataclass
+class Subject:
+    event_watcher: Watcher
+    _observers: List[BookmarkObserver] = field(default_factory=list)
+
+    @property
+    def observers(self):
+        return self._observers
+
+    def attach(self, observer):
+        if observer not in self._observers:
+            self._observers.append(observer)
+
+    def detach(self, observer):
+        with suppress(ValueError):
+            self._observers.remove(observer)
+
+    def notify(self, bookmarks):
+        print(">> Notifying observers")
+        for sub in self._observers:
+            print(f">> Sending data to {sub.name} > {sub.url}")
+            sub.update(bookmarks)
+
+    def start(self, place):
+        """Proxy method to call WatchDog library service."""
+        return self.event_watcher().start(place=place, subject=self)
+
+
 class Handler(FileSystemEventHandler):
-    @staticmethod
-    def on_modified(event):
+    subject: Subject
+
+    def on_modified(self, event):
         """TODO Filter database info and send bookmarks server"""
         db = Database()
         new_records = db.get_new_records()
         if new_records:
-            Subscribers.emit(new_records)
+            self.subject.notify(new_records)
 
-
-tags = "python django coding restframework restapi api testing pytest talk pycon djangocon docker docker-compose javascript golang pep medium github gitlab git repo programming programing raspberry nginx asyncio".split(
-    " "
-)
 
 if __name__ == "__main__":
+    tags = "python django coding restframework restapi api testing pytest talk pycon djangocon docker docker-compose javascript golang pep medium github gitlab git repo programming programing raspberry nginx asyncio".split(
+        " "
+    )
     # Add subscriber to event list
-    myself = Subscriber(name="My Bookmarks", url="http://localhost:8000/api/bookmarks")
-    Subscribers.add(myself)
-    obs = Watcher(place=FILE)
-    obs.start()
+    bookmarks = Subject(Watcher)
+    bookmarks.attach(
+        BookmarkObserver(name="My Bookmarks", url="http://localhost:8000/api/bookmarks")
+    )
+    bookmarks.start(place=FILE)

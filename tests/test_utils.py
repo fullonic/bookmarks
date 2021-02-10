@@ -4,8 +4,8 @@ from markers.local_observer import (
     Watcher,
     Database,
     Bookmark,
-    Subscribers,
-    Subscriber,
+    Subject,
+    BookmarkObserver,
 )
 from markers.core import extract_icon_from_url
 
@@ -37,6 +37,8 @@ def test_get_bookmarks_from_database():
 
 
 def test_all_bookmarks():
+    from markers.local_observer import Bookmark
+
     db = Database()
     bookmarks = db.get_all_bookmarkers()
     assert isinstance(bookmarks, GeneratorType)
@@ -54,13 +56,13 @@ def test_get_new_records():
 
 
 @pytest.mark.xfail
-def test_subscribers_emit():
+def test_Subject_emit():
     """Send data to server when emit() method is called"""
-    s1 = Subscriber(name="tester", url="https://www.none.net")
-    Subscribers.add(s1)
+    s1 = BookmarkObserver(name="tester", url="https://www.none.net")
+    Subject.attach(s1)
     db = Database()
     bookmarks = db.get_all_bookmarkers()
-    data = Subscribers.emit([b for b in bookmarks])
+    data = Subject.emit([b for b in bookmarks])
     assert isinstance(data, list)
     assert isinstance(data.pop(), dict)
 
