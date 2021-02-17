@@ -7,6 +7,7 @@ medium article title, ect...
 from dataclasses import dataclass
 from contextlib import suppress
 from abc import ABC, abstractmethod, abstractproperty
+import httpx
 from selectolax.parser import HTMLParser
 from requests_html import HTMLSession
 from markers.core import get_provider_from_url
@@ -30,8 +31,12 @@ def load_provider(url: str):
 @dataclass
 class BaseProvider(ABC):
     url: str
-    client: object
     extra_info: str = ""
+    
+        
+    @property
+    def client(self):
+        return httpx
 
     def fetch_page(self, client) -> str:
         return client.get(url=self.url)
@@ -62,6 +67,10 @@ class GitHubProvider(BaseProvider):
 
 @dataclass
 class MartinHeinzProvider(BaseProvider):
+    @property
+    def client(self):
+        return HTMLSession()
+    
     def parse_html_page(self, page) -> str:
         # It's necessary render html page body using request_html to load all javascript
         # related stuff

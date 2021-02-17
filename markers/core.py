@@ -65,3 +65,13 @@ def get_provider_from_url(url):
         )
 
     return URL(scheme, *url_domain.split("."))
+
+def get_extra_info(url):
+    from .providers import load_provider
+    provider = load_provider(url)
+    if provider is None:
+        return ""
+    extra_info = provider(url).get_extra_info()
+    return extra_info.extra_info
+        
+    
