@@ -2,11 +2,16 @@ from typing import NamedTuple
 from urllib.parse import urlparse
 
 
-class FaviconURL(NamedTuple):
+class URL(NamedTuple):
     scheme: str
     domain: str
     dot: str
 
+    def __str__(self) -> str:
+        return f"{self.scheme}://{self.domain}.{self.dot}"
+
+
+class FaviconURL(URL):
     def __str__(self) -> str:
         return f"{self.scheme}://{self.domain}.{self.dot}/favicon.ico"
 
@@ -44,3 +49,18 @@ def normalize_url(url: str):
 def extract_icon_from_url(url: str):
     favicon = normalize_url(url)
     return str(favicon)
+
+def get_provider_from_url(url):
+    url_domain = urlparse(url).netloc
+    scheme = urlparse(url).scheme
+    if url_domain.count(".") == 2:
+        # we need to check the url have or not a subdomain.
+        # if there is '2' dots, means that we are dealing with a url with a sub domain
+        # ex: docs.djangoproject.com
+        return URL(scheme, *url_domain.split(".")[1:])
+    elif url_domain.count(".") == 3:
+        return URL(
+            scheme, url_domain.split(".")[1], ".".join(url_domain.split(".")[2:])
+        )
+
+    return URL(scheme, *url_domain.split("."))
