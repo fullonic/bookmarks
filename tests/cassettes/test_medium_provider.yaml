@@ -1,0 +1,994 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - medium.com
+      user-agent:
+      - python-httpx/0.16.1
+    method: GET
+    uri: https://medium.com/poka-techblog/5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51
+  response:
+    content: "<!doctype html><html lang=\"en\"><head><script defer src=\"https://cdn.optimizely.com/js/16180790160.js\"></script><title
+      data-rh=\"true\">5 different ways to backup your PostgreSQL database using Python
+      | by Simon-Pierre Gingras | poka-techblog | Medium</title><meta data-rh=\"true\"
+      charset=\"utf-8\"/><meta data-rh=\"true\" name=\"viewport\" content=\"width=device-width,minimum-scale=1,initial-scale=1\"/><meta
+      data-rh=\"true\" name=\"theme-color\" content=\"#000000\"/><meta data-rh=\"true\"
+      name=\"twitter:app:name:iphone\" content=\"Medium\"/><meta data-rh=\"true\"
+      name=\"twitter:app:id:iphone\" content=\"828256236\"/><meta data-rh=\"true\"
+      property=\"al:ios:app_name\" content=\"Medium\"/><meta data-rh=\"true\" property=\"al:ios:app_store_id\"
+      content=\"828256236\"/><meta data-rh=\"true\" property=\"al:android:package\"
+      content=\"com.medium.reader\"/><meta data-rh=\"true\" property=\"fb:app_id\"
+      content=\"542599432471018\"/><meta data-rh=\"true\" property=\"og:site_name\"
+      content=\"Medium\"/><meta data-rh=\"true\" property=\"og:type\" content=\"article\"/><meta
+      data-rh=\"true\" property=\"article:published_time\" content=\"2018-03-27T18:24:52.266Z\"/><meta
+      data-rh=\"true\" name=\"title\" content=\"5 different ways to backup your PostgreSQL
+      database using Python | by Simon-Pierre Gingras | poka-techblog | Medium\"/><meta
+      data-rh=\"true\" property=\"og:title\" content=\"5 different ways to backup
+      your PostgreSQL database using Python\"/><meta data-rh=\"true\" property=\"twitter:title\"
+      content=\"5 different ways to backup your PostgreSQL database using Python\"/><meta
+      data-rh=\"true\" name=\"twitter:site\" content=\"@pokainc\"/><meta data-rh=\"true\"
+      name=\"twitter:app:url:iphone\" content=\"medium://p/3f06cea4f51\"/><meta data-rh=\"true\"
+      property=\"al:android:url\" content=\"medium://p/3f06cea4f51\"/><meta data-rh=\"true\"
+      property=\"al:ios:url\" content=\"medium://p/3f06cea4f51\"/><meta data-rh=\"true\"
+      property=\"al:android:app_name\" content=\"Medium\"/><meta data-rh=\"true\"
+      name=\"description\" content=\"Now, backing-up a PostgreSQL database from a
+      bash shell is pretty easy. Just invoke pg_dump like this: You\u2019ll also want
+      to compress your backup. You can easily save a lot of disk space by gzipping\u2026\"/><meta
+      data-rh=\"true\" property=\"og:description\" content=\"If you are running a
+      PostgreSQL database for your app, chances are you\u2019ll want to run backups.\"/><meta
+      data-rh=\"true\" property=\"twitter:description\" content=\"If you are running
+      a PostgreSQL database for your app, chances are you\u2019ll want to run backups.\"/><meta
+      data-rh=\"true\" property=\"og:url\" content=\"https://medium.com/poka-techblog/5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\"/><meta
+      data-rh=\"true\" property=\"al:web:url\" content=\"https://medium.com/poka-techblog/5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\"/><meta
+      data-rh=\"true\" property=\"og:image\" content=\"https://miro.medium.com/max/1200/1*qFW42p5IcySU-xbFNPudhw.png\"/><meta
+      data-rh=\"true\" name=\"twitter:image:src\" content=\"https://miro.medium.com/max/1200/1*qFW42p5IcySU-xbFNPudhw.png\"/><meta
+      data-rh=\"true\" name=\"twitter:card\" content=\"summary_large_image\"/><meta
+      data-rh=\"true\" property=\"article:author\" content=\"https://medium.com/@spgingras\"/><meta
+      data-rh=\"true\" name=\"author\" content=\"Simon-Pierre Gingras\"/><meta data-rh=\"true\"
+      name=\"robots\" content=\"index,follow,max-image-preview:large\"/><meta data-rh=\"true\"
+      name=\"referrer\" content=\"unsafe-url\"/><meta data-rh=\"true\" name=\"twitter:label1\"
+      value=\"Reading time\"/><meta data-rh=\"true\" name=\"twitter:data1\" value=\"3
+      min read\"/><meta data-rh=\"true\" name=\"parsely-post-id\" content=\"3f06cea4f51\"/><link
+      data-rh=\"true\" rel=\"search\" type=\"application/opensearchdescription+xml\"
+      title=\"Medium\" href=\"/osd.xml\"/><link data-rh=\"true\" rel=\"apple-touch-icon\"
+      sizes=\"152x152\" href=\"https://miro.medium.com/fit/c/152/152/1*sHhtYhaCe2Uc3IU0IgKwIQ.png\"/><link
+      data-rh=\"true\" rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"https://miro.medium.com/fit/c/120/120/1*sHhtYhaCe2Uc3IU0IgKwIQ.png\"/><link
+      data-rh=\"true\" rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"https://miro.medium.com/fit/c/76/76/1*sHhtYhaCe2Uc3IU0IgKwIQ.png\"/><link
+      data-rh=\"true\" rel=\"apple-touch-icon\" sizes=\"60x60\" href=\"https://miro.medium.com/fit/c/60/60/1*sHhtYhaCe2Uc3IU0IgKwIQ.png\"/><link
+      data-rh=\"true\" rel=\"mask-icon\" href=\"https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500.svg\"
+      color=\"#171717\"/><link data-rh=\"true\" id=\"glyph_preload_link\" rel=\"preload\"
+      as=\"style\" type=\"text/css\" href=\"https://glyph.medium.com/css/unbound.css\"/><link
+      data-rh=\"true\" id=\"glyph_link\" rel=\"stylesheet\" type=\"text/css\" href=\"https://glyph.medium.com/css/unbound.css\"/><link
+      data-rh=\"true\" rel=\"author\" href=\"https://medium.com/@spgingras\"/><link
+      data-rh=\"true\" rel=\"canonical\" href=\"https://medium.com/poka-techblog/5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\"/><link
+      data-rh=\"true\" rel=\"alternate\" href=\"android-app://com.medium.reader/https/medium.com/p/3f06cea4f51\"/><link
+      data-rh=\"true\" rel=\"icon\" href=\"https://miro.medium.com/1*m-R_BkNf1Qjr1YbyOIJY2w.png\"/><script
+      data-rh=\"true\" type=\"application/ld+json\">{\"@context\":\"http:\\u002F\\u002Fschema.org\",\"@type\":\"NewsArticle\",\"image\":[\"https:\\u002F\\u002Fmiro.medium.com\\u002Fmax\\u002F1200\\u002F1*qFW42p5IcySU-xbFNPudhw.png\"],\"url\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\",\"dateCreated\":\"2018-03-27T18:24:52.266Z\",\"datePublished\":\"2018-03-27T18:24:52.266Z\",\"dateModified\":\"2018-06-20T12:36:32.258Z\",\"headline\":\"5
+      different ways to backup your PostgreSQL database using Python\",\"name\":\"5
+      different ways to backup your PostgreSQL database using Python\",\"description\":\"Now,
+      backing-up a PostgreSQL database from a bash shell is pretty easy. Just invoke
+      pg_dump like this: You\u2019ll also want to compress your backup. You can easily
+      save a lot of disk space by gzipping\u2026\",\"identifier\":\"3f06cea4f51\",\"keywords\":[\"Lite:true\",\"Tag:Python\",\"Tag:Postgresql\",\"Tag:DevOps\",\"Tag:Backup\",\"Publication:poka-techblog\",\"Elevated:false\",\"LockedPostSource:LOCKED_POST_SOURCE_NONE\",\"LayerCake:0\"],\"author\":{\"@type\":\"Person\",\"name\":\"Simon-Pierre
+      Gingras\",\"url\":\"https:\\u002F\\u002Fmedium.com\\u002F@spgingras\"},\"creator\":[\"Simon-Pierre
+      Gingras\"],\"publisher\":{\"@type\":\"Organization\",\"name\":\"poka-techblog\",\"url\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\",\"logo\":{\"@type\":\"ImageObject\",\"width\":308,\"height\":60,\"url\":\"https:\\u002F\\u002Fmiro.medium.com\\u002Fmax\\u002F616\\u002F1*OMF3fSqH8t4xBJ9-6oZDZw.png\"}},\"mainEntityOfPage\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\"}</script><script
+      data-rh=\"true\" >(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+      Date();a=s.createElement(o),\nm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\nga('create',
+      'UA-24232453-2', 'auto');\nga('send', 'pageview');</script><link rel=\"preload\"
+      href=\"https://cdn.optimizely.com/js/16180790160.js\" as=\"script\"><style type=\"text/css\"
+      data-fela-rehydration=\"512\" data-fela-type=\"STATIC\">html{box-sizing:border-box}*,
+      *:before, *:after{box-sizing:inherit}body{margin:0;padding:0;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;color:rgba(0,0,0,0.8);position:relative;min-height:100vh}h1,
+      h2, h3, h4, h5, h6, dl, dd, ol, ul, menu, figure, blockquote, p, pre, form{margin:0}menu,
+      ol, ul{padding:0;list-style:none;list-style-image:none}main{display:block}a{color:inherit;text-decoration:none}a,
+      button, input{-webkit-tap-highlight-color:transparent}img, svg{vertical-align:middle}button{background:transparent;overflow:visible}button,
+      input, optgroup, select, textarea{margin:0}:root{--reach-tabs:1;--reach-menu-button:1}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\">.a{font-family:medium-content-sans-serif-font,
+      -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell,
+      \"Open Sans\", \"Helvetica Neue\", sans-serif}.b{font-weight:400}.c{background-color:rgba(255,
+      255, 255, 1)}.l{height:100vh}.m{width:100vw}.n{display:flex}.o{align-items:center}.p{justify-content:center}.q{height:25px}.r{fill:rgba(41,
+      41, 41, 1)}.s{display:block}.t{position:absolute}.u{top:0}.v{left:0}.w{right:0}.x{z-index:500}.y{box-shadow:0
+      4px 12px 0 rgba(0, 0, 0, 0.05)}.ab{background-color:rgba(50, 58, 71, 1)}.ai{max-width:1192px}.aj{min-width:0}.ak{width:100%}.al{height:65px}.ao{flex:1
+      0 auto}.ap{fill:rgba(237, 238, 242, 1)}.aq{border-left:1px solid rgba(141, 146,
+      156, 1)}.ar{margin-left:15px}.as{margin-right:14px}.at{height:24px}.au{width:1px}.av{font-family:sohne,
+      \"Helvetica Neue\", Helvetica, Arial, sans-serif}.aw{font-weight:500}.ax{font-size:22px}.ay{line-height:28px}.az{overflow:hidden}.ba{max-height:28px}.bb{text-overflow:ellipsis}.bc{display:-webkit-box}.bd{-webkit-line-clamp:1}.be{-webkit-box-orient:vertical}.bg{letter-spacing:0}.bh{color:rgba(246,
+      247, 249, 1)}.bi{flex:0 0 auto}.bj{visibility:hidden}.bk{margin-left:16px}.bl{color:rgba(237,
+      238, 242, 1)}.bm{font-size:inherit}.bn{border:inherit}.bo{font-family:inherit}.bp{letter-spacing:inherit}.bq{font-weight:inherit}.br{padding:0}.bs{margin:0}.bw:disabled{cursor:default}.bx:disabled{color:rgba(163,
+      208, 162, 0.5)}.by:disabled{fill:rgba(163, 208, 162, 0.5)}.bz{border-top:none}.ca{display:none}.cc{height:54px}.cd{margin-right:40px}.ce{font-size:20px}.cf{line-height:24px}.cg{max-height:24px}.ch{overflow:auto}.ci{flex:0
+      1 auto}.cj{list-style-type:none}.ck{line-height:40px}.cl{white-space:nowrap}.cm{overflow-x:auto}.cn{align-items:flex-start}.co{margin-top:20px}.cp{padding-top:20px}.cq{height:80px}.cr{margin-bottom:0px}.cs{margin-top:0px}.cv{padding-left:24px}.cw{padding-right:24px}.cx{margin-left:auto}.cy{margin-right:auto}.cz{max-width:728px}.da{box-sizing:border-box}.db{top:calc(100vh
+      + 100px)}.dc{bottom:calc(100vh + 100px)}.dd{width:10px}.de{pointer-events:none}.df{word-break:break-word}.dg{word-wrap:break-word}.dh:after{display:block}.di:after{content:\"\"}.dj:after{clear:both}.dk{max-width:680px}.dl{max-width:2400px}.dr{clear:both}.dt{cursor:zoom-in}.du{position:relative}.dv{z-index:auto}.dx{opacity:0}.dy{transition:opacity
+      100ms 400ms}.dz{height:100%}.ea{will-change:transform}.eb{transform:translateZ(0)}.ec{margin:auto}.ed{background-color:rgba(242,
+      242, 242, 1)}.ee{padding-bottom:30%}.ef{height:0}.eg{filter:blur(20px)}.eh{transform:scale(1.1)}.ei{visibility:visible}.ej{line-height:1.23}.ek{font-style:normal}.el{font-family:fell,
+      Georgia, Cambria, \"Times New Roman\", Times, serif}.fg{margin-bottom:-0.27em}.fh{color:rgba(41,
+      41, 41, 1)}.fi{margin-top:32px}.fj{justify-content:space-between}.fn{border-radius:50%}.fo{height:48px}.fp{width:48px}.fq{margin-left:12px}.fr{font-size:14px}.fs{line-height:20px}.ft{margin-bottom:2px}.fv{max-height:20px}.fw{color:inherit}.fx{fill:inherit}.fz:disabled{color:rgba(117,
+      117, 117, 1)}.ga:disabled{fill:rgba(117, 117, 117, 1)}.gb{margin-left:8px}.gc{font-size:13px}.gd{color:rgba(255,
+      255, 255, 1)}.ge{padding:0px 8px 1px}.gf{fill:rgba(255, 255, 255, 1)}.gg{background:rgba(125,
+      133, 148, 1)}.gh{border-color:rgba(125, 133, 148, 1)}.gk:disabled{cursor:inherit}.gl:disabled{opacity:0.3}.gm:disabled:hover{background:rgba(125,
+      133, 148, 1)}.gn:disabled:hover{border-color:rgba(125, 133, 148, 1)}.go{border-radius:4px}.gp{border-width:1px}.gq{border-style:solid}.gr{display:inline-block}.gs{text-decoration:none}.gt{color:rgba(117,
+      117, 117, 1)}.gu{align-items:flex-end}.hc{padding-right:6px}.hf{fill:rgba(117,
+      117, 117, 1)}.hg{margin-right:8px}.hh{margin-right:-6px}.hi{line-height:1.58}.hj{letter-spacing:-0.004em}.hk{font-family:charter,
+      Georgia, Cambria, \"Times New Roman\", Times, serif}.if{margin-bottom:-0.46em}.ig{padding:2px
+      4px}.ih{font-size:75%}.ii> strong{font-family:inherit}.ij{font-family:Menlo,
+      Monaco, \"Courier New\", Courier, monospace}.ip{padding:20px}.iq{background:rgba(242,
+      242, 242, 1)}.ir{line-height:1.18}.is{letter-spacing:-0.022em}.it{font-size:16px}.iu{margin-top:-0.09em}.iv{margin-bottom:-0.09em}.iw{white-space:pre-wrap}.ix{line-height:1.12}.jq{margin-bottom:-0.28em}.jw{text-decoration:underline}.kc{will-change:opacity}.kd{position:fixed}.ke{width:188px}.kf{left:50%}.kg{transform:translateX(406px)}.kh{top:calc(65px
+      + 54px + 14px)}.kk{top:159px}.km{width:131px}.kn{flex-direction:column}.ko{padding-bottom:28px}.kp{border-bottom:1px
+      solid rgba(230, 230, 230, 1)}.kq{padding-bottom:20px}.kr{padding-top:2px}.ks{max-height:120px}.kt{-webkit-line-clamp:6}.ku{padding:7px
+      16px 9px}.kv{flex-direction:row}.kw{padding-top:28px}.kx{margin-bottom:19px}.ky{margin-left:-3px}.le{outline:0}.lf{border:0}.lg{user-select:none}.lh{cursor:pointer}.li>
+      svg{pointer-events:none}.lk{-webkit-user-select:none}.lu button{text-align:left}.lv{opacity:0.4}.lw{cursor:not-allowed}.lx{padding-right:9px}.mg{margin-top:40px}.mh{flex-wrap:wrap}.mi{margin-top:25px}.mj{margin-bottom:8px}.mk{line-height:22px}.ml{border-radius:3px}.mm{padding:5px
+      10px}.mn{max-width:155px}.mr{top:1px}.nf{margin-left:-1px}.ng{margin-left:-4px}.no{padding-right:8px}.np{padding-top:32px}.nq{border-top:1px
+      solid rgba(230, 230, 230, 1)}.nr{margin-bottom:25px}.nt{margin-bottom:32px}.nu{min-height:80px}.nz{width:80px}.oa{padding-left:102px}.oc{line-height:18px}.od{letter-spacing:0.077em}.oe{text-transform:uppercase}.of{margin-bottom:6px}.og{padding:4px
+      12px 6px}.oh{max-width:555px}.oi{max-width:450px}.ok{max-width:550px}.ol{padding-top:24px}.om{margin-top:5px}.on{height:40px}.oo{width:40px}.op{font-size:12px}.oq{line-height:16px}.or{letter-spacing:0.083em}.os{padding-top:8px}.ot{background:rgba(255,
+      255, 255, 1)}.ou{margin-bottom:40px}.ov{margin-top:24px}.ow{padding-bottom:16px}.ox{margin-bottom:24px}.qt{flex-grow:0}.qu{padding-bottom:24px}.qv{max-width:500px}.qz{padding-bottom:8px}.rm{padding-bottom:100%}.rx{padding:60px
+      0}.ry{background-color:rgba(0, 0, 0, 0.9)}.sa{padding-bottom:48px}.sb{border-bottom:1px
+      solid rgba(255, 255, 255, 0.54)}.sc{margin:0 -12px}.sd{margin:0 12px}.se{flex:1
+      1 0}.sh:disabled{color:rgba(255, 255, 255, 0.7)}.si:disabled{fill:rgba(255,
+      255, 255, 0.7)}.sj{color:rgba(255, 255, 255, 0.98)}.sk{color:rgba(255, 255,
+      255, 0.7)}.sl{height:22px}.sm{width:200px}.ss{margin-right:16px}.bt:hover{cursor:pointer}.bu:hover{color:rgba(255,
+      255, 255, 1)}.bv:hover{fill:rgba(255, 255, 255, 1)}.fy:hover{text-decoration:underline}.gi:hover{background:rgba(108,
+      115, 127, 1)}.gj:hover{border-color:rgba(108, 115, 127, 1)}.hd:hover{color:rgba(25,
+      25, 25, 1)}.he:hover{fill:rgba(25, 25, 25, 1)}.lm:hover{fill:rgba(117, 117,
+      117, 1)}.sf:hover{color:rgba(255, 255, 255, 0.99)}.sg:hover{fill:rgba(255, 255,
+      255, 0.99)}.dw:focus{transform:scale(1.01)}.ll:focus{fill:rgba(117, 117, 117,
+      1)}.lj:active{border-style:none}</style><style type=\"text/css\" data-fela-rehydration=\"512\"
+      data-fela-type=\"RULE\" media=\"all and (min-width: 1080px)\">.d{display:none}.ah{margin:0
+      64px}.dq{margin-top:32px}.fc{font-size:48px}.fd{margin-top:0.55em}.fe{line-height:60px}.ff{letter-spacing:-0.011em}.hb{margin-left:30px}.ib{font-size:21px}.ic{margin-top:2em}.id{line-height:32px}.ie{letter-spacing:-0.003em}.io{margin-top:56px}.jm{font-size:30px}.jn{margin-top:1.95em}.jo{line-height:36px}.jp{letter-spacing:0}.jv{margin-top:1.91em}.kb{margin-top:0.86em}.ld{margin-right:5px}.lt{margin-top:5px}.mf{padding-left:6px}.mt{display:inline-block}.my{margin-left:7px}.mz{margin-top:8px}.ne{width:25px}.nm{padding-left:7px}.nn{top:3px}.pi{font-size:22px}.pj{line-height:28px}.pw{width:calc(100%
+      + 32px)}.px{margin-left:-16px}.py{margin-right:-16px}.qp{padding-left:16px}.qq{padding-right:16px}.qr{flex-basis:25%}.qs{max-width:25%}.ri{font-size:16px}.rj{line-height:20px}.rv{min-width:70px}.rw{min-height:70px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (max-width: 1079.98px)\">.e{display:none}.ha{margin-left:30px}.lc{margin-right:5px}.ls{margin-top:5px}.me{padding-left:6px}.ms{display:inline-block}.mw{margin-left:7px}.mx{margin-top:8px}.nd{width:25px}.nk{padding-left:7px}.nl{top:3px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (max-width: 903.98px)\">.f{display:none}.gz{margin-left:30px}.lb{margin-right:5px}.lr{margin-top:5px}.mc{padding-left:6px}.md{top:3px}.mq{display:inline-block}.mu{margin-left:7px}.mv{margin-top:8px}.nc{width:15px}.nj{padding-left:3px}.qy{margin-right:16px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (max-width: 727.98px)\">.g{display:none}.am{height:56px}.an{display:flex}.cb{display:block}.ct{margin-bottom:0px}.cu{height:110px}.fl{margin-top:32px}.fm{flex-direction:column-reverse}.gx{margin-bottom:30px}.gy{margin-left:0px}.la{margin-left:8px}.lp{margin-top:2px}.lq{margin-right:8px}.ma{padding-left:6px}.mb{top:3px}.mp{display:inline-block}.nb{width:15px}.ni{padding-left:3px}.ns{padding-top:0}.nv{margin-bottom:24px}.nw{align-items:center}.nx{width:102px}.ny{position:relative}.ob{padding-left:0}.oj{margin-top:24px}.oy{padding-bottom:12px}.oz{margin-top:16px}.qx{margin-right:16px}.rk{margin-left:16px}.rl{margin-right:0px}.rz{padding:32px
+      0}.sn{width:140px}.so{margin-bottom:16px}.sp{margin-top:30px}.sq{width:100%}.sr{flex-direction:row}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (max-width: 551.98px)\">.h{display:none}.ac{margin:0 24px}.dm{margin-top:24px}.em{font-size:34px}.en{margin-top:0.56em}.eo{line-height:42px}.ep{letter-spacing:-0.016em}.fk{margin-top:32px}.fu{margin-bottom:0px}.gv{margin-bottom:30px}.gw{margin-left:0px}.hl{font-size:18px}.hm{margin-top:1.56em}.hn{line-height:28px}.ho{letter-spacing:-0.003em}.ik{margin-top:40px}.iy{font-size:22px}.iz{margin-top:1.2em}.ja{letter-spacing:0}.jr{margin-top:1.41em}.jx{margin-top:0.67em}.kz{margin-left:8px}.ln{margin-top:2px}.lo{margin-right:8px}.ly{padding-left:6px}.lz{top:3px}.mo{display:inline-block}.na{width:15px}.nh{padding-left:3px}.pa{font-size:20px}.pb{line-height:24px}.pk{width:calc(100%
+      + 24px)}.pl{margin-left:-12px}.pm{margin-right:-12px}.pz{padding-left:12px}.qa{padding-right:12px}.qb{flex-basis:100%}.qc{max-width:100%}.qw{margin-right:16px}.ra{font-size:16px}.rb{line-height:20px}.rn{min-width:48px}.ro{min-height:48px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (min-width: 904px) and (max-width: 1079.98px)\">.i{display:none}.ag{margin:0
+      64px}.dp{margin-top:32px}.ey{font-size:48px}.ez{margin-top:0.55em}.fa{line-height:60px}.fb{letter-spacing:-0.011em}.hx{font-size:21px}.hy{margin-top:2em}.hz{line-height:32px}.ia{letter-spacing:-0.003em}.in{margin-top:56px}.ji{font-size:30px}.jj{margin-top:1.95em}.jk{line-height:36px}.jl{letter-spacing:0}.ju{margin-top:1.91em}.ka{margin-top:0.86em}.pg{font-size:22px}.ph{line-height:28px}.pt{width:calc(100%
+      + 32px)}.pu{margin-left:-16px}.pv{margin-right:-16px}.ql{padding-left:16px}.qm{padding-right:16px}.qn{flex-basis:25%}.qo{max-width:25%}.rg{font-size:16px}.rh{line-height:20px}.rt{min-width:70px}.ru{min-height:70px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (min-width: 728px) and (max-width: 903.98px)\">.j{display:none}.af{margin:0
+      48px}.do{margin-top:32px}.eu{font-size:48px}.ev{margin-top:0.55em}.ew{line-height:60px}.ex{letter-spacing:-0.011em}.ht{font-size:21px}.hu{margin-top:2em}.hv{line-height:32px}.hw{letter-spacing:-0.003em}.im{margin-top:56px}.je{font-size:30px}.jf{margin-top:1.95em}.jg{line-height:36px}.jh{letter-spacing:0}.jt{margin-top:1.91em}.jz{margin-top:0.86em}.pe{font-size:22px}.pf{line-height:28px}.pq{width:calc(100%
+      + 28px)}.pr{margin-left:-14px}.ps{margin-right:-14px}.qh{padding-left:14px}.qi{padding-right:14px}.qj{flex-basis:50%}.qk{max-width:50%}.re{font-size:16px}.rf{line-height:20px}.rr{min-width:48px}.rs{min-height:48px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all
+      and (min-width: 552px) and (max-width: 727.98px)\">.k{display:none}.ae{margin:0
+      24px}.dn{margin-top:24px}.eq{font-size:34px}.er{margin-top:0.56em}.es{line-height:42px}.et{letter-spacing:-0.016em}.hp{font-size:18px}.hq{margin-top:1.56em}.hr{line-height:28px}.hs{letter-spacing:-0.003em}.il{margin-top:40px}.jb{font-size:22px}.jc{margin-top:1.2em}.jd{letter-spacing:0}.js{margin-top:1.41em}.jy{margin-top:0.67em}.pc{font-size:20px}.pd{line-height:24px}.pn{width:calc(100%
+      + 24px)}.po{margin-left:-12px}.pp{margin-right:-12px}.qd{padding-left:12px}.qe{padding-right:12px}.qf{flex-basis:100%}.qg{max-width:100%}.rc{font-size:16px}.rd{line-height:20px}.rp{min-width:48px}.rq{min-height:48px}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"print\">.z{display:none}</style><style
+      type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"(orientation:
+      landscape) and (max-width: 903.98px)\">.bf{max-height:none}</style><style type=\"text/css\"
+      data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"(prefers-reduced-motion:
+      no-preference)\">.ds{transition:transform 300ms cubic-bezier(0.2, 0, 0.2, 1)}.ki{transition:opacity
+      200ms}</style><style type=\"text/css\" data-fela-rehydration=\"512\" data-fela-type=\"RULE\"
+      media=\"all and (max-width: 1230px)\">.kj{display:none}</style><style type=\"text/css\"
+      data-fela-rehydration=\"512\" data-fela-type=\"RULE\" media=\"all and (max-width:
+      1198px)\">.kl{display:none}</style></head><body><div id=\"root\"><div class=\"a
+      b c\"><div class=\"d e f g h i j k\"></div><script>document.domain = document.domain;</script><div><script>if
+      (window.self !== window.top) window.location = \"about:blank\"</script></div><script>window.PARSELY
+      = window.PARSELY || {autotrack: false}</script><div class=\"s\"><nav class=\"s
+      t u v w c x y z\"><div><div class=\"s ab\"><div class=\"n p\"><div class=\"ac
+      ae af ag ah ai aj ak\"><div class=\"al n o am an\"><div class=\"n o ao x\"><a
+      rel=\"noopener\" href=\"/?source=post_page-----3f06cea4f51--------------------------------\"><svg
+      viewBox=\"0 0 1043.63 592.71\" class=\"q ap\"><g data-name=\"Layer 2\"><g data-name=\"Layer
+      1\"><path d=\"M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36
+      131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17
+      279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63
+      296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94
+      51.75-249.94 51.76 111.9 51.76 249.94\"></path></g></g></svg></a><div class=\"aq
+      ar as at au s g\"></div><div class=\"s g\"><a href=\"/poka-techblog?source=post_page-----3f06cea4f51--------------------------------\"
+      rel=\"noopener\"><span class=\"av aw ax ay az ba bb bc bd be bf bg bh\">poka-techblog</span></a></div></div><div
+      class=\"s bi x\"><div class=\"n o\"><div class=\"n o g\"><div class=\"bj\" id=\"lo-post-page-navbar-sign-in-link\"><div
+      class=\"bk s\"><span><a href=\"https://medium.com/m/signin?operation=login&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_page-----3f06cea4f51---------------------nav_reg-----------\"
+      class=\"bl ap bm bn bo bp bq br bs bt bu bv bw bx by\" rel=\"noopener\">Sign
+      in</a></span></div></div></div></div></div></div></div></div></div><div class=\"bz
+      ca ab cb\"><div class=\"n p\"><div class=\"ac ae af ag ah ai aj ak\"><div class=\"cc
+      az n o\"><div class=\"cd s bi\"><a href=\"/poka-techblog?source=post_page-----3f06cea4f51--------------------------------\"
+      rel=\"noopener\"><span class=\"av aw ce cf az cg bb bc bd be bf bg bh\">poka-techblog</span></a></div><div
+      class=\"ch s ci\"><ul class=\"cj bs ck cl cm n cn g co cp cq\"></ul></div></div></div></div></div></div></nav><div
+      class=\"cr cs al s ct cu\"></div><article><section class=\"cv cw cx cy ak cz
+      da s\"></section><span class=\"s\"></span><div><div class=\"t v db dc dd de\"></div><section
+      class=\"df dg dh di dj\"><div class=\"n p\"><div class=\"ac ae af ag ah dk aj
+      ak\"><figure class=\"dm dn do dp dq dr cx cy paragraph-image\"><div role=\"button\"
+      tabindex=\"0\" class=\"ds dt du dv ak dw\"><div class=\"cx cy dl\"><div class=\"ec
+      s du ed\"><div class=\"ee ef s\"><div class=\"dx dy t u v dz ak az ea eb\"><img
+      alt=\"Image for post\" class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*qFW42p5IcySU-xbFNPudhw.png?q=20\"
+      width=\"2400\" height=\"720\"/></div><img alt=\"Image for post\" class=\"dx
+      dy t u v dz ak c\" width=\"2400\" height=\"720\"/><noscript><img alt=\"Image
+      for post\" class=\"t u v dz ak\" src=\"https://miro.medium.com/max/4800/1*qFW42p5IcySU-xbFNPudhw.png\"
+      width=\"2400\" height=\"720\" srcSet=\"https://miro.medium.com/max/552/1*qFW42p5IcySU-xbFNPudhw.png
+      276w, https://miro.medium.com/max/1104/1*qFW42p5IcySU-xbFNPudhw.png 552w, https://miro.medium.com/max/1280/1*qFW42p5IcySU-xbFNPudhw.png
+      640w, https://miro.medium.com/max/1400/1*qFW42p5IcySU-xbFNPudhw.png 700w\" sizes=\"700px\"/></noscript></div></div></div></div></figure><div
+      class=\"\"><h1 id=\"e692\" class=\"ej bg ek el b em en eo ep eq er es et eu
+      ev ew ex ey ez fa fb fc fd fe ff fg fh\">5 different ways to backup your PostgreSQL
+      database using Python</h1><div class=\"fi\"><div class=\"n fj fk fl fm\"><div
+      class=\"o n\"><div><a rel=\"noopener\" href=\"/@spgingras?source=post_page-----3f06cea4f51--------------------------------\"><img
+      alt=\"Simon-Pierre Gingras\" class=\"s fn fo fp\" src=\"https://miro.medium.com/fit/c/96/96/1*RginaaAWEY_lEhyZBmBrmw.jpeg\"
+      width=\"48\" height=\"48\"/></a></div><div class=\"fq ak s\"><div class=\"n\"><div
+      style=\"flex:1\"><span class=\"av b fr fs fh\"><div class=\"ft n o fu\"><span
+      class=\"av b fr fs az fv bb bc bd be bf fh\"><a class=\"fw fx bm bn bo bp bq
+      br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@spgingras?source=post_page-----3f06cea4f51--------------------------------\">Simon-Pierre
+      Gingras</a></span><div class=\"gb s bi h\"><span><button class=\"av b gc fs
+      gd ge gf gg gh gi gj bt gk gl gm gn go gp gq da gr gs\">Follow</button></span></div></div></span></div></div><span
+      class=\"av b fr fs gt\"><span class=\"av b fr fs az fv bb bc bd be bf gt\"><div><a
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/poka-techblog/5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51?source=post_page-----3f06cea4f51--------------------------------\">Mar
+      27, 2018</a> <!-- -->\xB7<!-- --> <!-- -->3<!-- --> min read</div></span></span></div></div><div
+      class=\"n gu gv gw gx gy gz ha hb z\"><div class=\"n o\"><div class=\"hc s bi\"><button
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" aria-label=\"Share on
+      twitter\"><svg width=\"29\" height=\"29\" class=\"hf\"><path d=\"M22.05 7.54a4.47
+      4.47 0 0 0-3.3-1.46 4.53 4.53 0 0 0-4.53 4.53c0 .35.04.7.08 1.05A12.9 12.9 0
+      0 1 5 6.89a5.1 5.1 0 0 0-.65 2.26c.03 1.6.83 2.99 2.02 3.79a4.3 4.3 0 0 1-2.02-.57v.08a4.55
+      4.55 0 0 0 3.63 4.44c-.4.08-.8.13-1.21.16l-.81-.08a4.54 4.54 0 0 0 4.2 3.15
+      9.56 9.56 0 0 1-5.66 1.94l-1.05-.08c2 1.27 4.38 2.02 6.94 2.02 8.3 0 12.86-6.9
+      12.84-12.85.02-.24 0-.43 0-.65a8.68 8.68 0 0 0 2.26-2.34c-.82.38-1.7.62-2.6.72a4.37
+      4.37 0 0 0 1.95-2.51c-.84.53-1.81.9-2.83 1.13z\"></path></svg></button></div><div
+      class=\"hc s bi\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga\" aria-label=\"Share on linkedin\"><svg width=\"29\" height=\"29\" viewBox=\"0
+      0 29 29\" fill=\"none\" class=\"hf\"><path d=\"M5 6.36C5 5.61 5.63 5 6.4 5h16.2c.77
+      0 1.4.61 1.4 1.36v16.28c0 .75-.63 1.36-1.4 1.36H6.4c-.77 0-1.4-.6-1.4-1.36V6.36z\"></path><path
+      fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10.76 20.9v-8.57H7.89v8.58h2.87zm-1.44-9.75c1
+      0 1.63-.65 1.63-1.48-.02-.84-.62-1.48-1.6-1.48-.99 0-1.63.64-1.63 1.48 0 .83.62
+      1.48 1.59 1.48h.01zM12.35 20.9h2.87v-4.79c0-.25.02-.5.1-.7.2-.5.67-1.04 1.46-1.04
+      1.04 0 1.46.8 1.46 1.95v4.59h2.87v-4.92c0-2.64-1.42-3.87-3.3-3.87-1.55 0-2.23.86-2.61
+      1.45h.02v-1.24h-2.87c.04.8 0 8.58 0 8.58z\" fill=\"#fff\"></path></svg></button></div><div
+      class=\"hc s bi\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga\" aria-label=\"Share on facebook\"><svg width=\"29\" height=\"29\" class=\"hf\"><path
+      d=\"M23.2 5H5.8a.8.8 0 0 0-.8.8V23.2c0 .44.35.8.8.8h9.3v-7.13h-2.38V13.9h2.38v-2.38c0-2.45
+      1.55-3.66 3.74-3.66 1.05 0 1.95.08 2.2.11v2.57h-1.5c-1.2 0-1.48.57-1.48 1.4v1.96h2.97l-.6
+      2.97h-2.37l.05 7.12h5.1a.8.8 0 0 0 .79-.8V5.8a.8.8 0 0 0-.8-.79\"></path></svg></button></div><div
+      class=\"hg s\"><div class=\"hf\"><span><a href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fbookmark%2Fp%2F3f06cea4f51&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_actions_header--------------------------bookmark_preview-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><svg
+      width=\"25\" height=\"25\" viewBox=\"0 0 25 25\"><path d=\"M19 6a2 2 0 0 0-2-2H8a2
+      2 0 0 0-2 2v14.66h.01c.01.1.05.2.12.28a.5.5 0 0 0 .7.03l5.67-4.12 5.66 4.13a.5.5
+      0 0 0 .71-.03.5.5 0 0 0 .12-.29H19V6zm-6.84 9.97L7 19.64V6a1 1 0 0 1 1-1h9a1
+      1 0 0 1 1 1v13.64l-5.16-3.67a.49.49 0 0 0-.68 0z\" fill-rule=\"evenodd\"></path></svg></a></span></div></div><div
+      class=\"hh s ao\"></div></div></div></div></div></div><p id=\"fa11\" class=\"hi
+      hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if df
+      fh\">If you are running a PostgreSQL database for your app, chances are you\u2019ll
+      want to run backups.</p><p id=\"54c8\" class=\"hi hj ek hk b hl hm hn ho hp
+      hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if df fh\">Because good boys run
+      backups. And you\u2019re a good boy \U0001F436.</p><p id=\"919c\" class=\"hi
+      hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if df
+      fh\">Now, backing-up a PostgreSQL database from a bash shell is pretty easy.
+      Just invoke <code class=\"ed ig ih ii ij b\">pg_dump</code> like this:</p><pre
+      class=\"ik il im in io ip iq cm\"><span id=\"4773\" class=\"fh ir is ek ij b
+      it iu iv s iw\">pg_dump -h localhost -U postgres my_database</span></pre><p
+      id=\"10cb\" class=\"hi hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy
+      hz ia ib ic id ie if df fh\">You\u2019ll also want to compress your backup.
+      You can easily save a lot of disk space by gzipping your dump file:</p><pre
+      class=\"ik il im in io ip iq cm\"><span id=\"1699\" class=\"fh ir is ek ij b
+      it iu iv s iw\">pg_dump -h localhost -U postgres my_database | gzip &gt; backup.gz</span></pre><p
+      id=\"acdc\" class=\"hi hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy
+      hz ia ib ic id ie if df fh\">But what about doing your database backup using
+      Python? Let me show you a couple of ways you can achieve this.</p><h1 id=\"21ed\"
+      class=\"ix is ek av aw iy iz hn ja jb jc hr jd je jf jg jh ji jj jk jl jm jn
+      jo jp jq fh\">1) Using <code class=\"ed ig ih ii ij b\">subprocess</code></h1><pre
+      class=\"ik il im in io ip iq cm\"><span id=\"4a11\" class=\"fh ir is ek ij b
+      it iu iv s iw\">import gzip<br/>import subprocess</span><span id=\"17ef\" class=\"fh
+      ir is ek ij b it jr js jt ju jv iv s iw\">with gzip.open(\u2018backup.gz\u2019,
+      \u2018wb\u2019) as f:<br/>  popen = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+      universal_newlines=True)<br/>  <br/>  for stdout_line in iter(popen.stdout.readline,
+      \u201C\u201D):<br/>    f.write(stdout_line.encode(\u2018utf-8\u2019))<br/>  <br/>
+      \ popen.stdout.close()<br/>  popen.wait()</span></pre><p id=\"c952\" class=\"hi
+      hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if df
+      fh\">Phew, that\u2019s a lot of code compared to the bash alternative. One thing
+      that\u2019s nice about this snippet is that you\u2019ll be streaming the output
+      of <code class=\"ed ig ih ii ij b\">pg_dump</code> line by line to be written
+      to <code class=\"ed ig ih ii ij b\">backup.gz</code>. This means that for large
+      databases, the memory usage is going to stay very small, as you\u2019re not
+      going to load the whole dump in memory at once.</p><h1 id=\"a736\" class=\"ix
+      is ek av aw iy iz hn ja jb jc hr jd je jf jg jh ji jj jk jl jm jn jo jp jq fh\">2)
+      Using sh</h1><pre class=\"ik il im in io ip iq cm\"><span id=\"6dcc\" class=\"fh
+      ir is ek ij b it iu iv s iw\">import gzip<br/>from sh import pg_dump</span><span
+      id=\"c73e\" class=\"fh ir is ek ij b it jr js jt ju jv iv s iw\">with gzip.open(\u2018backup.gz\u2019,
+      \u2018wb\u2019) as f:<br/>  pg_dump(\u2018-h\u2019, \u2018localhost\u2019, \u2018-U\u2019,
+      \u2018postgres\u2019, \u2018my_dabatase\u2019, _out=f)</span></pre><p id=\"fe6f\"
+      class=\"hi hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic
+      id ie if df fh\">Looks cleaner, eh? <code class=\"ed ig ih ii ij b\"><a href=\"https://amoffat.github.io/sh/\"
+      class=\"fw jw\" rel=\"noopener nofollow\">sh</a></code> is a nifty little library
+      that aims at making calling subprocesses easier. If you don\u2019t mind depending
+      on yet another third party library, then <code class=\"ed ig ih ii ij b\">sh</code>
+      comes in highly recommended. Notice how you just import <code class=\"ed ig
+      ih ii ij b\">pg_dump</code> as if it were an actual Python module. Just magic.
+      Like the example using <code class=\"ed ig ih ii ij b\">subprocess</code>, you
+      won\u2019t blow up your RAM, as the output of <code class=\"ed ig ih ii ij b\">pg_dump</code>
+      is going to be streamed to the <code class=\"ed ig ih ii ij b\">backup.gz</code>
+      file.</p><h1 id=\"e274\" class=\"ix is ek av aw iy iz hn ja jb jc hr jd je jf
+      jg jh ji jj jk jl jm jn jo jp jq fh\">3) Using delegator.py</h1><pre class=\"ik
+      il im in io ip iq cm\"><span id=\"7f09\" class=\"fh ir is ek ij b it iu iv s
+      iw\">import gzip<br/>import delegator</span><span id=\"9dad\" class=\"fh ir
+      is ek ij b it jr js jt ju jv iv s iw\">with gzip.open(\u2018backup.gz\u2019,
+      \u2018wb\u2019) as f:<br/>  c = delegator.run(\u2018pg_dump -h localhost -U
+      postgres my_database\u2019)<br/>  f.write(c.out.encode(\u2018utf-8\u2019))</span></pre><p
+      id=\"e644\" class=\"hi hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy
+      hz ia ib ic id ie if df fh\"><code class=\"ed ig ih ii ij b\"><a href=\"https://github.com/kennethreitz/delegator.py\"
+      class=\"fw jw\" rel=\"noopener nofollow\">delegator.py</a></code> is a single
+      module that was created by none other than Kenneth Reitz, the author of the
+      <code class=\"ed ig ih ii ij b\">requests</code> lib. The snippet above involves
+      less magic than the <code class=\"ed ig ih ii ij b\">sh</code> example, but
+      you\u2019ll have to encode the string to bytes before writing to the compressed
+      file. Unlike the <code class=\"ed ig ih ii ij b\">subprocess</code> or <code
+      class=\"ed ig ih ii ij b\">sh</code> examples, this method will gradually use
+      more memory as your database grows, thus I would only use it for small-ish databases.
+      I haven\u2019t found any way of circumventing this problem, so if you have a
+      tip, let me know!</p><h1 id=\"4c01\" class=\"ix is ek av aw iy iz hn ja jb jc
+      hr jd je jf jg jh ji jj jk jl jm jn jo jp jq fh\">4) Using pexpect</h1><pre
+      class=\"ik il im in io ip iq cm\"><span id=\"02b5\" class=\"fh ir is ek ij b
+      it iu iv s iw\">import gzip<br/>import pexpect</span><span id=\"4c36\" class=\"fh
+      ir is ek ij b it jr js jt ju jv iv s iw\">with gzip.open(\u2018backup.gz\u2019,
+      \u2018wb\u2019) as f:<br/>  c = pexpect.spawn(\u2018pg_dump -h localhost -U
+      postgres my_database)<br/>  f.write(c.read())</span></pre><p id=\"0358\" class=\"hi
+      hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if df
+      fh\">Doing some researches on subprocess alternatives, I stumbled upon <code
+      class=\"ed ig ih ii ij b\"><a href=\"https://github.com/pexpect/pexpect\" class=\"fw
+      jw\" rel=\"noopener nofollow\">pexpect</a></code>. Since it seemed like a quite
+      popular lib, I could not skip it. I like how the code is straightforward. Bonus,
+      no need to encode a string before writing to the gzipped file! Like the <code
+      class=\"ed ig ih ii ij b\">delegator.py</code> example, this snippet will probably
+      blow up your memory usage if you\u2019re not careful. Still, the code is pretty
+      clean, so that\u2019s a plus!</p><h1 id=\"7aa6\" class=\"ix is ek av aw iy iz
+      hn ja jb jc hr jd je jf jg jh ji jj jk jl jm jn jo jp jq fh\">5) Using plumbum</h1><pre
+      class=\"ik il im in io ip iq cm\"><span id=\"659a\" class=\"fh ir is ek ij b
+      it iu iv s iw\">import gzip<br/>from plumbum.cmd import pg_dump</span><span
+      id=\"9416\" class=\"fh ir is ek ij b it jr js jt ju jv iv s iw\">with gzip.open(\u2018backup.gz\u2019,
+      \u2018wb\u2019) as f:<br/>   (pg_dump[\u201C-h\u201D, \u201Clocalhost\u201D,
+      \u201C-U\u201D, \u201Cpostgres\u201D, \u201Cmy_database\u201D] &gt; f)()</span></pre><p
+      id=\"8f61\" class=\"hi hj ek hk b hl hm hn ho hp hq hr hs ht hu hv hw hx hy
+      hz ia ib ic id ie if df fh\">MAGIC OVERLOAD! I like how this snippet uses the
+      <code class=\"ed ig ih ii ij b\">&gt;</code> operator to mimic the behaviour
+      of IO redirection in bash. This library has <a href=\"https://plumbum.readthedocs.io/en/latest/\"
+      class=\"fw jw\" rel=\"noopener nofollow\">many nice examples</a> of IO redirection
+      using pipe operators. Like the 2 previous examples, this method will not stream
+      the dump to the gzipped file gradually, so again, only adequate for smaller
+      databases.</p><h1 id=\"2cb8\" class=\"ix is ek av aw iy iz hn ja jb jc hr jd
+      je jf jg jh ji jj jk jl jm jn jo jp jq fh\">Wrap up</h1><p id=\"7ca5\" class=\"hi
+      hj ek hk b hl jx hn ho hp jy hr hs ht jz hv hw hx ka hz ia ib kb id ie if df
+      fh\">I showed you how you can invoke <code class=\"ed ig ih ii ij b\">pg_dump</code>
+      using python in 5 different ways. If you don\u2019t want to install yet another
+      third party library, or magic scares you, the <code class=\"ed ig ih ii ij b\">subprocess</code>
+      example is definitely the way to go. However, the <code class=\"ed ig ih ii
+      ij b\">sh</code> example is much simpler to understand, and performs well in
+      terms of memory usage. For production use, I would steer clear of the last 3
+      examples, as they tend to use a lot of memory. Also, since you are a good \U0001F415,
+      make sure to <a href=\"https://techcrunch.com/2017/02/01/gitlab-suffers-major-backup-failure-after-data-deletion-incident/\"
+      class=\"fw jw\" rel=\"noopener nofollow\">test</a> your backup restoration procedure!</p></div></div></section></div></article><div
+      class=\"dx de kd kc ak kk ki kl\" data-test-id=\"post-sidebar\"><div class=\"n
+      p\"><div class=\"ac ae af ag ah ai aj ak\"><div class=\"km n kn\"><div class=\"de\"><div><div
+      class=\"ko kp s\"><a href=\"/poka-techblog?source=post_sidebar--------------------------post_sidebar-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><h2
+      class=\"av aw it fs bg fh df\">poka-techblog</h2></a><div class=\"kq kr s\"><p
+      class=\"av b fr fs az ks bb bc kt be bf gt\">Poka Tech Blog</p></div><div class=\"gr\"
+      aria-hidden=\"false\" aria-describedby=\"collectionFollowPopover\" aria-labelledby=\"collectionFollowPopover\"><span><button
+      class=\"av b fr fs gd ku gf gg gh gi gj bt gk gl gm gn go gp gq da gr gs\"><div
+      class=\"n kv\">Follow</div></button></span></div></div><div class=\"kw kx ky
+      n\"><div class=\"n o\"><div class=\"s du kz la lb lc ld\"><span><a href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fvote%2Fpoka-techblog%2F3f06cea4f51&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_sidebar-----3f06cea4f51---------------------clap_sidebar-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><div
+      class=\"br le lf lg lh li lj lk r ll lm\"><svg width=\"29\" height=\"29\" aria-label=\"clap\"><g
+      fill-rule=\"evenodd\"><path d=\"M13.74 1l.76 2.97.76-2.97zM16.82 4.78l1.84-2.56-1.43-.47zM10.38
+      2.22l1.84 2.56-.41-3.03zM22.38 22.62a5.11 5.11 0 0 1-3.16 1.61l.49-.45c2.88-2.89
+      3.45-5.98 1.69-9.21l-1.1-1.94-.96-2.02c-.31-.67-.23-1.18.25-1.55a.84.84 0 0
+      1 .66-.16c.34.05.66.28.88.6l2.85 5.02c1.18 1.97 1.38 5.12-1.6 8.1M9.1 22.1l-5.02-5.02a1
+      1 0 0 1 .7-1.7 1 1 0 0 1 .72.3l2.6 2.6a.44.44 0 0 0 .63-.62L6.1 15.04l-1.75-1.75a1
+      1 0 1 1 1.41-1.41l4.15 4.15a.44.44 0 0 0 .63 0 .44.44 0 0 0 0-.62L6.4 11.26l-1.18-1.18a1
+      1 0 0 1 0-1.4 1.02 1.02 0 0 1 1.41 0l1.18 1.16L11.96 14a.44.44 0 0 0 .62 0 .44.44
+      0 0 0 0-.63L8.43 9.22a.99.99 0 0 1-.3-.7.99.99 0 0 1 .3-.7 1 1 0 0 1 1.41 0l7
+      6.98a.44.44 0 0 0 .7-.5l-1.35-2.85c-.31-.68-.23-1.19.25-1.56a.85.85 0 0 1 .66-.16c.34.06.66.28.88.6L20.63
+      15c1.57 2.88 1.07 5.54-1.55 8.16a5.62 5.62 0 0 1-5.06 1.65 9.35 9.35 0 0 1-4.93-2.72zM13
+      6.98l2.56 2.56c-.5.6-.56 1.41-.15 2.28l.26.56-4.25-4.25a.98.98 0 0 1-.12-.45
+      1 1 0 0 1 .29-.7 1.02 1.02 0 0 1 1.41 0zm8.89 2.06c-.38-.56-.9-.92-1.49-1.01a1.74
+      1.74 0 0 0-1.34.33c-.38.29-.61.65-.71 1.06a2.1 2.1 0 0 0-1.1-.56 1.78 1.78 0
+      0 0-.99.13l-2.64-2.64a1.88 1.88 0 0 0-2.65 0 1.86 1.86 0 0 0-.48.85 1.89 1.89
+      0 0 0-2.67-.01 1.87 1.87 0 0 0-.5.9c-.76-.75-2-.75-2.7-.04a1.88 1.88 0 0 0 0
+      2.66c-.3.12-.61.29-.87.55a1.88 1.88 0 0 0 0 2.66l.62.62a1.88 1.88 0 0 0-.9 3.16l5.01
+      5.02c1.6 1.6 3.52 2.64 5.4 2.96a7.16 7.16 0 0 0 1.18.1c1.03 0 2-.25 2.9-.7A5.9
+      5.9 0 0 0 23 23.24c3.34-3.34 3.08-6.93 1.74-9.17l-2.87-5.04z\"></path></g></svg></div></a></span></div><div
+      class=\"s ln lo lp lq lr ls lt\"><div class=\"lu\"><p class=\"av b fr fs gt\"><button
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\">194<!-- --> </button></p></div></div></div></div><div
+      class=\"kx s\"><button class=\"lh lf br\"><div class=\"lx n o kv\"><svg width=\"25\"
+      height=\"25\" class=\"r\" aria-label=\"responses\"><path d=\"M19.07 21.12a6.33
+      6.33 0 0 1-3.53-1.1 7.8 7.8 0 0 1-.7-.52c-.77.21-1.57.32-2.38.32-4.67 0-8.46-3.5-8.46-7.8C4
+      7.7 7.79 4.2 12.46 4.2c4.66 0 8.46 3.5 8.46 7.8 0 2.06-.85 3.99-2.4 5.45a6.28
+      6.28 0 0 0 1.14 2.59c.15.21.17.48.06.7a.69.69 0 0 1-.62.38h-.03zm0-1v.5l.03-.5h-.03zm-3.92-1.64l.21.2a6.09
+      6.09 0 0 0 3.24 1.54 7.14 7.14 0 0 1-.83-1.84 5.15 5.15 0 0 1-.16-.75 2.4 2.4
+      0 0 1-.02-.29v-.23l.18-.15a6.6 6.6 0 0 0 2.3-4.96c0-3.82-3.4-6.93-7.6-6.93-4.19
+      0-7.6 3.11-7.6 6.93 0 3.83 3.41 6.94 7.6 6.94.83 0 1.64-.12 2.41-.35l.28-.08z\"
+      fill-rule=\"evenodd\"></path></svg><div class=\"s du ly lz ma mb mc md me mf\"><p
+      class=\"av b fr fs gt\">4<!-- --> </p></div></div></button></div><div class=\"hf\"><span><a
+      href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fbookmark%2Fp%2F3f06cea4f51&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_sidebar-----3f06cea4f51---------------------bookmark_sidebar-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><svg
+      width=\"25\" height=\"25\" viewBox=\"0 0 25 25\"><path d=\"M19 6a2 2 0 0 0-2-2H8a2
+      2 0 0 0-2 2v14.66h.01c.01.1.05.2.12.28a.5.5 0 0 0 .7.03l5.67-4.12 5.66 4.13a.5.5
+      0 0 0 .71-.03.5.5 0 0 0 .12-.29H19V6zm-6.84 9.97L7 19.64V6a1 1 0 0 1 1-1h9a1
+      1 0 0 1 1 1v13.64l-5.16-3.67a.49.49 0 0 0-.68 0z\" fill-rule=\"evenodd\"></path></svg></a></span></div></div></div></div></div></div></div><div
+      class=\"dx de kc kd ke kf kg kh ki kj\"></div><div><div class=\"mg dr n kn p\"><div
+      class=\"n p\"><div class=\"ac ae af ag ah dk aj ak\"><div class=\"n mh\"></div><div
+      class=\"n o mh\"></div><div class=\"mi s\"><ul class=\"br bs\"><li class=\"gr
+      cj hg mj\"><a href=\"https://medium.com/poka-techblog/tagged/python\" class=\"av
+      b gc mk gt ml mm gs s iq\">Python</a></li><li class=\"gr cj hg mj\"><a href=\"https://medium.com/poka-techblog/tagged/postgresql\"
+      class=\"av b gc mk gt ml mm gs s iq\">Postgresql</a></li><li class=\"gr cj hg
+      mj\"><a href=\"https://medium.com/poka-techblog/tagged/devops\" class=\"av b
+      gc mk gt ml mm gs s iq\">DevOps</a></li><li class=\"gr cj hg mj\"><a href=\"https://medium.com/poka-techblog/tagged/backup\"
+      class=\"av b gc mk gt ml mm gs s iq\">Backup</a></li></ul></div><div class=\"mi
+      n fj z\"><div class=\"n kv\"><div class=\"mn s\"><span class=\"s mo mp mq e
+      d\"><div class=\"n o\"><div class=\"s du kz la lb lc ld\"><span><a href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fvote%2Fpoka-techblog%2F3f06cea4f51&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_actions_footer-----3f06cea4f51---------------------clap_footer-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><div
+      class=\"br le lf lg lh li lj lk r ll lm\"><svg width=\"25\" height=\"25\" viewBox=\"0
+      0 25 25\" aria-label=\"clap\"><g fill-rule=\"evenodd\"><path d=\"M11.74 0l.76
+      2.97.76-2.97zM14.81 3.78l1.84-2.56-1.42-.47zM8.38 1.22l1.84 2.56L9.8.75zM20.38
+      21.62a5.11 5.11 0 0 1-3.16 1.61l.49-.45c2.88-2.89 3.45-5.98 1.69-9.21l-1.1-1.94-.96-2.02c-.31-.67-.23-1.18.25-1.55a.84.84
+      0 0 1 .66-.16c.34.05.66.28.88.6l2.85 5.02c1.18 1.97 1.38 5.12-1.6 8.1M7.1 21.1l-5.02-5.02a1
+      1 0 0 1 .7-1.7 1 1 0 0 1 .72.3l2.6 2.6a.44.44 0 0 0 .63-.62L4.1 14.04l-1.75-1.75a1
+      1 0 1 1 1.41-1.41l4.15 4.15a.44.44 0 0 0 .63 0 .44.44 0 0 0 0-.62L4.4 10.26
+      3.22 9.08a1 1 0 0 1 0-1.4 1.02 1.02 0 0 1 1.41 0l1.18 1.16L9.96 13a.44.44 0
+      0 0 .62 0 .44.44 0 0 0 0-.63L6.43 8.22a.99.99 0 0 1-.3-.7.99.99 0 0 1 .3-.7
+      1 1 0 0 1 1.41 0l7 6.98a.44.44 0 0 0 .7-.5l-1.35-2.85c-.31-.68-.23-1.19.25-1.56a.85.85
+      0 0 1 .66-.16c.34.06.66.28.88.6L18.63 14c1.57 2.88 1.07 5.54-1.55 8.16a5.62
+      5.62 0 0 1-5.06 1.65 9.35 9.35 0 0 1-4.93-2.72zM11 5.98l2.56 2.56c-.5.6-.56
+      1.41-.15 2.28l.26.56-4.25-4.25a.98.98 0 0 1-.12-.45 1 1 0 0 1 .29-.7 1.02 1.02
+      0 0 1 1.41 0zm8.89 2.06c-.38-.56-.9-.92-1.49-1.01a1.74 1.74 0 0 0-1.34.33c-.38.29-.61.65-.71
+      1.06a2.1 2.1 0 0 0-1.1-.56 1.78 1.78 0 0 0-.99.13l-2.64-2.64a1.88 1.88 0 0 0-2.65
+      0 1.86 1.86 0 0 0-.48.85 1.89 1.89 0 0 0-2.67-.01 1.87 1.87 0 0 0-.5.9c-.76-.75-2-.75-2.7-.04a1.88
+      1.88 0 0 0 0 2.66c-.3.12-.61.29-.87.55a1.88 1.88 0 0 0 0 2.66l.62.62a1.88 1.88
+      0 0 0-.9 3.16l5.01 5.02c1.6 1.6 3.52 2.64 5.4 2.96a7.16 7.16 0 0 0 1.18.1c1.03
+      0 2-.25 2.9-.7A5.9 5.9 0 0 0 21 22.24c3.34-3.34 3.08-6.93 1.74-9.17l-2.87-5.04z\"></path></g></svg></div></a></span></div><div
+      class=\"s ln lo lp lq lr ls lt\"><div class=\"du mr lu\"><p class=\"av b fr
+      fs fh\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\">194<span
+      class=\"s h g f ms mt\">\_<!-- -->claps</span></button><span class=\"s h g f
+      ms mt\"></span></p></div></div></div></span><span class=\"s h g f ms mt\"><div
+      class=\"n cn\"><div class=\"s du kz la\"><span><a href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fvote%2Fpoka-techblog%2F3f06cea4f51&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_actions_footer-----3f06cea4f51---------------------clap_footer-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><div
+      class=\"br le lf lg lh li lj lk r ll lm\"><svg width=\"33\" height=\"33\" viewBox=\"0
+      0 33 33\" aria-label=\"clap\"><path d=\"M28.86 17.34l-3.64-6.4c-.3-.43-.71-.73-1.16-.8a1.12
+      1.12 0 0 0-.9.21c-.62.5-.73 1.18-.32 2.06l1.22 2.6 1.4 2.45c2.23 4.09 1.51 8-2.15
+      11.66a9.6 9.6 0 0 1-.8.71 6.53 6.53 0 0 0 4.3-2.1c3.82-3.82 3.57-7.87 2.05-10.39zm-6.25
+      11.08c3.35-3.35 4-6.78 1.98-10.47L21.2 12c-.3-.43-.71-.72-1.16-.8a1.12 1.12
+      0 0 0-.9.22c-.62.49-.74 1.18-.32 2.06l1.72 3.63a.5.5 0 0 1-.81.57l-8.91-8.9a1.33
+      1.33 0 0 0-1.89 1.88l5.3 5.3a.5.5 0 0 1-.71.7l-5.3-5.3-1.49-1.49c-.5-.5-1.38-.5-1.88
+      0a1.34 1.34 0 0 0 0 1.89l1.49 1.5 5.3 5.28a.5.5 0 0 1-.36.86.5.5 0 0 1-.36-.15l-5.29-5.29a1.34
+      1.34 0 0 0-1.88 0 1.34 1.34 0 0 0 0 1.89l2.23 2.23L9.3 21.4a.5.5 0 0 1-.36.85.5.5
+      0 0 1-.35-.14l-3.32-3.33a1.33 1.33 0 0 0-1.89 0 1.32 1.32 0 0 0-.39.95c0 .35.14.69.4.94l6.39
+      6.4c3.53 3.53 8.86 5.3 12.82 1.35zM12.73 9.26l5.68 5.68-.49-1.04c-.52-1.1-.43-2.13.22-2.89l-3.3-3.3a1.34
+      1.34 0 0 0-1.88 0 1.33 1.33 0 0 0-.4.94c0 .22.07.42.17.61zm14.79 19.18a7.46
+      7.46 0 0 1-6.41 2.31 7.92 7.92 0 0 1-3.67.9c-3.05 0-6.12-1.63-8.36-3.88l-6.4-6.4A2.31
+      2.31 0 0 1 2 19.72a2.33 2.33 0 0 1 1.92-2.3l-.87-.87a2.34 2.34 0 0 1 0-3.3 2.33
+      2.33 0 0 1 1.24-.64l-.14-.14a2.34 2.34 0 0 1 0-3.3 2.39 2.39 0 0 1 3.3 0l.14.14a2.33
+      2.33 0 0 1 3.95-1.24l.09.09c.09-.42.29-.83.62-1.16a2.34 2.34 0 0 1 3.3 0l3.38
+      3.39a2.17 2.17 0 0 1 1.27-.17c.54.08 1.03.35 1.45.76.1-.55.41-1.03.9-1.42a2.12
+      2.12 0 0 1 1.67-.4 2.8 2.8 0 0 1 1.85 1.25l3.65 6.43c1.7 2.83 2.03 7.37-2.2
+      11.6zM13.22.48l-1.92.89 2.37 2.83-.45-3.72zm8.48.88L19.78.5l-.44 3.7 2.36-2.84zM16.5
+      3.3L15.48 0h2.04L16.5 3.3z\" fill-rule=\"evenodd\"></path></svg></div></a></span></div><div
+      class=\"s ln lo lp lq mu mv mw mx my mz\"><div class=\"du mr lu\"><p class=\"av
+      b fr fs fh\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\">194<span
+      class=\"s h g f ms mt\">\_<!-- -->claps</span></button><span class=\"s h g f
+      ms mt\"></span></p></div></div></div></span></div><div class=\"s na nb nc nd
+      ne\"></div><button class=\"lh lf br\"><div class=\"lx n o kv\"><span class=\"nf
+      s h g f ms mt\"><svg width=\"33\" height=\"33\" viewBox=\"0 0 33 33\" fill=\"none\"
+      class=\"r\" aria-label=\"responses\"><path clip-rule=\"evenodd\" d=\"M24.28
+      25.5l.32-.29c2.11-1.94 3.4-4.61 3.4-7.56C28 11.83 22.92 7 16.5 7S5 11.83 5 17.65s5.08
+      10.66 11.5 10.66c1.22 0 2.4-.18 3.5-.5l.5-.15.41.33a8.86 8.86 0 0 0 4.68 2.1
+      7.34 7.34 0 0 1-1.3-4.15v-.43zm1 .45c0 1.5.46 2.62 1.69 4.44.22.32.01.75-.38.75a9.69
+      9.69 0 0 1-6.31-2.37c-1.2.35-2.46.54-3.78.54C9.6 29.3 4 24.09 4 17.65 4 11.22
+      9.6 6 16.5 6S29 11.22 29 17.65c0 3.25-1.42 6.18-3.72 8.3z\"></path></svg></span><span
+      class=\"ng s mo mp mq e d\"><svg width=\"25\" height=\"25\" class=\"r\" aria-label=\"responses\"><path
+      d=\"M19.07 21.12a6.33 6.33 0 0 1-3.53-1.1 7.8 7.8 0 0 1-.7-.52c-.77.21-1.57.32-2.38.32-4.67
+      0-8.46-3.5-8.46-7.8C4 7.7 7.79 4.2 12.46 4.2c4.66 0 8.46 3.5 8.46 7.8 0 2.06-.85
+      3.99-2.4 5.45a6.28 6.28 0 0 0 1.14 2.59c.15.21.17.48.06.7a.69.69 0 0 1-.62.38h-.03zm0-1v.5l.03-.5h-.03zm-3.92-1.64l.21.2a6.09
+      6.09 0 0 0 3.24 1.54 7.14 7.14 0 0 1-.83-1.84 5.15 5.15 0 0 1-.16-.75 2.4 2.4
+      0 0 1-.02-.29v-.23l.18-.15a6.6 6.6 0 0 0 2.3-4.96c0-3.82-3.4-6.93-7.6-6.93-4.19
+      0-7.6 3.11-7.6 6.93 0 3.83 3.41 6.94 7.6 6.94.83 0 1.64-.12 2.41-.35l.28-.08z\"
+      fill-rule=\"evenodd\"></path></svg></span><div class=\"s du nh lz ni mb nj md
+      nk nl nm nn\"><p class=\"av b fr fs fh\">4<!-- --> <span class=\"s h g f ms
+      mt\">response<!-- -->s</span></p></div></div></button></div><div class=\"n o\"><div
+      class=\"hc s bi\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga\" aria-label=\"Share on twitter\"><svg width=\"29\" height=\"29\" class=\"hf\"><path
+      d=\"M22.05 7.54a4.47 4.47 0 0 0-3.3-1.46 4.53 4.53 0 0 0-4.53 4.53c0 .35.04.7.08
+      1.05A12.9 12.9 0 0 1 5 6.89a5.1 5.1 0 0 0-.65 2.26c.03 1.6.83 2.99 2.02 3.79a4.3
+      4.3 0 0 1-2.02-.57v.08a4.55 4.55 0 0 0 3.63 4.44c-.4.08-.8.13-1.21.16l-.81-.08a4.54
+      4.54 0 0 0 4.2 3.15 9.56 9.56 0 0 1-5.66 1.94l-1.05-.08c2 1.27 4.38 2.02 6.94
+      2.02 8.3 0 12.86-6.9 12.84-12.85.02-.24 0-.43 0-.65a8.68 8.68 0 0 0 2.26-2.34c-.82.38-1.7.62-2.6.72a4.37
+      4.37 0 0 0 1.95-2.51c-.84.53-1.81.9-2.83 1.13z\"></path></svg></button></div><div
+      class=\"hc s bi\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga\" aria-label=\"Share on linkedin\"><svg width=\"29\" height=\"29\" viewBox=\"0
+      0 29 29\" fill=\"none\" class=\"hf\"><path d=\"M5 6.36C5 5.61 5.63 5 6.4 5h16.2c.77
+      0 1.4.61 1.4 1.36v16.28c0 .75-.63 1.36-1.4 1.36H6.4c-.77 0-1.4-.6-1.4-1.36V6.36z\"></path><path
+      fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M10.76 20.9v-8.57H7.89v8.58h2.87zm-1.44-9.75c1
+      0 1.63-.65 1.63-1.48-.02-.84-.62-1.48-1.6-1.48-.99 0-1.63.64-1.63 1.48 0 .83.62
+      1.48 1.59 1.48h.01zM12.35 20.9h2.87v-4.79c0-.25.02-.5.1-.7.2-.5.67-1.04 1.46-1.04
+      1.04 0 1.46.8 1.46 1.95v4.59h2.87v-4.92c0-2.64-1.42-3.87-3.3-3.87-1.55 0-2.23.86-2.61
+      1.45h.02v-1.24h-2.87c.04.8 0 8.58 0 8.58z\" fill=\"#fff\"></path></svg></button></div><div
+      class=\"hc s bi\"><button class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga\" aria-label=\"Share on facebook\"><svg width=\"29\" height=\"29\" class=\"hf\"><path
+      d=\"M23.2 5H5.8a.8.8 0 0 0-.8.8V23.2c0 .44.35.8.8.8h9.3v-7.13h-2.38V13.9h2.38v-2.38c0-2.45
+      1.55-3.66 3.74-3.66 1.05 0 1.95.08 2.2.11v2.57h-1.5c-1.2 0-1.48.57-1.48 1.4v1.96h2.97l-.6
+      2.97h-2.37l.05 7.12h5.1a.8.8 0 0 0 .79-.8V5.8a.8.8 0 0 0-.8-.79\"></path></svg></button></div><div
+      class=\"no s bi\"><div class=\"hf\"><span><a href=\"https://medium.com/m/signin?actionUrl=%2F_%2Fbookmark%2Fp%2F3f06cea4f51&amp;operation=register&amp;redirect=https%3A%2F%2Fmedium.com%2Fpoka-techblog%2F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51&amp;source=post_actions_footer--------------------------bookmark_footer-----------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\"><svg
+      width=\"25\" height=\"25\" viewBox=\"0 0 25 25\"><path d=\"M19 6a2 2 0 0 0-2-2H8a2
+      2 0 0 0-2 2v14.66h.01c.01.1.05.2.12.28a.5.5 0 0 0 .7.03l5.67-4.12 5.66 4.13a.5.5
+      0 0 0 .71-.03.5.5 0 0 0 .12-.29H19V6zm-6.84 9.97L7 19.64V6a1 1 0 0 1 1-1h9a1
+      1 0 0 1 1 1v13.64l-5.16-3.67a.49.49 0 0 0-.68 0z\" fill-rule=\"evenodd\"></path></svg></a></span></div></div></div></div></div></div><div><div
+      class=\"n p\"><div class=\"ac ae af ag ah dk aj ak\"><div class=\"np nq nr mi
+      s ns z\"><div class=\"s g\"><div class=\"nt nu s du\"><span class=\"s nv an
+      nw\"><div class=\"s t nx ny\"><a rel=\"noopener\" href=\"/@spgingras?source=follow_footer-------------------------------------\"><img
+      alt=\"Simon-Pierre Gingras\" class=\"s fn cq nz\" src=\"https://miro.medium.com/fit/c/160/160/1*RginaaAWEY_lEhyZBmBrmw.jpeg\"
+      width=\"80\" height=\"80\"/></a></div><span class=\"s\"><div class=\"oa s ob\"><p
+      class=\"av b gc oc od gt oe\">Written by</p></div><div class=\"oa of n ob\"><div
+      class=\"ak n o fj\"><h2 class=\"av aw ax ay bg fh\"><a class=\"fw fx bm bn bo
+      bp bq br bs bt hd he bw fz ga\" rel=\"noopener\" href=\"/@spgingras?source=follow_footer-------------------------------------\">Simon-Pierre
+      Gingras</a></h2><div class=\"s g\"><span><button class=\"av b fr fs gd og gf
+      gg gh gi gj bt gk gl gm gn go gp gq da gr gs\">Follow</button></span></div></div></div></span></span><div
+      class=\"oa oh s ob cb\"><div class=\"oi s\"><p class=\"av b it cf gt\"></p></div><div
+      class=\"ca oj cb\"><span><button class=\"av b fr fs gd og gf gg gh gi gj bt
+      gk gl gm gn go gp gq da gr gs\">Follow</button></span></div></div></div><div
+      class=\"np s\"></div><div class=\"nt nu s du\"><span class=\"s nv an nw\"><div
+      class=\"s t nx ny\"><a href=\"/poka-techblog?source=follow_footer-------------------------------------\"
+      rel=\"noopener\"><img alt=\"poka-techblog\" class=\"go nz cq\" src=\"https://miro.medium.com/fit/c/160/160/1*0aXv2kIeU2_HkJ9c0c5WUw.jpeg\"
+      width=\"80\" height=\"80\"/></a></div><span class=\"s\"><div class=\"oa of n
+      ob\"><div class=\"ak n o fj\"><h2 class=\"av aw ax ay bg fh\"><a href=\"/poka-techblog?source=follow_footer-------------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\">poka-techblog</a></h2><div
+      class=\"s g\"><div class=\"gr\" aria-hidden=\"false\" aria-describedby=\"collectionFollowPopover\"
+      aria-labelledby=\"collectionFollowPopover\"><span><button class=\"av b fr fs
+      gd og gf gg gh gi gj bt gk gl gm gn go gp gq da gr gs\"><div class=\"n kv\">Follow</div></button></span></div></div></div></div></span></span><div
+      class=\"oa ok s ob cb\"><div class=\"oi s\"><p class=\"av b it cf gt\">Poka
+      Tech Blog</p></div><div class=\"ca oj cb\"><div class=\"gr\" aria-hidden=\"false\"
+      aria-describedby=\"collectionFollowPopover\" aria-labelledby=\"collectionFollowPopover\"><span><button
+      class=\"av b fr fs gd og gf gg gh gi gj bt gk gl gm gn go gp gq da gr gs\"><div
+      class=\"n kv\">Follow</div></button></span></div></div></div></div></div><div
+      class=\"ca cb\"><div class=\"ol s\"><div class=\"n kv\"><div class=\"om s\"><a
+      rel=\"noopener\" href=\"/@spgingras?source=follow_footer-------------------------------------\"><img
+      alt=\"Simon-Pierre Gingras\" class=\"s fn on oo\" src=\"https://miro.medium.com/fit/c/80/80/1*RginaaAWEY_lEhyZBmBrmw.jpeg\"
+      width=\"40\" height=\"40\"/></a></div><div class=\"fq s\"><p class=\"av b op
+      oq or gt oe\">Written by</p><div class=\"n kv\"><h2 class=\"av aw it fs bg fh\"><a
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\" href=\"/@spgingras?source=follow_footer-------------------------------------\">Simon-Pierre
+      Gingras</a></h2><div class=\"fq s\"><span><button class=\"av b gc fs gd ge gf
+      gg gh gi gj bt gk gl gm gn go gp gq da gr gs\">Follow</button></span></div></div><div
+      class=\"os s\"><p class=\"av b fr fs gt\"></p></div></div></div><div class=\"ol
+      s\"><div class=\"n kv\"><a href=\"/poka-techblog?source=follow_footer-------------------------------------\"
+      rel=\"noopener\"><img alt=\"poka-techblog\" class=\"go oo on\" src=\"https://miro.medium.com/fit/c/80/80/1*0aXv2kIeU2_HkJ9c0c5WUw.jpeg\"
+      width=\"40\" height=\"40\"/></a><div class=\"fq s\"><div class=\"n kv\"><h2
+      class=\"av aw it fs bg fh\"><a href=\"/poka-techblog?source=follow_footer-------------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz ga\" rel=\"noopener\">poka-techblog</a></h2><div
+      class=\"fq s\"><div class=\"gr\" aria-hidden=\"false\" aria-describedby=\"collectionFollowPopover\"
+      aria-labelledby=\"collectionFollowPopover\"><span><button class=\"av b gc fs
+      gd ge gf gg gh gi gj bt gk gl gm gn go gp gq da gr gs\"><div class=\"n kv\">Follow</div></button></span></div></div></div><div
+      class=\"os s\"><p class=\"av b fr fs gt\">Poka Tech Blog</p></div></div></div></div></div></div></div></div></div><div
+      class=\"s ot z\"><div class=\"n p\"><div class=\"ac ae af ag ah ai aj ak\"><div
+      class=\"ou ov s\"><div class=\"ow kp ox ov s oy oz\"><h2 class=\"av aw pa pb
+      ja pc pd jd pe pf jh pg ph jl pi pj jp fh\">More From Medium</h2></div><div
+      class=\"cn n kv mh pk pl pm pn po pp pq pr ps pt pu pv pw px py\"><div class=\"pz
+      qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div class=\"qu
+      qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci qw qx qy\"><div
+      class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh rg rh jl ri rj jp
+      fh\"><a rel=\"noopener\" href=\"/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d?source=post_internal_links---------0----------------------------\">Simplify
+      your JavaScript \u2013 Use .map(), .reduce(), and .filter()</a></h2></div><div
+      class=\"o n\"><div></div><div class=\"ak s\"><div class=\"n\"><div style=\"flex:1\"><span
+      class=\"av b fr fs fh\"><div class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@etiennetalbot?source=post_internal_links---------0----------------------------\">Etienne
+      Talbot</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------0----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d?source=post_internal_links---------0----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*mG4yPf0dVoBk0R6csThChQ.png?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*mG4yPf0dVoBk0R6csThChQ.png\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*mG4yPf0dVoBk0R6csThChQ.png
+      48w, https://miro.medium.com/fit/c/140/140/1*mG4yPf0dVoBk0R6csThChQ.png 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd?source=post_internal_links---------1----------------------------\">Simplify
+      your JavaScript \u2013 Use\_.some() and\_.find()</a></h2></div><div class=\"o
+      n\"><div></div><div class=\"ak s\"><div class=\"n\"><div style=\"flex:1\"><span
+      class=\"av b fr fs fh\"><div class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@etiennetalbot?source=post_internal_links---------1----------------------------\">Etienne
+      Talbot</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------1----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd?source=post_internal_links---------1----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*scwcpro6eU-pORVH_Fpc_g.png?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*scwcpro6eU-pORVH_Fpc_g.png\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*scwcpro6eU-pORVH_Fpc_g.png
+      48w, https://miro.medium.com/fit/c/140/140/1*scwcpro6eU-pORVH_Fpc_g.png 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/poka-techblog/destructuring-in-javascript-f4f56d5cbd80?source=post_internal_links---------2----------------------------\">Destructuring
+      in JavaScript</a></h2></div><div class=\"o n\"><div></div><div class=\"ak s\"><div
+      class=\"n\"><div style=\"flex:1\"><span class=\"av b fr fs fh\"><div class=\"cr
+      n o fu\"><span class=\"av b gc fs fh\"><a class=\"fw fx bm bn bo bp bq br bs
+      bt fy bw fz ga\" rel=\"noopener\" href=\"/@etiennetalbot?source=post_internal_links---------2----------------------------\">Etienne
+      Talbot</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------2----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/destructuring-in-javascript-f4f56d5cbd80?source=post_internal_links---------2----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg
+      48w, https://miro.medium.com/fit/c/140/140/1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/poka-techblog/aws-s3-batch-operations-beginners-guide-9573017f18db?source=post_internal_links---------3----------------------------\">AWS
+      S3 Batch Operations: Beginner\u2019s Guide</a></h2></div><div class=\"o n\"><div></div><div
+      class=\"ak s\"><div class=\"n\"><div style=\"flex:1\"><span class=\"av b fr
+      fs fh\"><div class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a class=\"fw
+      fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@spgingras?source=post_internal_links---------3----------------------------\">Simon-Pierre
+      Gingras</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------3----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/aws-s3-batch-operations-beginners-guide-9573017f18db?source=post_internal_links---------3----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*CeCGBrDjmUzjYppt1k0wCg.png?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*CeCGBrDjmUzjYppt1k0wCg.png\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*CeCGBrDjmUzjYppt1k0wCg.png
+      48w, https://miro.medium.com/fit/c/140/140/1*CeCGBrDjmUzjYppt1k0wCg.png 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/poka-techblog/resolvers-angulars-one-click-data-delivery-b6fb2ab317e2?source=post_internal_links---------4----------------------------\">Resolvers:
+      Angular\u2019s one-click data delivery</a></h2></div><div class=\"o n\"><div></div><div
+      class=\"ak s\"><div class=\"n\"><div style=\"flex:1\"><span class=\"av b fr
+      fs fh\"><div class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a class=\"fw
+      fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@etiennetalbot?source=post_internal_links---------4----------------------------\">Etienne
+      Talbot</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------4----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/resolvers-angulars-one-click-data-delivery-b6fb2ab317e2?source=post_internal_links---------4----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*ckfmJetQeMdv-5CgkUqdAw.jpeg?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*ckfmJetQeMdv-5CgkUqdAw.jpeg\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*ckfmJetQeMdv-5CgkUqdAw.jpeg
+      48w, https://miro.medium.com/fit/c/140/140/1*ckfmJetQeMdv-5CgkUqdAw.jpeg 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/poka-techblog/ctf-write-up-categorizing-images-in-python-ab40e4aa6a4c?source=post_internal_links---------5----------------------------\">CTF
+      Write-Up\_:: Categorizing images in Python</a></h2></div><div class=\"o n\"><div></div><div
+      class=\"ak s\"><div class=\"n\"><div style=\"flex:1\"><span class=\"av b fr
+      fs fh\"><div class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a class=\"fw
+      fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@maaube?source=post_internal_links---------5----------------------------\">Marc-Antoine
+      Aub\xE9</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------5----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/ctf-write-up-categorizing-images-in-python-ab40e4aa6a4c?source=post_internal_links---------5----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg
+      48w, https://miro.medium.com/fit/c/140/140/1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/poka-techblog/hunting-mutants-with-mutmut-5f575b625598?source=post_internal_links---------6----------------------------\">Hunting
+      Mutants with Mutmut</a></h2></div><div class=\"o n\"><div></div><div class=\"ak
+      s\"><div class=\"n\"><div style=\"flex:1\"><span class=\"av b fr fs fh\"><div
+      class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a class=\"fw fx bm bn bo
+      bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@maaube?source=post_internal_links---------6----------------------------\">Marc-Antoine
+      Aub\xE9</a><span> <!-- -->in<!-- --> <a href=\"/poka-techblog?source=post_internal_links---------6----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">poka-techblog</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/poka-techblog/hunting-mutants-with-mutmut-5f575b625598?source=post_internal_links---------6----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*pjlTxI3CxFffRlcXeuEhjw.jpeg?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*pjlTxI3CxFffRlcXeuEhjw.jpeg\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*pjlTxI3CxFffRlcXeuEhjw.jpeg
+      48w, https://miro.medium.com/fit/c/140/140/1*pjlTxI3CxFffRlcXeuEhjw.jpeg 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div><div
+      class=\"pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt\"><div
+      class=\"qu qv s\"><div class=\"ak dz\"><div class=\"n fj\"><div class=\"s ci
+      qw qx qy\"><div class=\"qz s\"><h2 class=\"av aw ra rb ja rc rd jd re rf jh
+      rg rh jl ri rj jp fh\"><a rel=\"noopener\" href=\"/better-programming/6-ways-to-power-up-your-python-code-d2ac5307d7d0?source=post_internal_links---------7----------------------------\">6
+      Ways To Power Up Your Python Code</a></h2></div><div class=\"o n\"><div></div><div
+      class=\"ak s\"><div class=\"n\"><div style=\"flex:1\"><span class=\"av b fr
+      fs fh\"><div class=\"cr n o fu\"><span class=\"av b gc fs fh\"><a class=\"fw
+      fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\" href=\"/@t.s.noble?source=post_internal_links---------7----------------------------\">Tom
+      Noble</a><span> <!-- -->in<!-- --> <a href=\"/better-programming?source=post_internal_links---------7----------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw fz ga\" rel=\"noopener\">Better
+      Programming</a></span></span></div></span></div></div></div></div></div><div
+      class=\"fq hg s rk rl\"><a class=\"fw fx bm bn bo bp bq br bs bt hd he bw fz
+      ga s\" rel=\"noopener\" href=\"/better-programming/6-ways-to-power-up-your-python-code-d2ac5307d7d0?source=post_internal_links---------7----------------------------\"><div
+      class=\"ec s du ed\"><div class=\"rm ef s\"><div class=\"dx dy t u v dz ak az
+      ea eb\"><img class=\"t u v dz ak eg eh ei\" src=\"https://miro.medium.com/max/60/1*S0EBOgzmX-eCADtMMIYeqw.jpeg?q=20\"
+      width=\"70\" height=\"70\" role=\"presentation\"/></div><img class=\"dx dy rn
+      ro rp rq rr rs rt ru rv rw c\" width=\"70\" height=\"70\" role=\"presentation\"/><noscript><img
+      class=\"rn ro rp rq rr rs rt ru rv rw\" src=\"https://miro.medium.com/fit/c/140/140/1*S0EBOgzmX-eCADtMMIYeqw.jpeg\"
+      width=\"70\" height=\"70\" srcSet=\"https://miro.medium.com/fit/c/96/140/1*S0EBOgzmX-eCADtMMIYeqw.jpeg
+      48w, https://miro.medium.com/fit/c/140/140/1*S0EBOgzmX-eCADtMMIYeqw.jpeg 70w\"
+      sizes=\"70px\" role=\"presentation\"/></noscript></div></div></a></div></div></div></div></div></div></div></div></div></div></div></div></div><div
+      class=\"rx s ry rz\"><div class=\"n p\"><div class=\"ac ae af ag ah ai aj ak\"><div
+      class=\"sa sb nt n fj g\"><div class=\"sc n fj\"><div class=\"sd s se\"><div
+      class=\"qz s\"><a href=\"https://medium.com/about?autoplay=1&amp;source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt sf sg bw sh si\" rel=\"noopener\"><h2
+      class=\"av aw ce cf bg sj\">Learn more.</h2></a></div><p class=\"av b fr fs
+      sk\">Medium<!-- --> is an open platform where 170 million readers come to find
+      insightful and dynamic thinking. Here, expert and undiscovered voices alike
+      dive into the heart of any topic and bring new ideas to the surface.<!-- -->
+      <a href=\"https://medium.com/about?autoplay=1&amp;source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt bw sh si jw\" rel=\"noopener\">Learn more</a></p></div><div
+      class=\"sd s se\"><div class=\"qz s\"><a href=\"https://medium.com/topics?source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt sf sg bw sh si\" rel=\"noopener\"><h2
+      class=\"av aw ce cf bg sj\">Make <!-- -->Medium<!-- --> yours.</h2></a></div><p
+      class=\"av b fr fs sk\">Follow the writers, publications, and topics that matter
+      to you, and you\u2019ll see them on your homepage and in your inbox.<!-- -->
+      <a href=\"https://medium.com/topics?source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt bw sh si jw\" rel=\"noopener\">Explore</a></p></div><div
+      class=\"sd s se\"><div class=\"qz s\"><a href=\"https://about.medium.com/creators/?source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt sf sg bw sh si\" rel=\"noopener\"><h2
+      class=\"av aw ce cf bg sj\">Share your thinking.</h2></a></div><p class=\"av
+      b fr fs sk\">If you have a story to tell, knowledge to share, or a perspective
+      to offer \u2014 welcome home. It\u2019s easy and free to post your thinking
+      on any topic.<!-- --> <a href=\"https://about.medium.com/creators/?source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt bw sh si jw\" rel=\"noopener\">Write on
+      <!-- -->Medium</a></p></div></div></div><div class=\"n kn\"><div class=\"n o
+      fj\"><a class=\"fw fx bm bn bo bp bq br bs bt sf sg bw sh si\" rel=\"noopener\"
+      href=\"/?source=post_page-----3f06cea4f51--------------------------------\"><svg
+      viewBox=\"0 0 3940 610\" class=\"gf sl\"><path d=\"M594.79 308.2c0 163.76-131.85
+      296.52-294.5 296.52S5.8 472 5.8 308.2 137.65 11.69 300.29 11.69s294.5 132.75
+      294.5 296.51M917.86 308.2c0 154.16-65.93 279.12-147.25 279.12s-147.25-125-147.25-279.12S689.29
+      29.08 770.61 29.08s147.25 125 147.25 279.12M1050 308.2c0 138.12-23.19 250.08-51.79
+      250.08s-51.79-112-51.79-250.08 23.19-250.08 51.8-250.08S1050 170.09 1050 308.2M1862.77
+      37.4l.82-.18v-6.35h-167.48l-155.51 365.5-155.51-365.5h-180.48v6.35l.81.18c30.57
+      6.9 46.09 17.19 46.09 54.3v434.45c0 37.11-15.58 47.4-46.15 54.3l-.81.18V587H1327v-6.35l-.81-.18c-30.57-6.9-46.09-17.19-46.09-54.3V116.9L1479.87
+      587h11.33l205.59-483.21V536.9c-2.62 29.31-18 38.36-45.68 44.61l-.82.19v6.3h213.3v-6.3l-.82-.19c-27.71-6.25-43.46-15.3-46.08-44.61l-.14-445.2h.14c0-37.11
+      15.52-47.4 46.08-54.3m97.43 287.8c3.49-78.06 31.52-134.4 78.56-135.37 14.51.24
+      26.68 5 36.14 14.16 20.1 19.51 29.55 60.28 28.09 121.21zm-2.11 22h250v-1.05c-.71-59.69-18-106.12-51.34-138-28.82-27.55-71.49-42.71-116.31-42.71h-1c-23.26
+      0-51.79 5.64-72.09 15.86-23.11 10.7-43.49 26.7-60.45 47.7-27.3 33.83-43.84 79.55-47.86
+      130.93-.13 1.54-.24 3.08-.35 4.62s-.18 2.92-.25 4.39a332.64 332.64 0 0 0-.36
+      21.69C1860.79 507 1923.65 600 2035.3 600c98 0 155.07-71.64 169.3-167.8l-7.19-2.53c-25
+      51.68-69.9 83-121 79.18-69.76-5.22-123.2-75.95-118.35-161.63m532.69 157.68c-8.2
+      19.45-25.31 30.15-48.24 30.15s-43.89-15.74-58.78-44.34c-16-30.7-24.42-74.1-24.42-125.51
+      0-107 33.28-176.21 84.79-176.21 21.57 0 38.55 10.7 46.65 29.37zm165.84 76.28c-30.57-7.23-46.09-18-46.09-57V5.28L2424.77
+      60v6.7l1.14-.09c25.62-2.07 43 1.47 53.09 10.79 7.9 7.3 11.75 18.5 11.75 34.26v71.14c-18.31-11.69-40.09-17.38-66.52-17.38-53.6
+      0-102.59 22.57-137.92 63.56-36.83 42.72-56.3 101.1-56.3 168.81C2230 518.72 2289.53
+      600 2378.13 600c51.83 0 93.53-28.4 112.62-76.3V588h166.65v-6.66zm159.29-505.33c0-37.76-28.47-66.24-66.24-66.24-37.59
+      0-67 29.1-67 66.24s29.44 66.24 67 66.24c37.77 0 66.24-28.48 66.24-66.24m43.84
+      505.33c-30.57-7.23-46.09-18-46.09-57h-.13V166.65l-166.66 47.85v6.5l1 .09c36.06
+      3.21 45.93 15.63 45.93 57.77V588h166.8v-6.66zm427.05 0c-30.57-7.23-46.09-18-46.09-57V166.65L3082
+      212.92v6.52l.94.1c29.48 3.1 38 16.23 38 58.56v226c-9.83 19.45-28.27 31-50.61
+      31.78-36.23 0-56.18-24.47-56.18-68.9V166.66l-166.66 47.85V221l1 .09c36.06 3.2
+      45.94 15.62 45.94 57.77v191.27a214.48 214.48 0 0 0 3.47 39.82l3 13.05c14.11
+      50.56 51.08 77 109 77 49.06 0 92.06-30.37 111-77.89v66h166.66v-6.66zM3934.2
+      588v-6.67l-.81-.19c-33.17-7.65-46.09-22.07-46.09-51.43v-243.2c0-75.83-42.59-121.09-113.93-121.09-52
+      0-95.85 30.05-112.73 76.86-13.41-49.6-52-76.86-109.06-76.86-50.12 0-89.4 26.45-106.25
+      71.13v-69.87l-166.66 45.89v6.54l1 .09c35.63 3.16 45.93 15.94 45.93 57V588h155.5v-6.66l-.82-.2c-26.46-6.22-35-17.56-35-46.66V255.72c7-16.35
+      21.11-35.72 49-35.72 34.64 0 52.2 24 52.2 71.28V588h155.54v-6.66l-.82-.2c-26.46-6.22-35-17.56-35-46.66v-248a160.45
+      160.45 0 0 0-2.2-27.68c7.42-17.77 22.34-38.8 51.37-38.8 35.13 0 52.2 23.31 52.2
+      71.28V588z\"></path></svg></a><p class=\"av b fr fs sk\"><div class=\"os sm
+      n fj sn an\"><p class=\"av b it cf sj\"><a href=\"https://medium.com/about?autoplay=1&amp;source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw sh si\" rel=\"noopener\">About</a></p><p
+      class=\"av b it cf sj\"><a href=\"https://help.medium.com/hc/en-us?source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw sh si\" rel=\"noopener\">Help</a></p><p
+      class=\"av b it cf sj\"><a href=\"https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt fy bw sh si\" rel=\"noopener\">Legal</a></p></div></p></div><div
+      class=\"ca so sp an\"><p class=\"av b it cf sk\">Get the Medium app</p></div><div
+      class=\"ca so sq an sr\"><div class=\"ss s\"><a href=\"https://itunes.apple.com/app/medium-everyones-stories/id828256236?pt=698524&amp;mt=8&amp;ct=post_page&amp;source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt sf sg bw sh si\" rel=\"noopener nofollow\"><img
+      alt=\"A button that says &#x27;Download on the App Store&#x27;, and if clicked
+      it will lead you to the iOS App store\" class=\"\" src=\"https://miro.medium.com/max/270/1*Crl55Tm6yDNMoucPo1tvDg.png\"
+      width=\"135\" height=\"41\"/></a></div><div class=\"s\"><a href=\"https://play.google.com/store/apps/details?id=com.medium.reader&amp;source=post_page-----3f06cea4f51--------------------------------\"
+      class=\"fw fx bm bn bo bp bq br bs bt sf sg bw sh si\" rel=\"noopener nofollow\"><img
+      alt=\"A button that says &#x27;Get it on, Google Play&#x27;, and if clicked
+      it will lead you to the Google Play store\" class=\"\" src=\"https://miro.medium.com/max/270/1*W_RAPQ62h0em559zluJLdQ.png\"
+      width=\"135\" height=\"41\"/></a></div></div></div></div></div></div></div></div></div><script>window.__BUILD_ID__
+      = \"main-20210216-205845-4f62e5873e\"</script><script>window.__GRAPHQL_URI__
+      = \"https://medium.com/_/graphql\"</script><script>window.__PRELOADED_STATE__
+      = {\"auroraPage\":{\"isAuroraPageEnabled\":false},\"bookReader\":{\"reader\":{\"currentAsset\":null}},\"cache\":{\"experimentGroupSet\":true,\"group\":\"control\",\"tags\":[],\"serverVariantState\":\"\"},\"client\":{\"isBot\":false,\"isEu\":false,\"isUs\":false,\"isNativeMedium\":false,\"isSafariMobile\":false,\"isSafari\":false,\"inAppBrowserName\":\"\",\"routingEntity\":{\"type\":\"DEFAULT\",\"explicit\":false},\"supportsWebp\":false},\"config\":{\"nodeEnv\":\"production\",\"version\":\"main-20210216-205845-4f62e5873e\",\"isTaggedVersion\":false,\"target\":\"production\",\"productName\":\"Medium\",\"publicUrl\":\"https:\\u002F\\u002Fcdn-client.medium.com\\u002Flite\",\"authDomain\":\"medium.com\",\"authGoogleClientId\":\"216296035834-k1k6qe060s2tp2a2jam4ljdcms00sttg.apps.googleusercontent.com\",\"favicon\":\"production\",\"glyphUrl\":\"https:\\u002F\\u002Fglyph.medium.com\",\"branchKey\":\"key_live_ofxXr2qTrrU9NqURK8ZwEhknBxiI6KBm\",\"lightStep\":{\"name\":\"lite-web\",\"host\":\"lightstep.medium.systems\",\"token\":\"ce5be895bef60919541332990ac9fef2\",\"appVersion\":\"main-20210216-205845-4f62e5873e\"},\"algolia\":{\"appId\":\"MQ57UUUQZ2\",\"apiKeySearch\":\"394474ced050e3911ae2249ecc774921\",\"indexPrefix\":\"medium_\",\"host\":\"-dsn.algolia.net\"},\"recaptchaKey\":\"6Lfc37IUAAAAAKGGtC6rLS13R1Hrw_BqADfS1LRk\",\"recaptcha3Key\":\"6Lf8R9wUAAAAABMI_85Wb8melS7Zj6ziuf99Yot5\",\"datadog\":{\"clientToken\":\"pub853ea8d17ad6821d9f8f11861d23dfed\",\"context\":{\"deployment\":{\"target\":\"production\",\"tag\":\"main-20210216-205845-4f62e5873e\",\"commit\":\"4f62e5873e43d647787d3aff07bc6988a4fa884a\"}},\"datacenter\":\"us\"},\"isAmp\":false,\"googleAnalyticsCode\":\"UA-24232453-2\",\"signInWallCustomDomainCollectionIds\":[\"3a8144eabfe3\",\"336d898217ee\",\"61061eb0c96b\",\"138adf9c44c\",\"819cc2aaeee0\"],\"mediumOwnedAndOperatedCollectionIds\":[\"544c7006046e\",\"bcc38c8f6edf\",\"444d13b52878\",\"8d6b8a439e32\",\"92d2092dc598\",\"1285ba81cada\",\"cb8577c9149e\",\"8ccfed20cbb2\",\"ae2a65f35510\",\"3f6ecf56618\",\"7b6769f2748b\",\"fc8964313712\",\"ef8e90590e66\",\"191186aaafa0\",\"d944778ce714\",\"bdc4052bbdba\",\"88d9857e584e\",\"9dc80918cc93\",\"8a9336e5bb4\",\"cef6983b292\",\"54c98c43354d\",\"193b68bd4fba\",\"b7e45b22fec3\",\"55760f21cdc5\"],\"tierOneDomains\":[\"medium.com\",\"thebolditalic.com\",\"arcdigital.media\",\"towardsdatascience.com\",\"uxdesign.cc\",\"codeburst.io\",\"psiloveyou.xyz\",\"writingcooperative.com\",\"entrepreneurshandbook.co\",\"prototypr.io\",\"betterhumans.coach.me\",\"theascent.pub\"],\"topicsToFollow\":[\"d61cf867d93f\",\"8a146bc21b28\",\"1eca0103fff3\",\"4d562ee63426\",\"aef1078a3ef5\",\"e15e46793f8d\",\"6158eb913466\",\"55f1c20aba7a\",\"3d18b94f6858\",\"4861fee224fd\",\"63c6f1f93ee\",\"1d98b3a9a871\",\"decb52b64abf\",\"ae5d4995e225\",\"830cded25262\"],\"defaultImages\":{\"avatar\":{\"imageId\":\"1*dmbNkD5D-u45r44go_cf0g.png\",\"height\":150,\"width\":150},\"orgLogo\":{\"imageId\":\"1*OMF3fSqH8t4xBJ9-6oZDZw.png\",\"height\":106,\"width\":545},\"postLogo\":{\"imageId\":\"1*kFrc4tBFM_tCis-2Ic87WA.png\",\"height\":810,\"width\":1440},\"postPreviewImage\":{\"imageId\":\"1*hn4v1tCaJy7cWMyb0bpNpQ.png\",\"height\":386,\"width\":579}},\"performanceTags\":[],\"collectionStructuredData\":{\"8d6b8a439e32\":{\"name\":\"Elemental\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fcdn-images-1.medium.com\\u002Fmax\\u002F980\\u002F1*9ygdqoKprhwuTVKUM0DLPA@2x.png\",\"width\":980,\"height\":159}}},\"3f6ecf56618\":{\"name\":\"Forge\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fcdn-images-1.medium.com\\u002Fmax\\u002F596\\u002F1*uULpIlImcO5TDuBZ6lm7Lg@2x.png\",\"width\":596,\"height\":183}}},\"ae2a65f35510\":{\"name\":\"GEN\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fmiro.medium.com\\u002Fmax\\u002F264\\u002F1*RdVZMdvfV3YiZTw6mX7yWA.png\",\"width\":264,\"height\":140}}},\"88d9857e584e\":{\"name\":\"LEVEL\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fmiro.medium.com\\u002Fmax\\u002F540\\u002F1*JqYMhNX6KNNb2UlqGqO2WQ.png\",\"width\":540,\"height\":108}}},\"7b6769f2748b\":{\"name\":\"Marker\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fcdn-images-1.medium.com\\u002Fmax\\u002F383\\u002F1*haCUs0wF6TgOOvfoY-jEoQ@2x.png\",\"width\":383,\"height\":92}}},\"444d13b52878\":{\"name\":\"OneZero\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fmiro.medium.com\\u002Fmax\\u002F540\\u002F1*cw32fIqCbRWzwJaoQw6BUg.png\",\"width\":540,\"height\":123}}},\"8ccfed20cbb2\":{\"name\":\"Zora\",\"data\":{\"@type\":\"NewsMediaOrganization\",\"ethicsPolicy\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Farticles\\u002F360043290473\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\u002F\\u002Fmiro.medium.com\\u002Fmax\\u002F540\\u002F1*tZUQqRcCCZDXjjiZ4bDvgQ.png\",\"width\":540,\"height\":106}}}},\"embeddedPostIds\":{\"coronavirus\":\"cd3010f9d81f\"},\"sharedCdcMessaging\":{\"COVID_APPLICABLE_TAG_SLUGS\":[],\"COVID_APPLICABLE_TOPIC_NAMES\":[],\"COVID_APPLICABLE_TOPIC_NAMES_FOR_TOPIC_PAGE\":[],\"COVID_MESSAGES\":{\"tierA\":{\"text\":\"For
+      more information on the novel coronavirus and Covid-19, visit cdc.gov.\",\"markups\":[{\"start\":66,\"end\":73,\"href\":\"https:\\u002F\\u002Fwww.cdc.gov\\u002Fcoronavirus\\u002F2019-nCoV\"}]},\"tierB\":{\"text\":\"Anyone
+      can publish on Medium per our Policies, but we don\u2019t fact-check every story.
+      For more info about the coronavirus, see cdc.gov.\",\"markups\":[{\"start\":37,\"end\":45,\"href\":\"https:\\u002F\\u002Fhelp.medium.com\\u002Fhc\\u002Fen-us\\u002Fcategories\\u002F201931128-Policies-Safety\"},{\"start\":125,\"end\":132,\"href\":\"https:\\u002F\\u002Fwww.cdc.gov\\u002Fcoronavirus\\u002F2019-nCoV\"}]},\"paywall\":{\"text\":\"This
+      article has been made free for everyone, thanks to Medium Members. For more
+      information on the novel coronavirus and Covid-19, visit cdc.gov.\",\"markups\":[{\"start\":56,\"end\":70,\"href\":\"https:\\u002F\\u002Fmedium.com\\u002Fmembership\"},{\"start\":138,\"end\":145,\"href\":\"https:\\u002F\\u002Fwww.cdc.gov\\u002Fcoronavirus\\u002F2019-nCoV\"}]},\"unbound\":{\"text\":\"This
+      article is free for everyone, thanks to Medium Members. For more information
+      on the novel coronavirus and Covid-19, visit cdc.gov.\",\"markups\":[{\"start\":45,\"end\":59,\"href\":\"https:\\u002F\\u002Fmedium.com\\u002Fmembership\"},{\"start\":127,\"end\":134,\"href\":\"https:\\u002F\\u002Fwww.cdc.gov\\u002Fcoronavirus\\u002F2019-nCoV\"}]}},\"COVID_BANNER_POST_ID_OVERRIDE_WHITELIST\":[\"3b31a67bff4a\"]},\"sharedVoteMessaging\":{\"TAGS\":[\"politics\",\"election-2020\",\"government\",\"us-politics\",\"election\",\"2020-presidential-race\",\"trump\",\"donald-trump\",\"democrats\",\"republicans\",\"congress\",\"republican-party\",\"democratic-party\",\"biden\",\"joe-biden\",\"maga\"],\"TOPICS\":[\"politics\",\"election\"],\"MESSAGE\":{\"text\":\"Find
+      out more about the U.S. election results here.\",\"markups\":[{\"start\":46,\"end\":50,\"href\":\"https:\\u002F\\u002Fcookpolitical.com\\u002F2020-national-popular-vote-tracker\"}]},\"EXCLUDE_POSTS\":[\"397ef29e3ca5\"]},\"embedPostRules\":[],\"recircOptions\":{\"v1\":{\"limit\":3},\"v2\":{\"limit\":8}},\"braintreeClientKey\":\"production_zjkj96jm_m56f8fqpf7ngnrd4\",\"paypalClientId\":\"AXj1G4fotC2GE8KzWX9mSxCH1wmPE3nJglf4Z2ig_amnhvlMVX87otaq58niAg9iuLktVNF_1WCMnN7v\",\"stripePublishableKey\":\"pk_live_7FReX44VnNIInZwrIIx6ghjl\",\"errorTracking\":\"none\"},\"debug\":{\"requestId\":\"ceb63aa3-7384-4085-acbb-b0952b409ff1\",\"branchDeployConfig\":null,\"originalSpanCarrier\":{\"ot-tracer-spanid\":\"016c039261239efa\",\"ot-tracer-traceid\":\"7d59c07dcf6d790b\",\"ot-tracer-sampled\":\"true\"}},\"multiVote\":{\"clapsPerPost\":{}},\"navigation\":{\"branch\":{\"show\":null,\"hasRendered\":null,\"blockedByCTA\":false},\"hideGoogleOneTap\":false,\"hasRenderedGoogleOneTap\":null,\"hasRenderedAlternateUserBanner\":null,\"currentLocation\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\",\"host\":\"medium.com\",\"hostname\":\"medium.com\",\"susiModal\":{\"step\":null,\"operation\":\"register\"},\"postRead\":false},\"session\":{\"user\":{\"id\":\"lo_4d1d9ed86a65\"},\"xsrf\":\"\",\"isSpoofed\":false},\"tracing\":{}}</script><script>window.__APOLLO_STATE__
+      = {\"Visitor:lo_4d1d9ed86a65\":{\"id\":\"lo_4d1d9ed86a65\",\"__typename\":\"Visitor\"},\"ROOT_QUERY\":{\"__typename\":\"Query\",\"visitor\":{\"__ref\":\"Visitor:lo_4d1d9ed86a65\"},\"viewer\":null,\"variantFlags\":[{\"__typename\":\"VariantFlag\",\"name\":\"allow_access\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"allow_signup\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"allow_test_auth\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"disallow\"}},{\"__typename\":\"VariantFlag\",\"name\":\"android_enable_lock_responses\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"assign_default_topic_to_posts\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"available_annual_plan\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"2c754bcc2995\"}},{\"__typename\":\"VariantFlag\",\"name\":\"available_monthly_plan\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"60e220181034\"}},{\"__typename\":\"VariantFlag\",\"name\":\"bane_add_user\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"bane_verify_domain\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"branch_seo_metadata\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"browsable_stream_config_bucket\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"curated-topics\"}},{\"__typename\":\"VariantFlag\",\"name\":\"coronavirus_topic_recirc\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"covid_19_cdc_banner\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"default_seo_post_titles\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"digest_delivery_window_one_hour_after\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"disable_android_subscription_activity_carousel\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"disable_ios_resume_reading_toast\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"disable_ios_subscription_activity_carousel\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"disable_mobile_featured_chunk\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"disable_post_recommended_from_friends_provider\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_android_local_currency\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_annual_renewal_reminder_email\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_app_flirty_thirty\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_apple_parse_expires_at\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_apple_sign_in\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_apple_webhook\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_apple_webhook_renewal_failure\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_about_page_routing\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_general_admission\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_nav\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_profile_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_pub_follower_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_recirc\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_sticky_nav\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_aurora_tag_page_routing\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_author_autotier\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_author_cards\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_automated_mission_control_triggers\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_braintree_apple_pay\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_braintree_client\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_braintree_integration\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_braintree_paypal\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_braintree_trial_membership\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_braintree_webhook\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_branch_io\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_branch_text_me_the_app\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_branding\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_branding_fonts\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_cleansweep_double_writes\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_client_error_tracking\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"none\"}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_confirm_sign_in\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_cta_meter\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_curation_priority_queue_experiment\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_custom_domain_v2_settings\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_dedicated_series_tab_api_ios\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_digest_feature_logging\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_digest_tagline\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_earn_redirect\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_edit_alt_text\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_email_sign_in_captcha\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_email_to_subscribers_after_publish\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_embedding_based_diversification\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_end_of_post_cleanup\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_evhead_com_to_ev_medium_com_redirect\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_expanded_feature_chunk_pool\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_filter_by_resend_rules\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_filter_expire_processor\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_footer_app_buttons\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_global_susi_modal\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_google_one_tap\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_google_webhook\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_google_webhook_subscription_cancelled\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_highlander_member_digest\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_hightower_user_minimum_guarantee\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_homepage_who_to_follow_module\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_homepage_write_button\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_increased_digest_timeout\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_ios_post_stats\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_json_logs_trained_ranker\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_kbfd_rex\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_kbfd_rex_app_highlights\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_kbfd_rex_daily_digest\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_homepage\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_homepage_feed\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_notifications\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_pay_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_post\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_post_cd\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_pub_homepage_for_selected_domains\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_publish_to_profile\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_server_upstream_deadlines\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_stories\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_threaded_responses\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_topics\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lite_unread_notification_count_mutation\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_lock_responses\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_login_code_flow\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_marketing_emails\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_media_resource_try_catch\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_medium2_kbfd\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_membership_remove_section_a\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_miro_on_kubernetes\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_mission_control\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_ml_rank_modules\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_ml_rank_rex_anno\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_mute\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_new_checkout_flow\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_new_collaborative_filtering_data\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_new_login_flow\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_new_three_dot_menu\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_parsely\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_patronus_on_kubernetes\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_popularity_feature\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_post_import\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_post_page_nav_stickiness_removal\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_post_settings_screen\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_primary_topic_for_mobile\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_profile_design_reminder\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_profile_page_seo_titles\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_publish_to_email_for_publication_posts\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_receipt_notes\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_responses_2\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_responses_all\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_responses_edit_and_delete\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_responses_moderation\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_rex_follow_feed_cache\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_rito_upstream_deadlines\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_rtr_channel\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_s3_sites\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_save_to_medium\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_signup_friction\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_starspace\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_starspace_ranker_starspace\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_tick_landing_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_tipalti_onboarding\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_trending_posts_diversification\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_tribute_landing_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_triton_predictions\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_trumpland_landing_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_twitter_auth_suggestions\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_unfiltered_cf\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"enable_untruncated_author_post_as_email\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"glyph_font_set\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"m2-unbound\"}},{\"__typename\":\"VariantFlag\",\"name\":\"google_sign_in_android\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"ios_enable_generic_home_modules\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"ios_enable_home_post_menu\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"ios_enable_iceland_paywall\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"ios_enable_lock_responses\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"ios_iceland_nux\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"ios_pub_follow_email_opt_in\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"is_not_medium_subscriber\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"kill_fastrak\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"kill_stripe_express\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"limit_post_referrers\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"limit_user_follows\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"make_nav_sticky\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"new_transition_page\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"provider_for_credit_card_form\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"BRAINTREE\"}},{\"__typename\":\"VariantFlag\",\"name\":\"pub_sidebar\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"redefine_average_post_reading_time\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"remove_post_post_similarity\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"retrained_ranker\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"sign_up_with_email_button\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"signin_services\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"twitter,facebook,google,email,google-fastidv,google-one-tap,apple\"}},{\"__typename\":\"VariantFlag\",\"name\":\"signup_services\",\"valueType\":{\"__typename\":\"VariantFlagString\",\"value\":\"twitter,facebook,google,email,google-fastidv,google-one-tap,apple\"}},{\"__typename\":\"VariantFlag\",\"name\":\"skip_sign_in_recaptcha\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"suppress_apple_missing_expires_date_alert\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}},{\"__typename\":\"VariantFlag\",\"name\":\"use_new_admin_topic_backend\",\"valueType\":{\"__typename\":\"VariantFlagBoolean\",\"value\":true}}],\"meterPost({\\\"postId\\\":\\\"3f06cea4f51\\\",\\\"postMeteringOptions\\\":{}})\":{\"__ref\":\"MeteringInfo:{}\"},\"postResult({\\\"id\\\":\\\"3f06cea4f51\\\"})\":{\"__ref\":\"Post:3f06cea4f51\"}},\"MeteringInfo:{}\":{\"__typename\":\"MeteringInfo\",\"postIds\":[],\"maxUnlockCount\":3,\"unlocksRemaining\":3},\"ImageMetadata:\":{\"id\":\"\",\"__typename\":\"ImageMetadata\",\"originalWidth\":0,\"originalHeight\":0},\"User:18747fd00662\":{\"id\":\"18747fd00662\",\"__typename\":\"User\"},\"ImageMetadata:1*0aXv2kIeU2_HkJ9c0c5WUw.jpeg\":{\"id\":\"1*0aXv2kIeU2_HkJ9c0c5WUw.jpeg\",\"__typename\":\"ImageMetadata\"},\"Collection:3543c211d0ef\":{\"id\":\"3543c211d0ef\",\"__typename\":\"Collection\",\"domain\":null,\"googleAnalyticsId\":null,\"slug\":\"poka-techblog\",\"colorBehavior\":\"ACCENT_COLOR_AND_FILL_BACKGROUND\",\"isAuroraVisible\":false,\"favicon\":{\"__ref\":\"ImageMetadata:\"},\"name\":\"poka-techblog\",\"colorPalette\":{\"__typename\":\"ColorPalette\",\"highlightSpectrum\":{\"__typename\":\"ColorSpectrum\",\"backgroundColor\":\"#FFFFFFFF\",\"colorPoints\":[{\"__typename\":\"ColorPoint\",\"color\":\"#FFF2F2F6\",\"point\":0},{\"__typename\":\"ColorPoint\",\"color\":\"#FFF0F0F5\",\"point\":0.1},{\"__typename\":\"ColorPoint\",\"color\":\"#FFEDEFF4\",\"point\":0.2},{\"__typename\":\"ColorPoint\",\"color\":\"#FFEBEDF3\",\"point\":0.3},{\"__typename\":\"ColorPoint\",\"color\":\"#FFE9EBF3\",\"point\":0.4},{\"__typename\":\"ColorPoint\",\"color\":\"#FFE6E9F2\",\"point\":0.5},{\"__typename\":\"ColorPoint\",\"color\":\"#FFE4E7F1\",\"point\":0.6},{\"__typename\":\"ColorPoint\",\"color\":\"#FFE1E6F0\",\"point\":0.7},{\"__typename\":\"ColorPoint\",\"color\":\"#FFDFE4EF\",\"point\":0.8},{\"__typename\":\"ColorPoint\",\"color\":\"#FFDCE2EE\",\"point\":0.9},{\"__typename\":\"ColorPoint\",\"color\":\"#FFDAE0ED\",\"point\":1}]},\"defaultBackgroundSpectrum\":{\"__typename\":\"ColorSpectrum\",\"backgroundColor\":\"#FFFFFFFF\",\"colorPoints\":[{\"__typename\":\"ColorPoint\",\"color\":\"#FF7D8594\",\"point\":0},{\"__typename\":\"ColorPoint\",\"color\":\"#FF747C8A\",\"point\":0.1},{\"__typename\":\"ColorPoint\",\"color\":\"#FF6C737F\",\"point\":0.2},{\"__typename\":\"ColorPoint\",\"color\":\"#FF636973\",\"point\":0.3},{\"__typename\":\"ColorPoint\",\"color\":\"#FF5A5F68\",\"point\":0.4},{\"__typename\":\"ColorPoint\",\"color\":\"#FF50555D\",\"point\":0.5},{\"__typename\":\"ColorPoint\",\"color\":\"#FF464A51\",\"point\":0.6},{\"__typename\":\"ColorPoint\",\"color\":\"#FF3C3F44\",\"point\":0.7},{\"__typename\":\"ColorPoint\",\"color\":\"#FF313338\",\"point\":0.8},{\"__typename\":\"ColorPoint\",\"color\":\"#FF26272A\",\"point\":0.9},{\"__typename\":\"ColorPoint\",\"color\":\"#FF191A1C\",\"point\":1}]},\"tintBackgroundSpectrum\":{\"__typename\":\"ColorSpectrum\",\"backgroundColor\":\"#FF323A47\",\"colorPoints\":[{\"__typename\":\"ColorPoint\",\"color\":\"#FF323A47\",\"point\":0},{\"__typename\":\"ColorPoint\",\"color\":\"#FF4B525F\",\"point\":0.1},{\"__typename\":\"ColorPoint\",\"color\":\"#FF626975\",\"point\":0.2},{\"__typename\":\"ColorPoint\",\"color\":\"#FF787E89\",\"point\":0.3},{\"__typename\":\"ColorPoint\",\"color\":\"#FF8D929C\",\"point\":0.4},{\"__typename\":\"ColorPoint\",\"color\":\"#FFA1A5AE\",\"point\":0.5},{\"__typename\":\"ColorPoint\",\"color\":\"#FFB5B8C0\",\"point\":0.6},{\"__typename\":\"ColorPoint\",\"color\":\"#FFC8CAD1\",\"point\":0.7},{\"__typename\":\"ColorPoint\",\"color\":\"#FFDBDCE2\",\"point\":0.8},{\"__typename\":\"ColorPoint\",\"color\":\"#FFEDEEF2\",\"point\":0.9},{\"__typename\":\"ColorPoint\",\"color\":\"#FFFFFFFF\",\"point\":1}]}},\"customStyleSheet\":null,\"tagline\":\"Poka
+      Tech Blog\",\"isAuroraEligible\":false,\"viewerIsEditor\":false,\"logo\":{\"__ref\":\"ImageMetadata:\"},\"navItems\":[],\"creator\":{\"__ref\":\"User:18747fd00662\"},\"subscriberCount\":1773,\"avatar\":{\"__ref\":\"ImageMetadata:1*0aXv2kIeU2_HkJ9c0c5WUw.jpeg\"},\"isEnrolledInHightower\":false,\"newsletterV3\":null,\"viewerIsFollowing\":false,\"viewerIsSubscribedToLetters\":false,\"canToggleEmail\":false,\"isUserSubscribedToCollectionEmails\":false,\"viewerIsMuting\":false,\"viewerCanEditOwnPosts\":false,\"viewerCanEditPosts\":false,\"description\":\"Poka
+      Tech Blog\",\"ampEnabled\":false,\"twitterUsername\":\"pokainc\",\"facebookPageId\":null},\"User:c27c87265c13\":{\"id\":\"c27c87265c13\",\"__typename\":\"User\",\"isFollowing\":null,\"viewerIsUser\":false,\"isSuspended\":false,\"name\":\"Simon-Pierre
+      Gingras\",\"hasCompletedProfile\":false,\"bio\":\"\",\"imageId\":\"1*RginaaAWEY_lEhyZBmBrmw.jpeg\",\"customStyleSheet\":null,\"customDomainState\":null,\"username\":\"spgingras\",\"isAuroraVisible\":true,\"socialStats\":{\"__typename\":\"SocialStats\",\"followerCount\":117},\"isBlocking\":null,\"mediumMemberAt\":0,\"hasSubdomain\":false,\"isMuting\":null,\"allowNotes\":true,\"newsletterV3\":null,\"twitterScreenName\":\"\",\"isPartnerProgramEnrolled\":false},\"Paragraph:d2229f3c70fc_0\":{\"id\":\"d2229f3c70fc_0\",\"__typename\":\"Paragraph\",\"name\":\"a20a\",\"text\":\"\",\"type\":\"IMG\",\"href\":null,\"layout\":\"INSET_CENTER\",\"metadata\":{\"__ref\":\"ImageMetadata:1*qFW42p5IcySU-xbFNPudhw.png\"},\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_1\":{\"id\":\"d2229f3c70fc_1\",\"__typename\":\"Paragraph\",\"name\":\"e692\",\"text\":\"5
+      different ways to backup your PostgreSQL database using Python\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_2\":{\"id\":\"d2229f3c70fc_2\",\"__typename\":\"Paragraph\",\"name\":\"fa11\",\"text\":\"If
+      you are running a PostgreSQL database for your app, chances are you\u2019ll
+      want to run backups.\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_3\":{\"id\":\"d2229f3c70fc_3\",\"__typename\":\"Paragraph\",\"name\":\"54c8\",\"text\":\"Because
+      good boys run backups. And you\u2019re a good boy \U0001F436.\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_4\":{\"id\":\"d2229f3c70fc_4\",\"__typename\":\"Paragraph\",\"name\":\"919c\",\"text\":\"Now,
+      backing-up a PostgreSQL database from a bash shell is pretty easy. Just invoke
+      pg_dump like this:\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":84,\"end\":91,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_5\":{\"id\":\"d2229f3c70fc_5\",\"__typename\":\"Paragraph\",\"name\":\"4773\",\"text\":\"pg_dump
+      -h localhost -U postgres my_database\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_6\":{\"id\":\"d2229f3c70fc_6\",\"__typename\":\"Paragraph\",\"name\":\"10cb\",\"text\":\"You\u2019ll
+      also want to compress your backup. You can easily save a lot of disk space by
+      gzipping your dump file:\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_7\":{\"id\":\"d2229f3c70fc_7\",\"__typename\":\"Paragraph\",\"name\":\"1699\",\"text\":\"pg_dump
+      -h localhost -U postgres my_database | gzip \\u003E backup.gz\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_8\":{\"id\":\"d2229f3c70fc_8\",\"__typename\":\"Paragraph\",\"name\":\"acdc\",\"text\":\"But
+      what about doing your database backup using Python? Let me show you a couple
+      of ways you can achieve this.\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_9\":{\"id\":\"d2229f3c70fc_9\",\"__typename\":\"Paragraph\",\"name\":\"21ed\",\"text\":\"1)
+      Using subprocess\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":9,\"end\":19,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_10\":{\"id\":\"d2229f3c70fc_10\",\"__typename\":\"Paragraph\",\"name\":\"4a11\",\"text\":\"import
+      gzip\\nimport subprocess\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_11\":{\"id\":\"d2229f3c70fc_11\",\"__typename\":\"Paragraph\",\"name\":\"17ef\",\"text\":\"with
+      gzip.open(\u2018backup.gz\u2019, \u2018wb\u2019) as f:\\n  popen = subprocess.Popen(cmd,
+      stdout=subprocess.PIPE, universal_newlines=True)\\n  \\n  for stdout_line in
+      iter(popen.stdout.readline, \u201C\u201D):\\n    f.write(stdout_line.encode(\u2018utf-8\u2019))\\n
+      \ \\n  popen.stdout.close()\\n  popen.wait()\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_12\":{\"id\":\"d2229f3c70fc_12\",\"__typename\":\"Paragraph\",\"name\":\"c952\",\"text\":\"Phew,
+      that\u2019s a lot of code compared to the bash alternative. One thing that\u2019s
+      nice about this snippet is that you\u2019ll be streaming the output of pg_dump
+      line by line to be written to backup.gz. This means that for large databases,
+      the memory usage is going to stay very small, as you\u2019re not going to load
+      the whole dump in memory at once.\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":144,\"end\":151,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":182,\"end\":191,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_13\":{\"id\":\"d2229f3c70fc_13\",\"__typename\":\"Paragraph\",\"name\":\"a736\",\"text\":\"2)
+      Using sh\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_14\":{\"id\":\"d2229f3c70fc_14\",\"__typename\":\"Paragraph\",\"name\":\"6dcc\",\"text\":\"import
+      gzip\\nfrom sh import pg_dump\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_15\":{\"id\":\"d2229f3c70fc_15\",\"__typename\":\"Paragraph\",\"name\":\"c73e\",\"text\":\"with
+      gzip.open(\u2018backup.gz\u2019, \u2018wb\u2019) as f:\\n  pg_dump(\u2018-h\u2019,
+      \u2018localhost\u2019, \u2018-U\u2019, \u2018postgres\u2019, \u2018my_dabatase\u2019,
+      _out=f)\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_16\":{\"id\":\"d2229f3c70fc_16\",\"__typename\":\"Paragraph\",\"name\":\"fe6f\",\"text\":\"Looks
+      cleaner, eh? sh is a nifty little library that aims at making calling subprocesses
+      easier. If you don\u2019t mind depending on yet another third party library,
+      then sh comes in highly recommended. Notice how you just import pg_dump as if
+      it were an actual Python module. Just magic. Like the example using subprocess,
+      you won\u2019t blow up your RAM, as the output of pg_dump is going to be streamed
+      to the backup.gz file.\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":19,\"end\":21,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":166,\"end\":168,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":225,\"end\":232,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":307,\"end\":317,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":364,\"end\":371,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":403,\"end\":412,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":19,\"end\":21,\"type\":\"A\",\"href\":\"https:\\u002F\\u002Famoffat.github.io\\u002Fsh\\u002F\",\"anchorType\":\"LINK\",\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_17\":{\"id\":\"d2229f3c70fc_17\",\"__typename\":\"Paragraph\",\"name\":\"e274\",\"text\":\"3)
+      Using delegator.py\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_18\":{\"id\":\"d2229f3c70fc_18\",\"__typename\":\"Paragraph\",\"name\":\"7f09\",\"text\":\"import
+      gzip\\nimport delegator\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_19\":{\"id\":\"d2229f3c70fc_19\",\"__typename\":\"Paragraph\",\"name\":\"9dad\",\"text\":\"with
+      gzip.open(\u2018backup.gz\u2019, \u2018wb\u2019) as f:\\n  c = delegator.run(\u2018pg_dump
+      -h localhost -U postgres my_database\u2019)\\n  f.write(c.out.encode(\u2018utf-8\u2019))\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_20\":{\"id\":\"d2229f3c70fc_20\",\"__typename\":\"Paragraph\",\"name\":\"e644\",\"text\":\"delegator.py
+      is a single module that was created by none other than Kenneth Reitz, the author
+      of the requests lib. The snippet above involves less magic than the sh example,
+      but you\u2019ll have to encode the string to bytes before writing to the compressed
+      file. Unlike the subprocess or sh examples, this method will gradually use more
+      memory as your database grows, thus I would only use it for small-ish databases.
+      I haven\u2019t found any way of circumventing this problem, so if you have a
+      tip, let me know!\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":0,\"end\":12,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":101,\"end\":109,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":162,\"end\":164,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":270,\"end\":280,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":284,\"end\":286,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":0,\"end\":12,\"type\":\"A\",\"href\":\"https:\\u002F\\u002Fgithub.com\\u002Fkennethreitz\\u002Fdelegator.py\",\"anchorType\":\"LINK\",\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_21\":{\"id\":\"d2229f3c70fc_21\",\"__typename\":\"Paragraph\",\"name\":\"4c01\",\"text\":\"4)
+      Using pexpect\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_22\":{\"id\":\"d2229f3c70fc_22\",\"__typename\":\"Paragraph\",\"name\":\"02b5\",\"text\":\"import
+      gzip\\nimport pexpect\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_23\":{\"id\":\"d2229f3c70fc_23\",\"__typename\":\"Paragraph\",\"name\":\"4c36\",\"text\":\"with
+      gzip.open(\u2018backup.gz\u2019, \u2018wb\u2019) as f:\\n  c = pexpect.spawn(\u2018pg_dump
+      -h localhost -U postgres my_database)\\n  f.write(c.read())\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_24\":{\"id\":\"d2229f3c70fc_24\",\"__typename\":\"Paragraph\",\"name\":\"0358\",\"text\":\"Doing
+      some researches on subprocess alternatives, I stumbled upon pexpect. Since it
+      seemed like a quite popular lib, I could not skip it. I like how the code is
+      straightforward. Bonus, no need to encode a string before writing to the gzipped
+      file! Like the delegator.py example, this snippet will probably blow up your
+      memory usage if you\u2019re not careful. Still, the code is pretty clean, so
+      that\u2019s a plus!\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":66,\"end\":73,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":257,\"end\":269,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":66,\"end\":73,\"type\":\"A\",\"href\":\"https:\\u002F\\u002Fgithub.com\\u002Fpexpect\\u002Fpexpect\",\"anchorType\":\"LINK\",\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_25\":{\"id\":\"d2229f3c70fc_25\",\"__typename\":\"Paragraph\",\"name\":\"7aa6\",\"text\":\"5)
+      Using plumbum\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_26\":{\"id\":\"d2229f3c70fc_26\",\"__typename\":\"Paragraph\",\"name\":\"659a\",\"text\":\"import
+      gzip\\nfrom plumbum.cmd import pg_dump\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_27\":{\"id\":\"d2229f3c70fc_27\",\"__typename\":\"Paragraph\",\"name\":\"9416\",\"text\":\"with
+      gzip.open(\u2018backup.gz\u2019, \u2018wb\u2019) as f:\\n   (pg_dump[\u201C-h\u201D,
+      \u201Clocalhost\u201D, \u201C-U\u201D, \u201Cpostgres\u201D, \u201Cmy_database\u201D]
+      \\u003E f)()\",\"type\":\"PRE\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_28\":{\"id\":\"d2229f3c70fc_28\",\"__typename\":\"Paragraph\",\"name\":\"8f61\",\"text\":\"MAGIC
+      OVERLOAD! I like how this snippet uses the \\u003E operator to mimic the behaviour
+      of IO redirection in bash. This library has many nice examples of IO redirection
+      using pipe operators. Like the 2 previous examples, this method will not stream
+      the dump to the gzipped file gradually, so again, only adequate for smaller
+      databases.\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":49,\"end\":50,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":127,\"end\":145,\"type\":\"A\",\"href\":\"https:\\u002F\\u002Fplumbum.readthedocs.io\\u002Fen\\u002Flatest\\u002F\",\"anchorType\":\"LINK\",\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_29\":{\"id\":\"d2229f3c70fc_29\",\"__typename\":\"Paragraph\",\"name\":\"2cb8\",\"text\":\"Wrap
+      up\",\"type\":\"H3\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[],\"dropCapImage\":null},\"Paragraph:d2229f3c70fc_30\":{\"id\":\"d2229f3c70fc_30\",\"__typename\":\"Paragraph\",\"name\":\"7ca5\",\"text\":\"I
+      showed you how you can invoke pg_dump using python in 5 different ways. If you
+      don\u2019t want to install yet another third party library, or magic scares
+      you, the subprocess example is definitely the way to go. However, the sh example
+      is much simpler to understand, and performs well in terms of memory usage. For
+      production use, I would steer clear of the last 3 examples, as they tend to
+      use a lot of memory. Also, since you are a good \U0001F415, make sure to test
+      your backup restoration procedure!\",\"type\":\"P\",\"href\":null,\"layout\":null,\"metadata\":null,\"hasDropCap\":null,\"iframe\":null,\"mixtapeMetadata\":null,\"markups\":[{\"__typename\":\"Markup\",\"start\":32,\"end\":39,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":161,\"end\":171,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":222,\"end\":224,\"type\":\"CODE\",\"href\":null,\"anchorType\":null,\"userId\":null,\"linkMetadata\":null},{\"__typename\":\"Markup\",\"start\":453,\"end\":457,\"type\":\"A\",\"href\":\"https:\\u002F\\u002Ftechcrunch.com\\u002F2017\\u002F02\\u002F01\\u002Fgitlab-suffers-major-backup-failure-after-data-deletion-incident\\u002F\",\"anchorType\":\"LINK\",\"userId\":null,\"linkMetadata\":null}],\"dropCapImage\":null},\"ImageMetadata:1*qFW42p5IcySU-xbFNPudhw.png\":{\"id\":\"1*qFW42p5IcySU-xbFNPudhw.png\",\"__typename\":\"ImageMetadata\",\"originalHeight\":720,\"originalWidth\":2400,\"focusPercentX\":null,\"focusPercentY\":null,\"alt\":null},\"Tag:python\":{\"id\":\"python\",\"__typename\":\"Tag\",\"displayTitle\":\"Python\"},\"Tag:postgresql\":{\"id\":\"postgresql\",\"__typename\":\"Tag\",\"displayTitle\":\"Postgresql\"},\"Tag:devops\":{\"id\":\"devops\",\"__typename\":\"Tag\",\"displayTitle\":\"DevOps\"},\"Tag:backup\":{\"id\":\"backup\",\"__typename\":\"Tag\",\"displayTitle\":\"Backup\"},\"ImageMetadata:1*mG4yPf0dVoBk0R6csThChQ.png\":{\"id\":\"1*mG4yPf0dVoBk0R6csThChQ.png\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"User:1f71c74eebec\":{\"id\":\"1f71c74eebec\",\"__typename\":\"User\",\"name\":\"Etienne
+      Talbot\",\"username\":\"etiennetalbot\",\"bio\":\"Front-End Developer and Component
+      Lead at Poka, in Quebec City, Canada. I like Angular, Typescript, a good scotch\u2026\",\"isFollowing\":null,\"imageId\":\"1*JKns5X9-6JmOmo4Dyqb_ug.jpeg\",\"mediumMemberAt\":0,\"customDomainState\":null,\"hasSubdomain\":false},\"Post:bd02c593cc2d\":{\"id\":\"bd02c593cc2d\",\"__typename\":\"Post\",\"title\":\"Simplify
+      your JavaScript \u2013 Use .map(), .reduce(), and .filter()\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Fsimplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*mG4yPf0dVoBk0R6csThChQ.png\"},\"isPublished\":true,\"firstPublishedAt\":1517232754939,\"readingTime\":6.090566037735849,\"statusForCollection\":\"APPROVED\",\"isLocked\":false,\"isShortform\":false,\"visibility\":\"PUBLIC\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:1f71c74eebec\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*scwcpro6eU-pORVH_Fpc_g.png\":{\"id\":\"1*scwcpro6eU-pORVH_Fpc_g.png\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"Post:f9fb9826ddfd\":{\"id\":\"f9fb9826ddfd\",\"__typename\":\"Post\",\"title\":\"Simplify
+      your JavaScript \u2013 Use\_.some() and\_.find()\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Fsimplify-your-javascript-use-some-and-find-f9fb9826ddfd\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*scwcpro6eU-pORVH_Fpc_g.png\"},\"isPublished\":true,\"firstPublishedAt\":1567595437970,\"readingTime\":3.120754716981132,\"statusForCollection\":\"APPROVED\",\"isLocked\":false,\"isShortform\":false,\"visibility\":\"PUBLIC\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:1f71c74eebec\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg\":{\"id\":\"1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"Post:f4f56d5cbd80\":{\"id\":\"f4f56d5cbd80\",\"__typename\":\"Post\",\"title\":\"Destructuring
+      in JavaScript\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Fdestructuring-in-javascript-f4f56d5cbd80\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*8oBCJRpXqR_av8ZZOBvEXQ.jpeg\"},\"isPublished\":true,\"firstPublishedAt\":1542028611493,\"readingTime\":2.29811320754717,\"statusForCollection\":\"APPROVED\",\"isLocked\":false,\"isShortform\":false,\"visibility\":\"PUBLIC\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:1f71c74eebec\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*CeCGBrDjmUzjYppt1k0wCg.png\":{\"id\":\"1*CeCGBrDjmUzjYppt1k0wCg.png\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"Post:9573017f18db\":{\"id\":\"9573017f18db\",\"__typename\":\"Post\",\"title\":\"AWS
+      S3 Batch Operations: Beginner\u2019s Guide\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Faws-s3-batch-operations-beginners-guide-9573017f18db\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*CeCGBrDjmUzjYppt1k0wCg.png\"},\"isPublished\":true,\"firstPublishedAt\":1550516598749,\"readingTime\":5.623584905660378,\"statusForCollection\":\"APPROVED\",\"isLocked\":false,\"isShortform\":false,\"visibility\":\"PUBLIC\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:c27c87265c13\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*ckfmJetQeMdv-5CgkUqdAw.jpeg\":{\"id\":\"1*ckfmJetQeMdv-5CgkUqdAw.jpeg\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"Post:b6fb2ab317e2\":{\"id\":\"b6fb2ab317e2\",\"__typename\":\"Post\",\"title\":\"Resolvers:
+      Angular\u2019s one-click data delivery\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Fresolvers-angulars-one-click-data-delivery-b6fb2ab317e2\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*ckfmJetQeMdv-5CgkUqdAw.jpeg\"},\"isPublished\":true,\"firstPublishedAt\":1545048060887,\"readingTime\":1.950943396226415,\"statusForCollection\":\"APPROVED\",\"isLocked\":false,\"isShortform\":false,\"visibility\":\"PUBLIC\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:1f71c74eebec\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg\":{\"id\":\"1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"User:7a7c3db6078f\":{\"id\":\"7a7c3db6078f\",\"__typename\":\"User\",\"name\":\"Marc-Antoine
+      Aub\xE9\",\"username\":\"maaube\",\"bio\":\"\",\"isFollowing\":null,\"imageId\":\"1*ByemwLEnDJGnbn2z3vbZHA.jpeg\",\"mediumMemberAt\":1572302827000,\"customDomainState\":null,\"hasSubdomain\":false},\"Post:ab40e4aa6a4c\":{\"id\":\"ab40e4aa6a4c\",\"__typename\":\"Post\",\"title\":\"CTF
+      Write-Up\_:: Categorizing images in Python\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Fctf-write-up-categorizing-images-in-python-ab40e4aa6a4c\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*StJ0Fin2KVrPr1RGRNr1rQ.jpeg\"},\"isPublished\":true,\"firstPublishedAt\":1569412861373,\"readingTime\":6.758490566037736,\"statusForCollection\":\"APPROVED\",\"isLocked\":true,\"isShortform\":false,\"visibility\":\"LOCKED\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:7a7c3db6078f\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*pjlTxI3CxFffRlcXeuEhjw.jpeg\":{\"id\":\"1*pjlTxI3CxFffRlcXeuEhjw.jpeg\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"Post:5f575b625598\":{\"id\":\"5f575b625598\",\"__typename\":\"Post\",\"title\":\"Hunting
+      Mutants with Mutmut\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002Fhunting-mutants-with-mutmut-5f575b625598\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*pjlTxI3CxFffRlcXeuEhjw.jpeg\"},\"isPublished\":true,\"firstPublishedAt\":1542645061280,\"readingTime\":4.332075471698113,\"statusForCollection\":\"APPROVED\",\"isLocked\":false,\"isShortform\":false,\"visibility\":\"PUBLIC\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"creator\":{\"__ref\":\"User:7a7c3db6078f\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"ImageMetadata:1*S0EBOgzmX-eCADtMMIYeqw.jpeg\":{\"id\":\"1*S0EBOgzmX-eCADtMMIYeqw.jpeg\",\"__typename\":\"ImageMetadata\",\"focusPercentX\":null,\"focusPercentY\":null},\"Collection:d0b105d10f0a\":{\"id\":\"d0b105d10f0a\",\"__typename\":\"Collection\",\"name\":\"Better
+      Programming\",\"slug\":\"better-programming\",\"domain\":null},\"User:3e3aba1831cd\":{\"id\":\"3e3aba1831cd\",\"__typename\":\"User\",\"name\":\"Tom
+      Noble\",\"username\":\"t.s.noble\",\"bio\":\"Software Engineer striving to do
+      awesome things with code and mathematics. Machine learning and robotics enthusiast
+      \U0001F916\",\"isFollowing\":null,\"imageId\":\"1*VPndGNgotJiZVWt4bnzzsw.jpeg\",\"mediumMemberAt\":1613329738000,\"customDomainState\":null,\"hasSubdomain\":false},\"Post:d2ac5307d7d0\":{\"id\":\"d2ac5307d7d0\",\"__typename\":\"Post\",\"title\":\"6
+      Ways To Power Up Your Python Code\",\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fbetter-programming\\u002F6-ways-to-power-up-your-python-code-d2ac5307d7d0\",\"previewImage\":{\"__ref\":\"ImageMetadata:1*S0EBOgzmX-eCADtMMIYeqw.jpeg\"},\"isPublished\":true,\"firstPublishedAt\":1613494257077,\"readingTime\":4.260377358490566,\"statusForCollection\":\"APPROVED\",\"isLocked\":true,\"isShortform\":false,\"visibility\":\"LOCKED\",\"collection\":{\"__ref\":\"Collection:d0b105d10f0a\"},\"creator\":{\"__ref\":\"User:3e3aba1831cd\"},\"previewContent\":{\"__typename\":\"PreviewContent\",\"isFullContent\":false}},\"Post:3f06cea4f51\":{\"id\":\"3f06cea4f51\",\"__typename\":\"Post\",\"canonicalUrl\":\"\",\"collection\":{\"__ref\":\"Collection:3543c211d0ef\"},\"content({\\\"postMeteringOptions\\\":{}})\":{\"__typename\":\"PostContent\",\"isLockedPreviewOnly\":false,\"validatedShareKey\":\"\",\"isCacheableContent\":false,\"bodyModel\":{\"__typename\":\"RichText\",\"paragraphs\":[{\"__ref\":\"Paragraph:d2229f3c70fc_0\"},{\"__ref\":\"Paragraph:d2229f3c70fc_1\"},{\"__ref\":\"Paragraph:d2229f3c70fc_2\"},{\"__ref\":\"Paragraph:d2229f3c70fc_3\"},{\"__ref\":\"Paragraph:d2229f3c70fc_4\"},{\"__ref\":\"Paragraph:d2229f3c70fc_5\"},{\"__ref\":\"Paragraph:d2229f3c70fc_6\"},{\"__ref\":\"Paragraph:d2229f3c70fc_7\"},{\"__ref\":\"Paragraph:d2229f3c70fc_8\"},{\"__ref\":\"Paragraph:d2229f3c70fc_9\"},{\"__ref\":\"Paragraph:d2229f3c70fc_10\"},{\"__ref\":\"Paragraph:d2229f3c70fc_11\"},{\"__ref\":\"Paragraph:d2229f3c70fc_12\"},{\"__ref\":\"Paragraph:d2229f3c70fc_13\"},{\"__ref\":\"Paragraph:d2229f3c70fc_14\"},{\"__ref\":\"Paragraph:d2229f3c70fc_15\"},{\"__ref\":\"Paragraph:d2229f3c70fc_16\"},{\"__ref\":\"Paragraph:d2229f3c70fc_17\"},{\"__ref\":\"Paragraph:d2229f3c70fc_18\"},{\"__ref\":\"Paragraph:d2229f3c70fc_19\"},{\"__ref\":\"Paragraph:d2229f3c70fc_20\"},{\"__ref\":\"Paragraph:d2229f3c70fc_21\"},{\"__ref\":\"Paragraph:d2229f3c70fc_22\"},{\"__ref\":\"Paragraph:d2229f3c70fc_23\"},{\"__ref\":\"Paragraph:d2229f3c70fc_24\"},{\"__ref\":\"Paragraph:d2229f3c70fc_25\"},{\"__ref\":\"Paragraph:d2229f3c70fc_26\"},{\"__ref\":\"Paragraph:d2229f3c70fc_27\"},{\"__ref\":\"Paragraph:d2229f3c70fc_28\"},{\"__ref\":\"Paragraph:d2229f3c70fc_29\"},{\"__ref\":\"Paragraph:d2229f3c70fc_30\"}],\"sections\":[{\"__typename\":\"Section\",\"name\":\"063b\",\"startIndex\":0,\"textLayout\":null,\"imageLayout\":null,\"backgroundImage\":null,\"videoLayout\":null,\"backgroundVideo\":null}]}},\"creator\":{\"__ref\":\"User:c27c87265c13\"},\"customStyleSheet\":null,\"firstPublishedAt\":1522175092266,\"isLocked\":false,\"isPublished\":true,\"isShortform\":false,\"layerCake\":0,\"primaryTopic\":null,\"title\":\"5
+      different ways to backup your PostgreSQL database using Python\",\"readCreatorPostsCount\":0,\"mediumUrl\":\"https:\\u002F\\u002Fmedium.com\\u002Fpoka-techblog\\u002F5-different-ways-to-backup-your-postgresql-database-using-python-3f06cea4f51\",\"isLimitedState\":false,\"visibility\":\"PUBLIC\",\"license\":\"ALL_RIGHTS_RESERVED\",\"allowResponses\":true,\"newsletterId\":\"\",\"sequence\":null,\"tags\":[{\"__ref\":\"Tag:python\"},{\"__ref\":\"Tag:postgresql\"},{\"__ref\":\"Tag:devops\"},{\"__ref\":\"Tag:backup\"}],\"topics\":[],\"viewerClapCount\":0,\"showSubscribeToProfilePromo\":false,\"showSubscribeToCollectionNewsletterV3Promo\":false,\"inResponseToPostResult\":null,\"isNewsletter\":false,\"socialTitle\":\"\",\"socialDek\":\"\",\"metaDescription\":\"\",\"latestPublishedAt\":1522175092266,\"readingTime\":2.7433962264150944,\"previewContent\":{\"__typename\":\"PreviewContent\",\"subtitle\":\"If
+      you are running a PostgreSQL database for your app, chances are you\u2019ll
+      want to run backups.\"},\"previewImage\":{\"__ref\":\"ImageMetadata:1*qFW42p5IcySU-xbFNPudhw.png\"},\"creatorPartnerProgramEnrollmentStatus\":\"PERMISSION_DENIED\",\"clapCount\":194,\"lockedSource\":\"LOCKED_POST_SOURCE_NONE\",\"isSuspended\":false,\"pendingCollection\":null,\"statusForCollection\":\"APPROVED\",\"pinnedAt\":0,\"pinnedByCreatorAt\":0,\"curationEligibleAt\":0,\"responseDistribution\":\"NOT_DISTRIBUTED\",\"shareKey\":null,\"internalLinks({\\\"paging\\\":{\\\"limit\\\":8}})\":{\"__typename\":\"InternalLinksConnection\",\"items\":[{\"__ref\":\"Post:bd02c593cc2d\"},{\"__ref\":\"Post:f9fb9826ddfd\"},{\"__ref\":\"Post:f4f56d5cbd80\"},{\"__ref\":\"Post:9573017f18db\"},{\"__ref\":\"Post:b6fb2ab317e2\"},{\"__ref\":\"Post:ab40e4aa6a4c\"},{\"__ref\":\"Post:5f575b625598\"},{\"__ref\":\"Post:d2ac5307d7d0\"}]},\"collaborators\":[],\"translationSourcePost\":null,\"inResponseToMediaResource\":null,\"isDistributionAlertDismissed\":false,\"audioVersionUrl\":\"\",\"seoTitle\":\"\",\"updatedAt\":1529498192258,\"shortformType\":\"SHORTFORM_TYPE_LINK\",\"structuredData\":\"\",\"seoDescription\":\"\",\"postResponses\":{\"__typename\":\"PostResponses\",\"count\":4},\"latestPublishedVersion\":\"d2229f3c70fc\",\"isPublishToEmail\":false,\"readingList\":\"READING_LIST_NONE\",\"voterCount\":41,\"recommenders\":[]}}</script><script
+      src=\"https://cdn-client.medium.com/lite/static/js/manifest.66214212.js\"></script><script
+      src=\"https://cdn-client.medium.com/lite/static/js/8247.8b14dd5f.js\"></script><script
+      src=\"https://cdn-client.medium.com/lite/static/js/main.f82521a2.js\"></script><script
+      src=\"https://cdn-client.medium.com/lite/static/js/5573.159bf40f.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/instrumentation.42411c75.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/reporting.54526183.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/1752.a348f767.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/4464.c01c0ad8.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/8342.6aa0b45e.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/5699.e60bcdf6.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/9692.ff42eea4.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/5064.4f9a6295.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/9274.5526dd29.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/2846.56b0e274.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/7012.5f00b75e.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/7993.113d64ba.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/9972.a29dd8d1.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/5127.810d9eac.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/9106.d3f8ce1c.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/8751.8157df04.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/9458.f28348f4.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/7131.5a03a881.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/8127.6aa442d7.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/463.b114d59d.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/1373.f33f1a0b.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/587.357e46e5.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/2514.597d2c66.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/3874.b21154a3.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/857.474a2698.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/8286.08280ee0.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/5429.770ff2e0.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/8831.2f4dede3.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/2450.88cac39f.chunk.js\"></script>\n<script
+      src=\"https://cdn-client.medium.com/lite/static/js/Post.9074c401.chunk.js\"></script><script>window.main();</script></body></html>"
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 62314df1f8e41135-MAD
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Wed, 17 Feb 2021 17:42:22 GMT
+      ETag:
+      - W/"23663-eyy8qkQkY9mZKfwnqboMVBTEH08"
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=dfe1674851e209204014a00b71dbfca241613583741; expires=Fri, 19-Mar-21
+        17:42:21 GMT; path=/; domain=.medium.com; HttpOnly; SameSite=Lax
+      - uid=lo_4d1d9ed86a65; Path=/; Domain=medium.com; Expires=Thu, 17 Feb 2022 17:42:21
+        GMT; HttpOnly; Secure
+      - sid=1:yBBqJ3m2kew7uHJ8EY79pyULGF0ffrzbEbxUrwC8NWtISmhWi6Ehr85dtFrubyKM; Path=/;
+        Domain=medium.com; Expires=Thu, 17 Feb 2022 17:42:21 GMT; HttpOnly; Secure;
+        SameSite=None
+      - optimizelyEndUserId=lo_4d1d9ed86a65; Path=/; Domain=medium.com; Expires=Thu,
+        17 Feb 2022 17:42:21 GMT; Secure; SameSite=None
+      - __cfruid=ea5eb6c008cb180964251eb19fbc981e00953628-1613583742; path=/; domain=.medium.com;
+        HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      alt-svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+      cf-request-id:
+      - 0852af0b3900001135cf8f7000000001
+      medium-fulfilled-by:
+      - valencia/main-20210216-182048-20b3821289, lite/main-20210216-205845-4f62e5873e,
+        rito/main-20210217-003948-5fc4c00f7d, tutu/main-20210217-005913-5fc4c00f7d
+      x-envoy-upstream-service-time:
+      - '484'
+      x-frame-options:
+      - allow-from medium.com
+    http_version: HTTP/1.1
+    status_code: 200
+version: 1

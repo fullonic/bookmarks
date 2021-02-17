@@ -6,8 +6,7 @@ medium article title, ect...
 """
 from dataclasses import dataclass
 from contextlib import suppress
-from abc import ABC, abstractclassmethod, abstractmethod
-import httpx
+from abc import ABC, abstractmethod
 from selectolax.parser import HTMLParser
 from requests_html import HTMLSession
 
@@ -51,6 +50,5 @@ class MartinHeinz(BaseProvider):
 @dataclass
 class Medium(BaseProvider):
     def parse_html_page(self, page) -> str:
-        
         tree = HTMLParser(page.text)
-        return tree.css_firs("h1").text()
+        return tree.css_first("h1").text()
