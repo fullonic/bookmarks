@@ -1,5 +1,10 @@
 from markers.core import get_provider_from_url
-from markers.providers import GitHubProvider, MartinHeinzProvider, MediumProvider, load_provider
+from markers.providers import (
+    GitHubProvider,
+    MartinHeinzProvider,
+    MediumProvider,
+    load_provider,
+)
 import pytest
 import httpx
 from requests_html import HTMLSession
@@ -55,15 +60,17 @@ def test_medium_provider():
         == "5 different ways to backup your PostgreSQL database using Python"
     )
 
+
 def test_automatically_generate_provider_name():
     medium = MediumProvider("", "")
     assert medium.name == "medium"
-    
+
+
 def test_get_provider_from_url_domain():
     provider = get_provider_from_url("https://github.com/rushter/selectolax")
     assert provider.domain == "github"
 
+
 def test_load_provider_using_url_domain():
     provider = load_provider("https://github.com/rushter/selectolax")
     assert issubclass(provider, GitHubProvider)
-    

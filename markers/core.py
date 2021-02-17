@@ -50,6 +50,7 @@ def extract_icon_from_url(url: str):
     favicon = normalize_url(url)
     return str(favicon)
 
+
 def get_provider_from_url(url):
     url_domain = urlparse(url).netloc
     scheme = urlparse(url).scheme

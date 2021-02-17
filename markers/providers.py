@@ -12,10 +12,12 @@ from requests_html import HTMLSession
 from markers.core import get_provider_from_url
 import sys, inspect
 
+
 def providers_list():
     for prov in inspect.getmembers(sys.modules[__name__], inspect.isclass):
         if "Provider" in prov[0]:
             yield prov[1]
+
 
 def load_provider(url: str):
     provider_name = get_provider_from_url(url).domain
@@ -23,7 +25,6 @@ def load_provider(url: str):
         if provider.get_name() == provider_name:
             return provider
     return None
-
 
 
 @dataclass
@@ -62,7 +63,8 @@ class GitHubProvider(BaseProvider):
 @dataclass
 class MartinHeinzProvider(BaseProvider):
     def parse_html_page(self, page) -> str:
-        # render html page body using request_html
+        # It's necessary render html page body using request_html to load all javascript
+        # related stuff
         page.html.render()
         tree = HTMLParser(page.html.html)
         return tree.css_first(".posttitle").text()
