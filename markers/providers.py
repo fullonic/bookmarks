@@ -32,8 +32,7 @@ def load_provider(url: str):
 class BaseProvider(ABC):
     url: str
     extra_info: str = ""
-    
-        
+
     @property
     def client(self):
         return httpx
@@ -70,7 +69,7 @@ class MartinHeinzProvider(BaseProvider):
     @property
     def client(self):
         return HTMLSession()
-    
+
     def parse_html_page(self, page) -> str:
         # It's necessary render html page body using request_html to load all javascript
         # related stuff

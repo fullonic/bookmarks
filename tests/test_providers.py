@@ -65,14 +65,22 @@ def test_automatically_generate_provider_name():
     assert MediumProvider.get_name() == "medium"
 
 
-def test_get_provider_from_url_domain():
-    provider = get_provider_from_url("https://github.com/rushter/selectolax")
-    assert provider.domain == "github"
+@pytest.mark.parametrize(
+    "url, provider_name",
+    [
+        ("https://github.com/rushter/selectolax", "github"),
+        ("https://martinheinz.dev/blog/42", "martinheinz"),
+    ],
+)
+def test_get_provider_from_url_domain(url, provider_name):
+    provider = get_provider_from_url(url)
+    assert provider.domain == provider_name
 
 
 def test_load_provider_using_url_domain():
     provider = load_provider("https://github.com/rushter/selectolax")
     assert issubclass(provider, GitHubProvider)
+
 
 def test_get_extra_data_process():
     extra_info = get_extra_info("https://github.com/rushter/selectolax")

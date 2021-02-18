@@ -8,7 +8,6 @@ from rest_framework import serializers, status, permissions
 from .models import Bookmark, Tag
 from rest_framework.response import Response
 
-from markers.core import generate_tags
 from django.db.models import Q
 
 

@@ -9,7 +9,7 @@ from markers.local_observer import (
     Subject,
     BookmarkObserver,
 )
-from markers.core import extract_icon_from_url
+from markers.core import SimpleURL, extract_icon_from_url
 
 FILE = "/home/somnium/.mozilla/firefox/6qsig3lq.default-1584007673559/weave/bookmarks.sqlite"
 import pytest
@@ -162,6 +162,7 @@ def test_write_extra_info_to_table():
     book.refresh_from_db()
     assert book.extra_info == "Building Docker Images The Proper Way"
 
+
 @pytest.mark.django_db(transaction=True)
 def test_add_new_bookmark_with_extra_info():
     book = Bookmark(
@@ -171,3 +172,11 @@ def test_add_new_bookmark_with_extra_info():
     book.save()
     book.refresh_from_db()
     assert book.extra_info == "Building Docker Images The Proper Way"
+
+
+def test_uniform_schema():
+    url = SimpleURL("https://martinheinz.dev/blog/42").deconstruct_url()
+
+    assert url.scheme == "https"
+    assert url.domain == "martinheinz"
+    assert url.dot == "dev"
