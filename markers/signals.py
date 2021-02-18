@@ -2,7 +2,7 @@ from .core import generate_tags
 
 from django.db.utils import IntegrityError
 
-
+# TODO: Remove Signals: Move this for a normal function to be call when saving a new bookmark
 def add_tags_to_bookmark(sender, instance, **kwargs):
     from .models import Tag
 

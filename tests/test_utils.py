@@ -1,4 +1,6 @@
 from types import GeneratorType
+
+from django.db import transaction
 from markers.local_observer import (
     Page,
     Watcher,
@@ -56,7 +58,7 @@ def test_get_new_records():
 
 
 @pytest.mark.xfail
-def test_Subject_emit():
+def test_subject_emit():
     """Send data to server when emit() method is called"""
     s1 = BookmarkObserver(name="tester", url="https://www.none.net")
     Subject.attach(s1)
@@ -67,7 +69,7 @@ def test_Subject_emit():
     assert isinstance(data.pop(), dict)
 
 
-from markers.models import Tag, Bookmark
+from markers.models import Tag, Bookmark, write_extra_info_to_table
 
 # ====================
 # Test server bookmarks service
@@ -148,3 +150,24 @@ def test_signal_create_tags(test_data, tags):
     new_book = test_data[0].as_dict()
     book = Bookmark_model.objects.create(**new_book)
     assert "python" in book.tags.all()[0].name
+
+
+@pytest.mark.django_db
+def test_write_extra_info_to_table():
+    url = "https://martinheinz.dev/blog/42"
+    title = "Martin Heinz - Personal Website & Blog"
+    book = Bookmark(url=url, title=title)
+    book.save()
+    write_extra_info_to_table(book.pk)
+    book.refresh_from_db()
+    assert book.extra_info == "Building Docker Images The Proper Way"
+
+@pytest.mark.django_db(transaction=True)
+def test_add_new_bookmark_with_extra_info():
+    book = Bookmark(
+        url="https://martinheinz.dev/blog/42",
+        title="Martin Heinz - Personal Website & Blog",
+    )
+    book.save()
+    book.refresh_from_db()
+    assert book.extra_info == "Building Docker Images The Proper Way"
