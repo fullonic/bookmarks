@@ -1,3 +1,4 @@
+from markers.models import Bookmark
 import pytest
 from rest_framework.reverse import reverse
 from rest_framework import status
@@ -34,6 +35,18 @@ def test_last_time_visited(api_client_authenticate, bookmarks):
         data={"last_time_visited": now},
     )
     assert req.status_code == 200
+
+
+@pytest.mark.django_db
+def test_delete_bookmark(api_client_authenticate, bookmarks):
+    delete_entry_pk = 2
+    
+    req = api_client_authenticate.delete(
+        reverse("bookmark-update", args=(delete_entry_pk,)),
+    )
+    
+    assert req.status_code == 204
+    assert not Bookmark.objects.filter(pk=delete_entry_pk).exists()
 
 
 @pytest.mark.django_db

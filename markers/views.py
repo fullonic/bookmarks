@@ -3,6 +3,7 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveAPIView,
     UpdateAPIView,
+    DestroyAPIView
 )
 from rest_framework import serializers, status, permissions
 from .models import Bookmark, Tag
@@ -50,10 +51,9 @@ class BookmarksApiView(ListCreateAPIView):
         return super().create(request, *args, **kwargs)
 
 
-class BookmarksApiViewUpdate(UpdateAPIView):
+class BookmarksUpdateDestroyAPIView(UpdateAPIView, DestroyAPIView):
     serializer_class = BookmarkSerializer
     queryset = Bookmark.objects.all()
-
 
 class TagsApiView(ListCreateAPIView):
 
