@@ -43,7 +43,7 @@ def test_general_github(url):
     github.get_extra_info()
     assert isinstance(github.extra_info, str)
 
-
+@pytest.mark.skip  # TODO: How to install and run chrome on docker
 def test_martin_heinz_provider():
     url = "https://martinheinz.dev/blog/42"
     client = HTMLSession()
