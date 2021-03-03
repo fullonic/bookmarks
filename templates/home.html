@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block body %}
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
+    <a class="navbar-brand ligth">Bookmarks</a>
 
     <form id="searchForm" class="d-flex">
       <input
@@ -60,21 +60,27 @@
         jsonData.forEach((el) => {
           var postData = [`"${el.url}"`, el.id];
           bookmarks += `
-          <div class="col-md-3"
-          <div class="card h-100 border-primary mb-4">
-            <img class="" src="${el.icon}" width="50px" height="50px" alt="">
+          <div class="col-md-3 p-2 mb-2 h-40">
+          <div class="card h-100  border mb-4">
+            <img class="mt-2 ml-2" src="${el.icon}" width="50px" height="50px" alt="">
             <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="h-100"> ${el.title}</p>
-            <a href="#" onclick=sendData(${postData}) class="btn btn-success">Visit</a>
+            <p class="h-20"> ${el.title}</p>
+
+          </div>
+          <div class="card-footer">
+              <a href="#" onclick=sendData(${postData}) class="btn btn-sm btn-success">Visit</a>
+              <a href="#" onclick=deleteBookmark(${el.id}) class="btn btn-sm btn-danger">Delete</a>
+
           </div>
           </div>
-          </div>`;
+          </div>
+          <hr>`;
         });
         document.getElementById("results").innerHTML = bookmarks;
       });
   }
-
+// TODO: Merge same options for all requests
   async function updateBookmarkVisitTime(id) {
     // Default options are marked with *
     let now = new Date().toJSON();
@@ -97,6 +103,23 @@
   async function sendData(url, id) {
     await updateBookmarkVisitTime(id);
     window.open(url, "_blank");
+  }
+
+  async function deleteBookmark(id) {
+    let url = "http://localhost:8000/api/bookmarks/" + id;
+    const response = await fetch(url, {
+      method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    });
+    location.reload();
+
   }
 
   // ======================================
