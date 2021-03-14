@@ -1,8 +1,8 @@
 """List of most common bookmarkers providers.
 
-Each one of the follow providers is resposable to fetch extra information from the url page.
-This extra information can provide from a blog post title, a github project description, a 
-medium article title, ect...
+Each one of the follow providers (objects) is resposable to fetch extra information from the url page.
+This extra information can be a blog post title, a github project description, a 
+medium article title, etc...
 """
 from dataclasses import dataclass
 from contextlib import suppress
@@ -72,7 +72,6 @@ class MartinHeinzProvider(BaseProvider):
 
     def parse_html_page(self, page) -> str:
         # It's necessary render html page body using request_html to load all javascript
-        # related stuff
         page.html.render()
         tree = HTMLParser(page.html.html)
         return tree.css_first(".posttitle").text()
